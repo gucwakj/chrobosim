@@ -1,8 +1,1 @@
-*.o
-chrobosim*/
-*.zip
-*.dl
-*.obj
-*.lib
-*.exp
-*.manifest
+build/
