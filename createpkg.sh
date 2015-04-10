@@ -18,11 +18,13 @@ cp $ROOT/src/chf/delay.chf $PKGDIR/lib
 cp $ROOT/src/chf/systemTime.chf $PKGDIR/lib
 cp $ROOT/src/chf/clinkboti.chf $PKGDIR/lib
 cp $ROOT/src/chf/clinkbotl.chf $PKGDIR/lib
+cp $ROOT/src/chf/robotgroup.chf $PKGDIR/lib
 mkdir $PKGDIR/dl
 cp $ROOT/build/librobosim.dl $PKGDIR/dl
 mkdir $PKGDIR/include
 cp $ROOT/include/linkbot.h $PKGDIR/include
 cp $ROOT/include/robot.h $PKGDIR/include
+cp $ROOT/include/macros.h $PKGDIR/include
 #mkdir $PKGDIR/docs
 #cp ../../docs/robosim.pdf $(PKGDIR)/docs
 #cp ../../docs/images/robosim.png $(PKGDIR)/docs

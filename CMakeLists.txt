@@ -31,12 +31,6 @@ endif ()
 # set gcc compiler version
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-# include directory
-#include_directories (
-#	"${CHROBOSIM_SOURCE_DIR}/include/"
-#	"${CHROBOSIM_BINARY_DIR}"
-#)
-
 # add source files to library
 set (SRCS ${SRCS}
 	/home/kgucwa/projects/librobosim/src/robosim.cpp

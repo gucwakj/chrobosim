@@ -34,7 +34,7 @@ CLinkbotL::~CLinkbotL(void) {
 	}
 }
 
-int CLinkbotL::accelJointAngleNB(robotJointId_t id, double acceleration, double angle) {
+int CLinkbotL::accelJointAngleNB(int id, double acceleration, double angle) {
 	void *fptr;
 	int retval;
 
@@ -47,7 +47,7 @@ int CLinkbotL::accelJointAngleNB(robotJointId_t id, double acceleration, double 
 	return retval;
 }
 
-int CLinkbotL::accelJointCycloidalNB(robotJointId_t id, double angle, double time) {
+int CLinkbotL::accelJointCycloidalNB(int id, double angle, double time) {
 	void *fptr;
 	int retval;
 
@@ -60,7 +60,7 @@ int CLinkbotL::accelJointCycloidalNB(robotJointId_t id, double angle, double tim
 	return retval;
 }
 
-int CLinkbotL::accelJointHarmonicNB(robotJointId_t id, double angle, double time) {
+int CLinkbotL::accelJointHarmonicNB(int id, double angle, double time) {
 	void *fptr;
 	int retval;
 
@@ -73,7 +73,7 @@ int CLinkbotL::accelJointHarmonicNB(robotJointId_t id, double angle, double time
 	return retval;
 }
 
-int CLinkbotL::accelJointSmoothNB(robotJointId_t id, double accel0, double accelf, double vmax, double angle) {
+int CLinkbotL::accelJointSmoothNB(int id, double accel0, double accelf, double vmax, double angle) {
 	void *fptr;
 	int retval;
 
@@ -86,7 +86,7 @@ int CLinkbotL::accelJointSmoothNB(robotJointId_t id, double accel0, double accel
 	return retval;
 }
 
-int CLinkbotL::accelJointTimeNB(robotJointId_t id, double acceleration, double time) {
+int CLinkbotL::accelJointTimeNB(int id, double acceleration, double time) {
 	void *fptr;
 	int retval;
 
@@ -99,7 +99,7 @@ int CLinkbotL::accelJointTimeNB(robotJointId_t id, double acceleration, double t
 	return retval;
 }
 
-int CLinkbotL::accelJointToMaxSpeedNB(robotJointId_t id, double acceleration) {
+int CLinkbotL::accelJointToMaxSpeedNB(int id, double acceleration) {
 	void *fptr;
 	int retval;
 
@@ -112,7 +112,7 @@ int CLinkbotL::accelJointToMaxSpeedNB(robotJointId_t id, double acceleration) {
 	return retval;
 }
 
-int CLinkbotL::accelJointToVelocityNB(robotJointId_t id, double acceleration, double velocity) {
+int CLinkbotL::accelJointToVelocityNB(int id, double acceleration, double velocity) {
 	void *fptr;
 	int retval;
 
@@ -241,7 +241,7 @@ int CLinkbotL::disconnect(void) {
 	return retval;
 }
 
-int CLinkbotL::driveJointTo(robotJointId_t id, double angle) {
+int CLinkbotL::driveJointTo(int id, double angle) {
 	DEPRECATED("driveJointTo", "jumpJointTo");
 	jumpJointTo(id, angle);
 
@@ -249,7 +249,7 @@ int CLinkbotL::driveJointTo(robotJointId_t id, double angle) {
 	return 0;
 }
 
-int CLinkbotL::driveJointToNB(robotJointId_t id, double angle) {
+int CLinkbotL::driveJointToNB(int id, double angle) {
 	DEPRECATED("driveJointToNB", "jumpJointToNB");
 	jumpJointToNB(id, angle);
 
@@ -592,7 +592,7 @@ int CLinkbotL::getxy(double &x, double &y) {
 	return retval;
 }
 
-int CLinkbotL::holdJoint(robotJointId_t id) {
+int CLinkbotL::holdJoint(int id) {
 	void *fptr;
 	int retval;
 
@@ -670,7 +670,7 @@ int CLinkbotL::isNotMoving(void) {
 	return retval;
 }
 
-int CLinkbotL::jumpJointTo(robotJointId_t id, double angle) {
+int CLinkbotL::jumpJointTo(int id, double angle) {
 	DEPRECATED("jumpJointTo", "moveJointToByTrackPos");
 	moveJointToByTrackPos(id, angle);
 
@@ -678,7 +678,7 @@ int CLinkbotL::jumpJointTo(robotJointId_t id, double angle) {
 	return 0;
 }
 
-int CLinkbotL::jumpJointToNB(robotJointId_t id, double angle) {
+int CLinkbotL::jumpJointToNB(int id, double angle) {
 	DEPRECATED("jumpJointToNB", "moveJointToByTrackPosNB");
 	moveJointToByTrackPosNB(id, angle);
 
@@ -852,7 +852,7 @@ int CLinkbotL::moveJointToNB(int id, double angle) {
 	return retval;
 }
 
-int CLinkbotL::moveJointToByTrackPos(robotJointId_t id, double angle) {
+int CLinkbotL::moveJointToByTrackPos(int id, double angle) {
 	void *fptr;
 	int retval;
 
@@ -865,7 +865,7 @@ int CLinkbotL::moveJointToByTrackPos(robotJointId_t id, double angle) {
 	return retval;
 }
 
-int CLinkbotL::moveJointToByTrackPosNB(robotJointId_t id, double angle) {
+int CLinkbotL::moveJointToByTrackPosNB(int id, double angle) {
 	void *fptr;
 	int retval;
 
@@ -1291,7 +1291,7 @@ int CLinkbotL::recordxyEnd(int &num) {
 	return retval;
 }
 
-int CLinkbotL::relaxJoint(robotJointId_t id) {
+int CLinkbotL::relaxJoint(int id) {
 	void *fptr;
 	int retval;
 
@@ -1836,7 +1836,7 @@ CLinkbotLGroup::~CLinkbotLGroup(void) {
 	}
 }
 
-int CLinkbotLGroup::accelJointAngleNB(robotJointId_t id, double acceleration, double angle) {
+int CLinkbotLGroup::accelJointAngleNB(int id, double acceleration, double angle) {
 	void *fptr;
 	int retval;
 
@@ -1849,7 +1849,7 @@ int CLinkbotLGroup::accelJointAngleNB(robotJointId_t id, double acceleration, do
 	return retval;
 }
 
-int CLinkbotLGroup::accelJointCycloidalNB(robotJointId_t id, double angle, double time) {
+int CLinkbotLGroup::accelJointCycloidalNB(int id, double angle, double time) {
 	void *fptr;
 	int retval;
 
@@ -1862,7 +1862,7 @@ int CLinkbotLGroup::accelJointCycloidalNB(robotJointId_t id, double angle, doubl
 	return retval;
 }
 
-int CLinkbotLGroup::accelJointHarmonicNB(robotJointId_t id, double angle, double time) {
+int CLinkbotLGroup::accelJointHarmonicNB(int id, double angle, double time) {
 	void *fptr;
 	int retval;
 
@@ -1875,7 +1875,7 @@ int CLinkbotLGroup::accelJointHarmonicNB(robotJointId_t id, double angle, double
 	return retval;
 }
 
-int CLinkbotLGroup::accelJointSmoothNB(robotJointId_t id, double accel0, double accelf, double vmax, double angle) {
+int CLinkbotLGroup::accelJointSmoothNB(int id, double accel0, double accelf, double vmax, double angle) {
 	void *fptr;
 	int retval;
 
@@ -1888,7 +1888,7 @@ int CLinkbotLGroup::accelJointSmoothNB(robotJointId_t id, double accel0, double 
 	return retval;
 }
 
-int CLinkbotLGroup::accelJointTimeNB(robotJointId_t id, double acceleration, double time) {
+int CLinkbotLGroup::accelJointTimeNB(int id, double acceleration, double time) {
 	void *fptr;
 	int retval;
 
@@ -1901,7 +1901,7 @@ int CLinkbotLGroup::accelJointTimeNB(robotJointId_t id, double acceleration, dou
 	return retval;
 }
 
-int CLinkbotLGroup::accelJointToMaxSpeedNB(robotJointId_t id, double acceleration) {
+int CLinkbotLGroup::accelJointToMaxSpeedNB(int id, double acceleration) {
 	void *fptr;
 	int retval;
 
@@ -1914,7 +1914,7 @@ int CLinkbotLGroup::accelJointToMaxSpeedNB(robotJointId_t id, double acceleratio
 	return retval;
 }
 
-int CLinkbotLGroup::accelJointToVelocityNB(robotJointId_t id, double acceleration, double velocity) {
+int CLinkbotLGroup::accelJointToVelocityNB(int id, double acceleration, double velocity) {
 	void *fptr;
 	int retval;
 
@@ -2014,7 +2014,7 @@ int CLinkbotLGroup::connect(void) {
 	return retval;
 }
 
-int CLinkbotLGroup::driveJointTo(robotJointId_t id, double angle) {
+int CLinkbotLGroup::driveJointTo(int id, double angle) {
 	DEPRECATED("driveJointTo", "jumpJointTo");
 	driveJointTo(id, angle);
 
@@ -2022,7 +2022,7 @@ int CLinkbotLGroup::driveJointTo(robotJointId_t id, double angle) {
 	return 0;
 }
 
-int CLinkbotLGroup::driveJointToNB(robotJointId_t id, double angle) {
+int CLinkbotLGroup::driveJointToNB(int id, double angle) {
 	DEPRECATED("driveJointToNB", "jumpJointToNB");
 	driveJointToNB(id, angle);
 
@@ -2046,7 +2046,7 @@ int CLinkbotLGroup::driveToNB(double angle1, double angle2, double angle3) {
 	return 0;
 }
 
-int CLinkbotLGroup::holdJoint(robotJointId_t id) {
+int CLinkbotLGroup::holdJoint(int id) {
 	void *fptr;
 	int retval;
 
@@ -2468,7 +2468,7 @@ int CLinkbotLGroup::openGripperNB(double angle) {
 	return retval;
 }
 
-int CLinkbotLGroup::relaxJoint(robotJointId_t id) {
+int CLinkbotLGroup::relaxJoint(int id) {
 	void *fptr;
 	int retval;
 

@@ -212,7 +212,7 @@ int RobotGroup::driveTimeNB(double seconds) {
 	return retval;
 }
 
-int RobotGroup::holdJoint(robotJointId_t id) {
+int RobotGroup::holdJoint(int id) {
 	void *fptr;
 	int retval;
 
@@ -498,7 +498,7 @@ int RobotGroup::moveWait(void) {
 	return retval;
 }
 
-int RobotGroup::relaxJoint(robotJointId_t id) {
+int RobotGroup::relaxJoint(int id) {
 	void *fptr;
 	int retval;
 
