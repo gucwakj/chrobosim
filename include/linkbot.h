@@ -39,7 +39,7 @@ class DLLIMPORT CLinkbotI {
 		int blinkLED(double delay, int num);
 		int closeGripper(void);
 		int closeGripperNB(void);
-		int connect(...);
+		int connect(...);		// deprecated
 		int delay(double milliseconds);
 		int delaySeconds(double seconds);
 		int disableRecordDataShift(void);
@@ -229,7 +229,7 @@ class DLLIMPORT CLinkbotIGroup {
 		int blinkLED(double delay, int num);
 		int closeGripper(void);
 		int closeGripperNB(void);
-		int connect(void);
+		int connect(void);		// deprecated
 		int driveAccelCycloidalNB(double radius, double d, double t);
 		int driveAccelDistanceNB(double radius, double a, double d);
 		int driveAccelHarmonicNB(double radius, double d, double t);
@@ -346,7 +346,7 @@ class DLLIMPORT CLinkbotL {
 		int blinkLED(double delay, int num);
 		int closeGripper(void);
 		int closeGripperNB(void);
-		int connect(...);
+		int connect(...);		// deprecated
 		int delay(double milliseconds);
 		int delaySeconds(double seconds);
 		int disableRecordDataShift(void);
@@ -491,7 +491,7 @@ class DLLIMPORT CLinkbotLGroup {
 		int blinkLED(double delay, int num);
 		int closeGripper(void);
 		int closeGripperNB(void);
-		int connect(void);
+		int connect(void);		// deprecated
 		int driveJointTo(int id, double angle);		// deprecated
 		int driveJointToNB(int id, double angle);		// deprecated
 		int driveTo(double angle1, double angle2, double angle3);		// deprecated
