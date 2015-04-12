@@ -2048,7 +2048,6 @@ EXPORTCH int CLinkbotI_setJointSpeeds_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotI *robot;
-	rsLinkbot::Joint id;
 	double speed1;
 	double speed2;
 	double speed3;
@@ -3431,7 +3430,6 @@ EXPORTCH int CLIG_setJointSpeedRatios_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
-	rsLinkbot::Joint id;
 	double ratio1;
 	double ratio2;
 	double ratio3;
