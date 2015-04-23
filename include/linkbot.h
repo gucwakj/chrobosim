@@ -42,7 +42,7 @@ class DLLIMPORT CLinkbotI {
 		int connect(...);		// deprecated
 		int delay(double milliseconds);
 		int delaySeconds(double seconds);
-		int disableRecordDataShift(void);
+		int disableRecordDataShift(void);		// deprecated
 		int disconnect(void);
 		int driveAccelCycloidalNB(double radius, double d, double t);
 		int driveAccelDistanceNB(double radius, double a, double d);
@@ -168,6 +168,7 @@ class DLLIMPORT CLinkbotI {
 		int recordDistanceOffset(double distance);
 		int recordDistancesBegin(robotRecordData_t &time, robotRecordData_t &d1, robotRecordData_t &d2, robotRecordData_t &d3, double radius, double seconds, ...);
 		int recordDistancesEnd(int &num);
+		int recordNoDataShift(void);
 		int recordWait(void);
 		int recordxyBegin(robotRecordData_t &x, robotRecordData_t &y, double seconds, ...);
 		int recordxyEnd(int &num);
@@ -353,7 +354,7 @@ class DLLIMPORT CLinkbotL {
 		int connect(...);		// deprecated
 		int delay(double milliseconds);
 		int delaySeconds(double seconds);
-		int disableRecordDataShift(void);
+		int disableRecordDataShift(void);		// deprecated
 		int disconnect(void);
 		int driveJointTo(int id, double angle);		// deprecated
 		int driveJointToNB(int id, double angle);		// deprecated
@@ -433,6 +434,7 @@ class DLLIMPORT CLinkbotL {
 		int recordDistanceOffset(double distance);
 		int recordDistancesBegin(robotRecordData_t &time, robotRecordData_t &d1, robotRecordData_t &d2, robotRecordData_t &d3, double radius, double seconds, ...);
 		int recordDistancesEnd(int &num);
+		int recordNoDataShift(void);
 		int recordWait(void);
 		int recordxyBegin(robotRecordData_t &x, robotRecordData_t &y, double seconds, ...);
 		int recordxyEnd(int &num);
