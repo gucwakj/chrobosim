@@ -1620,10 +1620,10 @@ int CLinkbotI::recordAnglesEnd(int &num) {
 	return retval;
 }
 
-int CLinkbotI::recordDistanceBegin(int id, double* &time, double* &distance, double radius, double seconds, ...) {
+int CLinkbotI::recordDistanceBegin(double* &time, double* &distance, double radius, double seconds) {
 	void *fptr;
 	int retval;
-	va_list ap;
+	int id = ROBOT_JOINT1;
 	int shiftData = 1;
 	va_start(ap, seconds);
 
@@ -1632,18 +1632,13 @@ int CLinkbotI::recordDistanceBegin(int id, double* &time, double* &distance, dou
 		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
 		return -1;
 	}
-	if(va_count(ap) == 1) {
-		shiftData = va_arg(ap, int);
-		dlrunfun(fptr, &retval, NULL, this, id, &time, &distance, radius, seconds, shiftData);
-	} else {
-		dlrunfun(fptr, &retval, NULL, this, id, &time, &distance, radius, seconds);
-	}
-	va_end(ap);
+	dlrunfun(fptr, &retval, NULL, this, id, &time, &distance, radius, seconds, shiftData);
 	return retval;
 }
 
-int CLinkbotI::recordDistanceEnd(int id, int &num) {
+int CLinkbotI::recordDistanceEnd(int &num) {
 	void *fptr;
+	int id = ROBOT_JOINT1;
 	int retval;
 
 	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotI_recordDistanceEnd_chdl");
