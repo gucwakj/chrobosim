@@ -51,13 +51,15 @@ class DLLIMPORT CLinkbotI {
 		int driveAccelTimeNB(double radius, double a, double t);
 		int driveAccelToMaxSpeedNB(double radius, double a);
 		int driveAccelToVelocityNB(double radius, double a, double v);
-		int driveBackward(double angle);
-		int driveBackwardNB(double angle);
+		int driveAngle(double angle);
+		int driveAngleNB(double angle);
+		int driveBackward(double angle);		// deprecated
+		int driveBackwardNB(double angle);		// deprecated
 		int driveDistance(double distance, double radius);
 		int driveDistanceNB(double distance, double radius);
 		int driveForeverNB(void);
-		int driveForward(double angle);
-		int driveForwardNB(double angle);
+		int driveForward(double angle);		// deprecated
+		int driveForwardNB(double angle);		// deprecated
 		int driveJointTo(int id, double angle);		// deprecated
 		int driveJointToNB(int id, double angle);		// deprecated
 		int driveTime(double seconds);
@@ -237,13 +239,15 @@ class DLLIMPORT CLinkbotIGroup {
 		int driveAccelTimeNB(double radius, double a, double t);
 		int driveAccelToMaxSpeedNB(double radius, double a);
 		int driveAccelToVelocityNB(double radius, double a, double v);
-		int driveBackward(double angle);
-		int driveBackwardNB(double angle);
+		int driveAngle(double angle);
+		int driveAngleNB(double angle);
+		int driveBackward(double angle);		// deprecated
+		int driveBackwardNB(double angle);		// deprecated
 		int driveDistance(double distance, double radius);
 		int driveDistanceNB(double distance, double radius);
 		int driveForeverNB(void);
-		int driveForward(double angle);
-		int driveForwardNB(double angle);
+		int driveForward(double angle);		// deprecated
+		int driveForwardNB(double angle);		// deprecated
 		int driveJointTo(int id, double angle);		// deprecated
 		int driveJointToNB(int id, double angle);		// deprecated
 		int driveTime(double seconds);

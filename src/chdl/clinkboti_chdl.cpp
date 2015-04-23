@@ -403,7 +403,7 @@ EXPORTCH int CLinkbotI_driveAccelToVelocityNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLinkbotI_driveBackward_chdl(void *varg) {
+EXPORTCH int CLinkbotI_driveAngle_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotI *robot;
@@ -413,12 +413,12 @@ EXPORTCH int CLinkbotI_driveBackward_chdl(void *varg) {
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
 	angle = Ch_VaArg(interp, ap, double);
-	retval = robot->driveBackward(angle);
+	retval = robot->driveAngle(angle);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
 
-EXPORTCH int CLinkbotI_driveBackwardNB_chdl(void *varg) {
+EXPORTCH int CLinkbotI_driveAngleNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotI *robot;
@@ -428,7 +428,7 @@ EXPORTCH int CLinkbotI_driveBackwardNB_chdl(void *varg) {
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
 	angle = Ch_VaArg(interp, ap, double);
-	retval = robot->driveBackwardNB(angle);
+	retval = robot->driveAngleNB(angle);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -476,36 +476,6 @@ EXPORTCH int CLinkbotI_driveForeverNB_chdl(void *varg) {
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
 	retval = robot->driveForeverNB();
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
-EXPORTCH int CLinkbotI_driveForward_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CLinkbotI *robot;
-	double angle;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
-	angle = Ch_VaArg(interp, ap, double);
-	retval = robot->driveForward(angle);
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
-EXPORTCH int CLinkbotI_driveForwardNB_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CLinkbotI *robot;
-	double angle;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
-	angle = Ch_VaArg(interp, ap, double);
-	retval = robot->driveForwardNB(angle);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -2601,7 +2571,7 @@ EXPORTCH int CLIG_driveAccelToVelocityNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveBackward_chdl(void *varg) {
+EXPORTCH int CLIG_driveAngle_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2611,12 +2581,12 @@ EXPORTCH int CLIG_driveBackward_chdl(void *varg) {
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CLinkbotIGroup *);
 	angle = Ch_VaArg(interp, ap, double);
-	retval = robot->driveBackward(angle);
+	retval = robot->driveAngle(angle);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
 
-EXPORTCH int CLIG_driveBackwardNB_chdl(void *varg) {
+EXPORTCH int CLIG_driveAngleNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2626,7 +2596,7 @@ EXPORTCH int CLIG_driveBackwardNB_chdl(void *varg) {
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CLinkbotIGroup *);
 	angle = Ch_VaArg(interp, ap, double);
-	retval = robot->driveBackwardNB(angle);
+	retval = robot->driveAngleNB(angle);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -2674,36 +2644,6 @@ EXPORTCH int CLIG_driveForeverNB_chdl(void *varg) {
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CLinkbotIGroup *);
 	retval = robot->driveForeverNB();
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
-EXPORTCH int CLIG_driveForward_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CLinkbotIGroup *robot;
-	double angle;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CLinkbotIGroup *);
-	angle = Ch_VaArg(interp, ap, double);
-	retval = robot->driveForward(angle);
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
-EXPORTCH int CLIG_driveForwardNB_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CLinkbotIGroup *robot;
-	double angle;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CLinkbotIGroup *);
-	angle = Ch_VaArg(interp, ap, double);
-	retval = robot->driveForwardNB(angle);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
