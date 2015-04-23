@@ -27,8 +27,8 @@
 
 class DLLIMPORT CLinkbotI {
 	public:
-		CLinkbotI();
-		virtual ~CLinkbotI();
+		CLinkbotI(void);
+		virtual ~CLinkbotI(void);
 		int accelJointAngleNB(int id, double a, double angle);
 		int accelJointCycloidalNB(int id, double angle, double t);
 		int accelJointHarmonicNB(int id, double angle, double t);
@@ -218,8 +218,8 @@ class DLLIMPORT CLinkbotI {
 
 class DLLIMPORT CLinkbotIGroup {
 	public:
-		CLinkbotIGroup();
-		virtual ~CLinkbotIGroup();
+		CLinkbotIGroup(void);
+		virtual ~CLinkbotIGroup(void);
 		int accelJointAngleNB(int id, double a, double angle);
 		int accelJointCycloidalNB(int id, double angle, double t);
 		int accelJointHarmonicNB(int id, double angle, double t);
@@ -339,8 +339,8 @@ class DLLIMPORT CLinkbotIGroup {
 
 class DLLIMPORT CLinkbotL {
 	public:
-		CLinkbotL();
-		virtual ~CLinkbotL();
+		CLinkbotL(void);
+		virtual ~CLinkbotL(void);
 		int accelJointAngleNB(int id, double a, double angle);
 		int accelJointCycloidalNB(int id, double angle, double t);
 		int accelJointHarmonicNB(int id, double angle, double t);
@@ -483,8 +483,8 @@ class DLLIMPORT CLinkbotL {
 
 class DLLIMPORT CLinkbotLGroup {
 	public:
-		CLinkbotLGroup();
-		virtual ~CLinkbotLGroup();
+		CLinkbotLGroup(void);
+		virtual ~CLinkbotLGroup(void);
 		int accelJointAngleNB(int id, double a, double angle);
 		int accelJointCycloidalNB(int id, double angle, double t);
 		int accelJointHarmonicNB(int id, double angle, double t);

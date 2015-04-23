@@ -31,15 +31,6 @@ endif ()
 # set gcc compiler version
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-# add source files to library
-set (SRCS ${SRCS}
-	/home/kgucwa/projects/librobosim/src/robosim.cpp
-	/home/kgucwa/projects/librobosim/src/robot.cpp
-	/home/kgucwa/projects/librobosim/src/linkbot.cpp
-	src/chdl/clinkboti_chdl.cpp
-	src/chdl/clinkbotl_chdl.cpp
-)
-
 # add librs library
 include_directories ("/home/kgucwa/projects/librs/include")
 link_directories ("/home/kgucwa/projects/librs/build/lib")
@@ -70,6 +61,17 @@ include_directories ("/home/kgucwa/projects/librs/deps/tinyxml2")
 
 # add librobosim headers
 include_directories ("/home/kgucwa/projects/librobosim/include")
+
+# add source files to library
+set (SRCS ${SRCS}
+	/home/kgucwa/projects/librobosim/src/robosim.cpp
+	/home/kgucwa/projects/librobosim/src/robot.cpp
+	/home/kgucwa/projects/librobosim/src/linkbot.cpp
+	/home/kgucwa/projects/librobosim/src/mindstorms.cpp
+	src/chdl/clinkboti_chdl.cpp
+	src/chdl/clinkbotl_chdl.cpp
+	src/chdl/cmindstorms_chdl.cpp
+)
 
 # add the library
 add_library (chrobosim SHARED ${SRCS})

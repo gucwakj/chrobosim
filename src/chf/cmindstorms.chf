@@ -1,0 +1,3270 @@
+#include <mindstorms.h>
+#include <dlfcn.h>
+#include <stdarg.h>
+#include <array.h>
+
+CMindstorms::CMindstorms(void) {
+	if (RoboSim::_dlhandle == NULL || RoboSim::_dlcount == 0) {
+		RoboSim::_dlhandle = dlopen("librobosim.dl", RTLD_LAZY);
+		if (RoboSim::_dlhandle == NULL) {
+			printf("Error: %s(): dlopen(): %s\n", __class_func__, dlerror());
+			return;
+		}
+	}
+	void *fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_CMindstorms_chdl");
+	if (fptr == NULL) {
+		printf("Error: %s(): dlsym(): %s\n", __class_func__, dlerror());
+		return;
+	}
+	dlrunfun(fptr, NULL, NULL);
+	RoboSim::_dlcount++;
+}
+
+CMindstorms::~CMindstorms(void) {
+	void *fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_dCMindstorms_chdl");
+	if(fptr == NULL) {
+		printf("Error: %s(): dlsym(): %s\n", __class_func__, dlerror());
+		return;
+	}
+	dlrunfun(fptr, NULL, NULL, this);
+	RoboSim::_dlcount--;
+	if (RoboSim::_dlcount <= 0 && RoboSim::_dlhandle != NULL) {
+		if (dlclose(RoboSim::_dlhandle) != 0)
+			printf("Error: %s(): dlsym(): %s\n", __class_func__, dlerror());
+	}
+}
+
+int CMindstorms::blinkLED(double delay, int numBlinks) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_blinkLED_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, delay, numBlinks);
+	return retval;
+}
+
+int CMindstorms::connect(...) {
+	// DEPRECATED
+	fprintf(_stderr, "Warning: The function \"connect()\" is not necessary.\n");
+}
+
+int CMindstorms::delay(double milliseconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_delay_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, milliseconds);
+	return retval;
+}
+
+int CMindstorms::delaySeconds(double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_delaySeconds_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, seconds);
+	return retval;
+}
+
+int CMindstorms::disableRecordDataShift(void) {
+	DEPRECATED("disableRecordDataShift", "recordNoDataShift");
+	recordNoDataShift();
+
+	// success
+	return 0;
+}
+
+int CMindstorms::disconnect(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_disconnect_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, disconnect, this);
+	return retval;
+}
+
+int CMindstorms::driveAngle(double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_driveAngle_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, driveAngle, this, angle);
+	return retval;
+}
+
+int CMindstorms::driveAngleNB(double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_driveAngleNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, driveAngleNB, this, angle);
+	return retval;
+}
+
+int CMindstorms::driveBackward(double angle) {
+	DEPRECATED("driveBackward", "driveAngle");
+	driveAngle(-angle);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::driveBackwardNB(double angle) {
+	DEPRECATED("driveBackwardNB", "driveAngleNB");
+	driveAngleNB(-angle);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::driveDistance(double distance, double radius) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_driveDistance_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, driveDistance, this, distance, radius);
+	return retval;
+}
+
+int CMindstorms::driveDistanceNB(double distance, double radius) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_driveDistanceNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, driveDistanceNB, this, distance, radius);
+	return retval;
+}
+
+int CMindstorms::driveForeverNB(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_driveForeverNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, driveForeverNB, this);
+	return retval;
+}
+
+int CMindstorms::driveForward(double angle) {
+	DEPRECATED("driveForward", "driveAngle");
+	driveAngle(angle);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::driveForwardNB(double angle) {
+	DEPRECATED("driveForwardNB", "driveAngleNB");
+	driveAngleNB(angle);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::driveJointTo(int id, double angle) {
+	DEPRECATED("driveJointTo", "jumpJointTo");
+	jumpJointTo(id, angle);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::driveJointToNB(int id, double angle) {
+	DEPRECATED("driveJointToNB", "jumpJointToNB");
+	jumpJointToNB(id, angle);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::driveTime(double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_driveTime_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, driveTime, this, seconds);
+	return retval;
+}
+
+int CMindstorms::driveTimeNB(double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_driveTimeNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, driveTimeNB, this, seconds);
+	return retval;
+}
+
+int CMindstorms::driveTo(double angle1, double angle2) {
+	DEPRECATED("driveTo", "jumpTo");
+	jumpTo(angle1, angle2);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::driveToNB(double angle1, double angle2) {
+	DEPRECATED("driveToNB", "jumpToNB");
+	jumpToNB(angle1, angle2);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::drivexy(double x, double y, double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_drivexy_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, drivexy, this, x, y, radius, trackwidth);
+	return retval;
+}
+
+int CMindstorms::drivexyNB(double x, double y, double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_drivexyNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, drivexyNB, this, x, y, radius, trackwidth);
+	return retval;
+}
+
+int CMindstorms::drivexyTo(double x, double y, double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_drivexyTo_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, drivexyTo, this, x, y, radius, trackwidth);
+	return retval;
+}
+
+int CMindstorms::drivexyToNB(double x, double y, double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_drivexyToNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, drivexyToNB, this, x, y, radius, trackwidth);
+	return retval;
+}
+
+int CMindstorms::drivexyToExpr(double x0, double xf, int n, char *expr, double radius, double trackwidth) {
+	// number of steps necessary
+	double step = (xf-x0)/(n-1);
+
+	// drivexy to sequence of (x,y) values
+	int i = 0;
+	for (i = 0; i < n; i++) {
+		double x = x0 + i*step;
+		double y = streval(expr);
+		drivexyTo(x, y, radius, trackwidth);
+	}
+
+	// success
+	return 0;
+}
+
+int CMindstorms::drivexyToExprNB(double x0, double xf, int n, char *expr, double radius, double trackwidth) {
+	fprintf(_stderr, "Error: drivexyToExprNB() is not implemented.\n");
+
+	// success
+	return 0;
+}
+
+int CMindstorms::drivexyToFunc(double x0, double xf, int n, double (*func)(double x), double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_drivexyToFunc_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, drivexyToFunc, this, x0, xf, n, func, radius, trackwidth);
+	return retval;
+}
+
+int CMindstorms::drivexyToFuncNB(double x0, double xf, int n, double (*func)(double x), double radius, double trackwidth) {
+	fprintf(_stderr, "Error: drivexyToFuncNB() is not implemented.\n");
+
+	// success
+	return 0;
+}
+
+int CMindstorms::drivexyToPoly(double x0, double xf, int n, char *poly, double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_drivexyToPoly_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, drivexyToPoly, this, x0, xf, n, poly, radius, trackwidth);
+	return retval;
+}
+
+int CMindstorms::drivexyToPolyNB(double x0, double xf, int n, char *poly, double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_drivexyToPolyNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, drivexyToPolyNB, this, x0, xf, n, poly, radius, trackwidth);
+	return retval;
+}
+
+int CMindstorms::drivexyWait(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_drivexyWait_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, drivexyWait, this);
+	return retval;
+}
+
+int CMindstorms::enableRecordDataShift(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_enableRecordDataShift_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this);
+	return retval;
+}
+
+int CMindstorms::getAccelerometerData(double &x, double &y, double &z) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getAccelerometerData_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &x, &y, &z);
+	return retval;
+}
+
+int CMindstorms::getBatteryVoltage(double &voltage) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getBatteryVoltage_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &voltage);
+	return retval;
+}
+
+int CMindstorms::getColor(string_t &color) {
+	DEPRECATED("getColor", "getLEDColor");
+	getLEDColor(color);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::getColorRGB(int &r, int &g, int &b) {
+	DEPRECATED("getColorRGB", "getLEDColorRGB");
+	getLEDColorRGB(r, g, b);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::getLEDColor(string_t &color) {
+	int retval;
+	char color1[25];
+
+	retval = getLEDColorName(color1);
+	color = color1;
+	return retval;
+}
+
+int CMindstorms::getLEDColorName(char color[]) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getLEDColorName_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, color);
+	return retval;
+}
+
+int CMindstorms::getLEDColorRGB(int &r, int &g, int &b) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getLEDColorRGB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &r, &g, &b);
+	return retval;
+}
+
+int CMindstorms::getDistance(double &distance, double radius) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getDistance_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &distance, radius);
+	return retval;
+}
+
+int CMindstorms::getFormFactor(int &formFactor) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getFormFactor_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &formFactor);
+	return retval;
+}
+
+int CMindstorms::getID(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getID_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this);
+	return retval;
+}
+
+int CMindstorms::getJointAngle(int id, double & angle, ...) {
+	void *fptr;
+	int retval;
+	int numReadings;
+	va_list ap;
+	va_start(ap, angle);
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getJointAngle_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	if(va_count(ap) == 1) {
+	  numReadings = va_arg(ap, int);
+	  dlrunfun(fptr, &retval, NULL, this, id, &angle, numReadings);
+	} else {
+	  dlrunfun(fptr, &retval, NULL, this, id, &angle);
+	}
+	va_end(ap);
+	return retval;
+}
+
+int CMindstorms::getJointAngleAverage(int id, double & angle, ...) {
+	DEPRECATED("getJointAnglesAverage", "getJointAngles");
+	getJointAngle(id, angle);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::getJointAngleInstant(int id, double & angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getJointAngleInstant_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, id, &angle);
+	return retval;
+}
+
+int CMindstorms::getJointAngles(double &angle1, double &angle2, ...) {
+	void *fptr;
+	int retval;
+	va_list ap;
+	int numReadings;
+	va_start(ap, angle2);
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getJointAngles_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	if(va_count(ap) == 1) {
+	  numReadings = va_arg(ap, int);
+	  dlrunfun(fptr, &retval, NULL, this, &angle1, &angle2, numReadings);
+	} else {
+	  dlrunfun(fptr, &retval, NULL, this, &angle1, &angle2);
+	}
+	va_end(ap);
+	return retval;
+}
+
+int CMindstorms::getJointAnglesAverage(double &angle1, double &angle2, ...) {
+	DEPRECATED("getJointAnglesAverage", "getJointAngles");
+	getJointAngles(angle1, angle2);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::getJointAnglesInstant(double &angle1, double &angle2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getJointAnglesInstant_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &angle1, &angle2);
+	return retval;
+}
+
+int CMindstorms::getJointMaxSpeed(int id, double & speed) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getJointMaxSpeed_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, id, &speed);
+	return retval;
+}
+
+int CMindstorms::getJointSafetyAngle(double & angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getJointSafetyAngle_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &angle);
+	return retval;
+}
+
+int CMindstorms::getJointSafetyAngleTimeout(double & seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getJointSafetyAngleTimeout_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &seconds);
+	return retval;
+}
+
+int CMindstorms::getJointSpeed(int id, double & speed) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getJointSpeed_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, id, &speed);
+	return retval;
+}
+
+int CMindstorms::getJointSpeedRatio(int id, double & ratio) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getJointSpeedRatio_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, id, &ratio);
+	return retval;
+}
+
+int CMindstorms::getJointSpeeds(double &speed1, double &speed2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getJointSpeeds_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &speed1, &speed2);
+	return retval;
+}
+
+int CMindstorms::getJointSpeedRatios(double &ratio1, double &ratio2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getJointSpeedRatios_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &ratio1, &ratio2);
+	return retval;
+}
+
+int CMindstorms::getxy(double &x, double &y) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getxy_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &x, &y);
+	return retval;
+}
+
+int CMindstorms::holdJoint(int id) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_holdJoint_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, holdJoint, this, id);
+	return retval;
+}
+
+int CMindstorms::holdJoints(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_holdJoints_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, holdJoints, this);
+	return retval;
+}
+
+int CMindstorms::holdJointsAtExit(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_holdJointsAtExit_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, holdJointsAtExit, this);
+	return retval;
+}
+
+int CMindstorms::isConnected(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_isConnected_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, isConnected, this);
+	return retval;
+}
+
+int CMindstorms::isMoving(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_isMoving_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, isMoving, this);
+	return retval;
+}
+
+int CMindstorms::isNotMoving(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_isNotMoving_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, isNotMoving, this);
+	return retval;
+}
+
+int CMindstorms::jumpJointTo(int id, double angle) {
+	DEPRECATED("jumpJointTo", "moveJointToByTrackPos");
+	moveJointToByTrackPos(id, angle);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::jumpJointToNB(int id, double angle) {
+	DEPRECATED("jumpJointToNB", "moveJointToByTrackPosNB");
+	moveJointToByTrackPosNB(id, angle);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::jumpTo(double angle1, double angle2) {
+	DEPRECATED("jumpTo", "moveToByTrackPos");
+	moveToByTrackPos(angle1, angle2);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::jumpToNB(double angle1, double angle2) {
+	DEPRECATED("jumpToNB", "moveToByTrackPosNB");
+	moveToByTrackPosNB(angle1, angle2);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::line(double x1, double y1, double z1, double x2, double y2, double z2, int linewidth, char *color) {
+	DEPRECATED("line", "the RoboSim GUI");
+
+	// success
+	return 0;
+}
+
+int CMindstorms::move(double angle1, double angle2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_move_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, move, this, angle1, angle2);
+	return retval;
+}
+
+int CMindstorms::moveNB(double angle1, double angle2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveNB, this, angle1, angle2);
+	return retval;
+}
+
+int CMindstorms::moveBackward(double angle) {
+	DEPRECATED("moveBackward", "driveBackward");
+	driveBackward(angle);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::moveBackwardNB(double angle) {
+	DEPRECATED("moveBackwardNB", "driveBackwardNB");
+	driveBackwardNB(angle);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::moveDistance(double distance, double radius) {
+	DEPRECATED("moveDistance", "driveDistance");
+	driveDistance(distance, radius);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::moveDistanceNB(double distance, double radius) {
+	DEPRECATED("moveDistanceNB", "driveDistanceNB");
+	driveDistanceNB(distance, radius);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::moveForward(double angle) {
+	DEPRECATED("moveForward", "driveForward");
+	driveForward(angle);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::moveForwardNB(double angle) {
+	DEPRECATED("moveForwardNB", "driveForwardNB");
+	driveForwardNB(angle);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::moveForeverNB(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveForeverNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveForeverNB, this);
+	return retval;
+}
+
+int CMindstorms::moveJoint(int id, double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveJoint_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJoint, this, id, angle);
+	return retval;
+}
+
+int CMindstorms::moveJointNB(int id, double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveJointNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointNB, this, id, angle);
+	return retval;
+}
+
+int CMindstorms::moveJointByPowerNB(int id, int power) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveJointByPowerNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointByPowerNB, this, id, power);
+	return retval;
+}
+
+int CMindstorms::moveJointForeverNB(int id) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveJointForeverNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointForeverNB, this, id);
+	return retval;
+}
+
+int CMindstorms::moveJointTime(int id, double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveJointTime_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointTime, this, id, seconds);
+	return retval;
+}
+
+int CMindstorms::moveJointTimeNB(int id, double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveJointTimeNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointTimeNB, this, id, seconds);
+	return retval;
+}
+
+int CMindstorms::moveJointTo(int id, double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveJointTo_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointTo, this, id, angle);
+	return retval;
+}
+
+int CMindstorms::moveJointToNB(int id, double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveJointToNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointToNB, this, id, angle);
+	return retval;
+}
+
+int CMindstorms::moveJointToByTrackPos(int id, double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveJointToByTrackPos_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointToByTrackPos, this, id, angle);
+	return retval;
+}
+
+int CMindstorms::moveJointToByTrackPosNB(int id, double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveJointToByTrackPosNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointToByTrackPosNB, this, id, angle);
+	return retval;
+}
+
+int CMindstorms::moveJointWait(int id) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveJointWait_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointWait, this, id);
+	return retval;
+}
+
+int CMindstorms::moveTime(double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveTime_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveTime, this, seconds);
+	return retval;
+}
+
+int CMindstorms::moveTimeNB(double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveTimeNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveTimeNB, this, seconds);
+	return retval;
+}
+
+int CMindstorms::moveTo(double angle1, double angle2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveTo_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveTo, this, angle1, angle2);
+	return retval;
+}
+
+int CMindstorms::moveToNB(double angle1, double angle2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveToNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveToNB, this, angle1, angle2);
+	return retval;
+}
+
+int CMindstorms::moveToByTrackPos(double angle1, double angle2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveToByTrackPos_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveToByTrackPos, this, angle1, angle2);
+	return retval;
+}
+
+int CMindstorms::moveToByTrackPosNB(double angle1, double angle2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveToByTrackPosNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveToByTrackPosNB, this, angle1, angle2);
+	return retval;
+}
+
+int CMindstorms::moveToZero(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveToZero_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveToZero, this);
+	return retval;
+}
+
+int CMindstorms::moveToZeroNB(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveToZeroNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveToZeroNB, this);
+	return retval;
+}
+
+int CMindstorms::moveWait(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_moveWait_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveWait, this);
+	return retval;
+}
+
+int CMindstorms::movexy(double x, double y, double radius, double trackwidth) {
+	DEPRECATED("movexy", "drivexy");
+	drivexy(x, y, radius, trackwidth);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::movexyNB(double x, double y, double radius, double trackwidth) {
+	DEPRECATED("movexyNB", "drivexyNB");
+	drivexyNB(x, y, radius, trackwidth);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::movexyTo(double x, double y, double radius, double trackwidth) {
+	DEPRECATED("movexyTo", "drivexyTo");
+	drivexyTo(x, y, radius, trackwidth);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::movexyToNB(double x, double y, double radius, double trackwidth) {
+	DEPRECATED("movexyToNB", "drivexyToNB");
+	drivexyToNB(x, y, radius, trackwidth);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::movexyToExpr(double x0, double xf, int n, char *expr, double radius, double trackwidth) {
+	DEPRECATED("movexyToExpr", "drivexyToExpr");
+	drivexyToExpr(x0, xf, n, expr, radius, trackwidth);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::movexyToExprNB(double x0, double xf, int n, char *expr, double radius, double trackwidth) {
+	DEPRECATED("movexyToExprNB", "drivexyToExprNB");
+	drivexyToExprNB(x0, xf, n, expr, radius, trackwidth);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::movexyToFunc(double x0, double xf, int n, double (*func)(double x), double radius, double trackwidth) {
+	DEPRECATED("movexyToFunc", "drivexyToFunc");
+	drivexyToFunc(x0, xf, n, func, radius, trackwidth);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::movexyToFuncNB(double x0, double xf, int n, double (*func)(double x), double radius, double trackwidth) {
+	DEPRECATED("movexyToFuncNB", "drivexyToFuncNB");
+	drivexyToFuncNB(x0, xf, n, func, radius, trackwidth);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::movexyToPoly(double x0, double xf, int n, char *poly, double radius, double trackwidth) {
+	DEPRECATED("movexyToPoly", "drivexyToPoly");
+	drivexyToPoly(x0, xf, n, poly, radius, trackwidth);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::movexyToPolyNB(double x0, double xf, int n, char *poly, double radius, double trackwidth) {
+	DEPRECATED("movexyToPolyNB", "drivexyToPolyNB");
+	drivexyToPolyNB(x0, xf, n, poly, radius, trackwidth);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::movexyWait(void) {
+	DEPRECATED("movexyWait", "drivexyWait");
+	drivexyWait();
+
+	// success
+	return 0;
+}
+
+int CMindstorms::point(double x, double y, double z, int pointsize, char *color) {
+	DEPRECATED("point", "the RoboSim GUI");
+
+	// success
+	return 0;
+}
+
+int CMindstorms::recordAngle(int id, double time[:], double angle[:], int num, double seconds, ...) {
+	void *fptr;
+	int retval;
+	va_list ap;
+	int shiftData;
+	va_start(ap, seconds);
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordAngle_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	if(va_count(ap) == 1) {
+		shiftData = va_arg(ap, int);
+		dlrunfun(fptr, &retval, recordAngle, this, id, time, angle, num, seconds, shiftData);
+	} else {
+		dlrunfun(fptr, &retval, recordAngle, this, id, time, angle, num, seconds);
+	}
+	va_end(ap);
+	return retval;
+}
+
+int CMindstorms::recordAngleBegin(int id, double* &time, double* &angle, double seconds, ...) {
+	void *fptr;
+	int retval;
+	va_list ap;
+	int shiftData = 1;
+	va_start(ap, seconds);
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordAngleBegin_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	if(va_count(ap) == 1) {
+		shiftData = va_arg(ap, int);
+		dlrunfun(fptr, &retval, NULL, this, id, &time, &angle, seconds, shiftData);
+	} else {
+		dlrunfun(fptr, &retval, NULL, this, id, &time, &angle, seconds);
+	}
+	va_end(ap);
+	return retval;
+}
+
+int CMindstorms::recordAngleEnd(int id, int &num) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordAngleEnd_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, id, &num);
+	return retval;
+}
+
+int CMindstorms::recordAngles(double time[:], double angle1[:], double angle2[:], int num, double seconds, ...) {
+	void *fptr;
+	int retval;
+	va_list ap;
+	int shiftData;
+	va_start(ap, seconds);
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordAngles_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	if(va_count(ap) == 1) {
+		shiftData = va_arg(ap, int);
+		dlrunfun(fptr, &retval, recordAngles, this, time, angle1, angle2, num, seconds, shiftData);
+	}
+	else {
+		dlrunfun(fptr, &retval, recordAngles, this, time, angle1, angle2, num, seconds);
+	}
+	return retval;
+}
+
+int CMindstorms::recordAnglesBegin(double* &time, double* &angle1, double* &angle2, double seconds, ...) {
+	void *fptr;
+	int retval;
+	int shiftData;
+	va_list ap;
+	va_start(ap, seconds);
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordAnglesBegin_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	if(va_count(ap) == 1) {
+		shiftData = va_arg(ap, int);
+		dlrunfun(fptr, &retval, NULL, this, &time, &angle1, &angle2, seconds, shiftData);
+	}
+	else {
+		dlrunfun(fptr, &retval, NULL, this, &time, &angle1, &angle2, seconds);
+	}
+	va_end(ap);
+	return retval;
+}
+
+int CMindstorms::recordAnglesEnd(int &num) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordAnglesEnd_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &num);
+	return retval;
+}
+
+int CMindstorms::recordDistanceBegin(double* &time, double* &distance, double radius, double seconds) {
+	void *fptr;
+	int retval;
+	int id = ROBOT_JOINT1;
+	int shiftData = 1;
+	va_start(ap, seconds);
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordDistanceBegin_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, id, &time, &distance, radius, seconds, shiftData);
+	return retval;
+}
+
+int CMindstorms::recordDistanceEnd(int &num) {
+	void *fptr;
+	int id = ROBOT_JOINT1;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordDistanceEnd_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, id, &num);
+	return retval;
+}
+
+int CMindstorms::recordDistanceOffset(double distance) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordDistanceOffset_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, distance);
+	return retval;
+}
+
+int CMindstorms::recordDistancesBegin(double* &time, double* &d1, double* &d2, double* &d3, double radius, double seconds, ...) {
+	void *fptr;
+	int retval;
+	int shiftData;
+	va_list ap;
+	va_start(ap, seconds);
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordDistancesBegin_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	if(va_count(ap) == 1) {
+		shiftData = va_arg(ap, int);
+		dlrunfun(fptr, &retval, NULL, this, &time, &d1, &d2, &d3, radius, seconds, shiftData);
+	}
+	else {
+		dlrunfun(fptr, &retval, NULL, this, &time, &d1, &d2, &d3, radius, seconds);
+	}
+	va_end(ap);
+	return retval;
+}
+
+int CMindstorms::recordDistancesEnd(int &num) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordDistancesEnd_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &num);
+	return retval;
+}
+
+int CMindstorms::recordNoDataShift(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_disableRecordDataShift_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this);
+	return retval;
+}
+
+int CMindstorms::recordWait(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordWait_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, recordWait, this);
+	return retval;
+}
+
+int CMindstorms::recordxyBegin(double* &x, double* &y, double seconds, ...) {
+	void *fptr;
+	int retval;
+	va_list ap;
+	int shiftData = 1;
+	va_start(ap, seconds);
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordxyBegin_chdl");
+	if (fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+
+	if (va_count(ap) == 1) {
+		shiftData = va_arg(ap, int);
+		dlrunfun(fptr, &retval, NULL, this, &x, &y, seconds, shiftData);
+	}
+	else {
+		dlrunfun(fptr, &retval, NULL, this, &x, &y, seconds);
+	}
+
+	va_end(ap);
+	return retval;
+}
+
+int CMindstorms::recordxyEnd(int &num) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordxyEnd_chdl");
+	if (fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &num);
+	return retval;
+}
+
+int CMindstorms::relaxJoint(int id) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_relaxJoint_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, relaxJoint, this, id);
+	return retval;
+}
+
+int CMindstorms::relaxJoints(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_relaxJoints_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, relaxJoints, this);
+	return retval;
+}
+
+int CMindstorms::reset(void) {
+	DEPRECATED("reset", "resetToZero");
+	resetToZero();
+
+	// success
+	return 0;
+}
+
+int CMindstorms::resetToZero(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_resetToZero_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, resetToZero, this);
+	return retval;
+}
+
+int CMindstorms::resetToZeroNB(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_resetToZeroNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, resetToZeroNB, this);
+	return retval;
+}
+
+int CMindstorms::setBuzzerFrequency(int frequency, double time) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_setBuzzerFrequency_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setBuzzerFrequency, this, frequency, time);
+	return retval;
+}
+
+int CMindstorms::setBuzzerFrequencyOn(int frequency) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_setBuzzerFrequencyOn_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setBuzzerFrequencyOn, this, frequency);
+	return retval;
+}
+
+int CMindstorms::setBuzzerFrequencyOff(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_setBuzzerFrequencyOff_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setBuzzerFrequencyOff, this);
+	return retval;
+}
+
+int CMindstorms::setColor(char *color) {
+	DEPRECATED("setColor", "setLEDColor");
+	setLEDColor(color);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::setColorRGB(int r, int g, int b) {
+	DEPRECATED("setColorRGB", "setLEDColorRGB");
+	setLEDColorRGB(r, g, b);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::setExitState(int exitState) {
+	DEPRECATED("setExitState", "holdJointsAtExit");
+	holdJointsAtExit();
+
+	// success
+	return 0;
+}
+
+int CMindstorms::setLEDColor(char *color) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_setLEDColor_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setLEDColor, this, color);
+	return retval;
+}
+
+int CMindstorms::setLEDColorRGB(int r, int g, int b) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_setLEDColorRGB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setLEDColorRGB, this, r, g, b);
+	return retval;
+}
+
+int CMindstorms::setJointMovementStateNB(int id, int dir) {
+	DEPRECATED("setJointMovementStateNB", "moveJointForeverNB");
+
+	double speed;
+	// move correctly
+	switch (dir) {
+		case ROBOT_HOLD:
+			holdJoint(id);
+			break;
+		case ROBOT_NEUTRAL:
+			relaxJoint(id);
+			break;
+		case ROBOT_FORWARD:
+			getJointSpeed(id, speed);
+			setJointSpeed(id, abs(speed));
+			moveJointForeverNB(id);
+			break;
+		case ROBOT_BACKWARD:
+			getJointSpeed(id, speed);
+			setJointSpeed(id, -abs(speed));
+			moveJointForeverNB(id);
+			break;
+	}
+
+	// success
+	return 0;
+}
+
+int CMindstorms::setJointMovementStateTime(int id, int dir, double seconds) {
+	DEPRECATED("setJointMovementStateTime", "moveJointTime");
+
+	double speed;
+	// move correctly
+	switch (dir) {
+		case ROBOT_HOLD:
+			holdJoint(id);
+			delay(seconds);
+			break;
+		case ROBOT_NEUTRAL:
+			relaxJoint(id);
+			delay(seconds);
+			break;
+		case ROBOT_FORWARD:
+			getJointSpeed(id, speed);
+			setJointSpeed(id, abs(speed));
+			moveJointTime(id, seconds);
+			break;
+		case ROBOT_BACKWARD:
+			getJointSpeed(id, speed);
+			setJointSpeed(id, -abs(speed));
+			moveJointTime(id, seconds);
+			break;
+	}
+
+	// success
+	return 0;
+}
+
+int CMindstorms::setJointMovementStateTimeNB(int id, int dir, double seconds) {
+	DEPRECATED("setJointMovementStateTimeNB", "moveJointTimeNB");
+
+	double speed;
+	// move correctly
+	switch (dir) {
+		case ROBOT_HOLD:
+			holdJoint(id);
+			break;
+		case ROBOT_NEUTRAL:
+			relaxJoint(id);
+			break;
+		case ROBOT_FORWARD:
+			getJointSpeed(id, speed);
+			setJointSpeed(id, abs(speed));
+			moveJointTimeNB(id, seconds);
+			break;
+		case ROBOT_BACKWARD:
+			getJointSpeed(id, speed);
+			setJointSpeed(id, -abs(speed));
+			moveJointTimeNB(id, seconds);
+			break;
+	}
+
+	// success
+	return 0;
+}
+
+int CMindstorms::setJointPower(int id, int power) {
+	DEPRECATED("setJointPower", "moveJointByPowerNB");
+	moveJointByPowerNB(id, power);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::setJointSafetyAngle(double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_setJointSafetyAngle_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setJointSafetyAngle, this, angle);
+	return retval;
+}
+
+int CMindstorms::setJointSafetyAngleTimeout(double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_setJointSafetyAngleTimeout_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setJointSafetyAngleTimeout, this, seconds);
+	return retval;
+}
+
+int CMindstorms::setJointSpeed(int id, double speed) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_setJointSpeed_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setJointSpeed, this, id, speed);
+	return retval;
+}
+
+int CMindstorms::setJointSpeedRatio(int id, double speed) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_setJointSpeedRatio_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setJointSpeedRatio, this, id, speed);
+	return retval;
+}
+
+int CMindstorms::setJointSpeeds(double speed1, double speed2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_setJointSpeeds_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setJointSpeeds, this, speed1, speed2);
+	return retval;
+}
+
+int CMindstorms::setJointSpeedRatios(double ratio1, double ratio2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_setJointSpeedRatios_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, ratio1, ratio2);
+	return retval;
+}
+
+int CMindstorms::setMotorPower(int id, int power) {
+	DEPRECATED("setMotorPower", "setJointPower");
+	setJointPower(id, power);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::setMovementStateNB(int dir1, int dir2, int dir3) {
+	DEPRECATED("setMovementStateNB", "moveForeverNB");
+
+	switch (dir3) {
+		case ROBOT_FORWARD:
+			dir3 = ROBOT_BACKWARD;
+			break;
+		case ROBOT_BACKWARD:
+			dir3 = ROBOT_BACKWARD;
+			break;
+		default:
+			break;
+	}
+
+	setJointMovementStateNB(0, dir1);
+	setJointMovementStateNB(1, dir2);
+	setJointMovementStateNB(2, dir3);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::setMovementStateTime(int dir1, int dir2, int dir3, double seconds) {
+	DEPRECATED("setMovementStateTime", "moveTime");
+
+	switch (dir3) {
+		case ROBOT_FORWARD:
+			dir3 = ROBOT_BACKWARD;
+			break;
+		case ROBOT_BACKWARD:
+			dir3 = ROBOT_BACKWARD;
+			break;
+		default:
+			break;
+	}
+
+	setJointMovementStateTimeNB(0, dir1, seconds);
+	setJointMovementStateTimeNB(1, dir2, seconds);
+	setJointMovementStateTime(2, dir3, seconds);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::setMovementStateTimeNB(int dir1, int dir2, int dir3, double seconds) {
+	DEPRECATED("setMovementStateTimeNB", "moveTimeNB");
+
+	switch (dir3) {
+		case ROBOT_FORWARD:
+			dir3 = ROBOT_BACKWARD;
+			break;
+		case ROBOT_BACKWARD:
+			dir3 = ROBOT_BACKWARD;
+			break;
+		default:
+			break;
+	}
+
+	setJointMovementStateTimeNB(0, dir1, seconds);
+	setJointMovementStateTimeNB(1, dir2, seconds);
+	setJointMovementStateTimeNB(2, dir3, seconds);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::setSpeed(double speed, double radius) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_setSpeed_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setSpeed, this, speed, radius);
+	return retval;
+}
+
+int CMindstorms::setTwoWheelRobotSpeed(double speed, double radius) {
+	DEPRECATED("setTwoWheelRobotSpeed", "setSpeed");
+	setSpeed(speed, radius);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::stop(void) {
+	DEPRECATED("stop", "relaxJoints");
+	relaxJoints();
+
+	// success
+	return 0;
+}
+
+int CMindstorms::stopAllJoints(void) {
+	DEPRECATED("stopAllJoints", "relaxJoints");
+	relaxJoints();
+
+	// success
+	return 0;
+}
+
+int CMindstorms::stopOneJoint(int id) {
+	DEPRECATED("stopOneJoint", "relaxJoint");
+	relaxJoint(id);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::stopThreeJoints(int id1, int id2, int id3) {
+	DEPRECATED("stopThreeJoints", "relaxJoints");
+	relaxJoints();
+
+	// success
+	return 0;
+}
+
+int CMindstorms::stopTwoJoints(int id1, int id2) {
+	DEPRECATED("stopTwoJoints", "relaxJoint");
+	relaxJoint(id1);
+	relaxJoint(id2);
+
+	// success
+	return 0;
+}
+
+int CMindstorms::systemTime(double &systemTime) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_systemTime_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &systemTime);
+	return retval;
+}
+
+int CMindstorms::text(double x, double y, double z, char *text) {
+	DEPRECATED("text", "the RoboSim GUI");
+
+	// success
+	return 0;
+}
+
+int CMindstorms::traceOff(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_traceOff_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this);
+	return retval;
+}
+
+int CMindstorms::traceOn(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_traceOn_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this);
+	return retval;
+}
+
+int CMindstorms::turnLeft(double angle, double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_turnLeft_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, turnLeft, this, angle, radius, trackwidth);
+	return retval;
+}
+
+int CMindstorms::turnLeftNB(double angle, double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_turnLeftNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, turnLeftNB, this, angle, radius, trackwidth);
+	return retval;
+}
+
+int CMindstorms::turnRight(double angle, double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_turnRight_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, turnRight, this, angle, radius, trackwidth);
+	return retval;
+}
+
+int CMindstorms::turnRightNB(double angle, double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_turnRightNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, turnRightNB, this, angle, radius, trackwidth);
+	return retval;
+}
+
+CMindstormsGroup::CMindstormsGroup(void) {
+	if (RoboSim::_dlhandle == NULL || RoboSim::_dlcount == 0) {
+		RoboSim::_dlhandle = dlopen("librobosim.dl", RTLD_LAZY);
+		if (RoboSim::_dlhandle == NULL) {
+			printf("Error: %s(): dlopen(): %s\n", __class_func__, dlerror());
+			return;
+		}
+	}
+	void *fptr = dlsym(RoboSim::_dlhandle, "CLIG_CMindstormsGroup_chdl");
+	if (fptr == NULL) {
+		printf("Error: %s(): dlsym(): %s\n", __class_func__, dlerror());
+		return;
+	}
+	dlrunfun(fptr, NULL, NULL);
+	RoboSim::_dlcount++;
+}
+
+CMindstormsGroup::~CMindstormsGroup(void) {
+	void *fptr = dlsym(RoboSim::_dlhandle, "CLIG_dCMindstormsGroup_chdl");
+	if(fptr == NULL) {
+		printf("Error: %s(): dlsym(): %s\n", __class_func__, dlerror());
+		return;
+	}
+	dlrunfun(fptr, NULL, NULL, this);
+	RoboSim::_dlcount--;
+	if (RoboSim::_dlcount <= 0 && RoboSim::_dlhandle != NULL) {
+		if (dlclose(RoboSim::_dlhandle) != 0)
+			printf("Error: %s(): dlsym(): %s\n", __class_func__, dlerror());
+	}
+}
+
+int CMindstormsGroup::addRobot(CMindstorms &robot) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_addRobot_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &robot);
+	return retval;
+}
+
+int CMindstormsGroup::addRobots(array CMindstorms robots[], ...) {
+	void *fptr;
+	int retval;
+	int numRobots;
+	va_list ap;
+	va_start(ap, robots);
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_addRobots_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	if(va_count(ap) == 1) {
+		numRobots = va_arg(ap, int);
+	} else {
+		numRobots = (int)shape(robots);
+	}
+	dlrunfun(fptr, &retval, NULL, this, robots, numRobots);
+	va_end(ap);
+	return retval;
+}
+
+int CMindstormsGroup::blinkLED(double delay, int numBlinks) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_blinkLED_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, delay, numBlinks);
+	return retval;
+}
+
+int CMindstormsGroup::connect(void) {
+	// DEPRECATED
+	fprintf(_stderr, "Warning: The function \"connect()\" is not necessary.\n");
+}
+
+int CMindstormsGroup::driveAngle(double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_driveAngle_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, driveAngle, this, angle);
+	return retval;
+}
+
+int CMindstormsGroup::driveAngleNB(double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_driveAngleNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, driveAngleNB, this, angle);
+	return retval;
+}
+
+int CMindstormsGroup::driveBackward(double angle) {
+	DEPRECATED("driveBackward", "driveAngle");
+	driveAngle(-angle);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::driveBackwardNB(double angle) {
+	DEPRECATED("driveBackwardNB", "driveAngleNB");
+	driveAngleNB(-angle);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::driveDistance(double distance, double radius) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_driveDistance_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, driveDistance, this, distance, radius);
+	return retval;
+}
+
+int CMindstormsGroup::driveDistanceNB(double distance, double radius) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_driveDistanceNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, driveDistanceNB, this, distance, radius);
+	return retval;
+}
+
+int CMindstormsGroup::driveForeverNB(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_driveForeverNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, driveForeverNB, this);
+	return retval;
+}
+
+int CMindstormsGroup::driveForward(double angle) {
+	DEPRECATED("driveForward", "driveAngle");
+	driveAngle(angle);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::driveForwardNB(double angle) {
+	DEPRECATED("driveForwardNB", "driveAngle");
+	driveAngleNB(angle);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::driveJointTo(int id, double angle) {
+	DEPRECATED("driveJointTo", "jumpJointTo");
+	driveJointTo(id, angle);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::driveJointToNB(int id, double angle) {
+	DEPRECATED("driveJointToNB", "jumpJointToNB");
+	driveJointToNB(id, angle);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::driveTime(double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_driveTime_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, driveTime, this, seconds);
+	return retval;
+}
+
+int CMindstormsGroup::driveTimeNB(double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_driveTimeNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, driveTimeNB, this, seconds);
+	return retval;
+}
+
+int CMindstormsGroup::driveTo(double angle1, double angle2) {
+	DEPRECATED("driveTo", "jumpTo");
+	jumpTo(angle1, angle2);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::driveToNB(double angle1, double angle2) {
+	DEPRECATED("driveToNB", "jumpToNB");
+	jumpToNB(angle1, angle2);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::holdJoint(int id) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_holdJoint_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, holdJoint, this, id);
+	return retval;
+}
+
+int CMindstormsGroup::holdJoints(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_holdJoints_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, holdJoints, this);
+	return retval;
+}
+
+int CMindstormsGroup::holdJointsAtExit(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_holdJointsAtExit_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, holdJointsAtExit, this);
+	return retval;
+}
+
+int CMindstormsGroup::isMoving(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_isMoving_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, isMoving, this);
+	return retval;
+}
+
+int CMindstormsGroup::isNotMoving(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_isNotMoving_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, isNotMoving, this);
+	return retval;
+}
+
+int CMindstormsGroup::jumpJointTo(int id, double angle) {
+	DEPRECATED("jumpJointTo", "moveJointToByTrackPos");
+	moveJointToByTrackPos(id, angle);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::jumpJointToNB(int id, double angle) {
+	DEPRECATED("jumpToJointNB", "moveJointToByTrackPosNB");
+	moveJointToByTrackPosNB(id, angle);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::jumpTo(double angle1, double angle2) {
+	DEPRECATED("jumpTo", "moveToByTrackPos");
+	moveToByTrackPos(angle1, angle2);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::jumpToNB(double angle1, double angle2) {
+	DEPRECATED("jumpToNB", "moveToByTrackPosNB");
+	moveToByTrackPosNB(angle1, angle2);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::move(double angle1, double angle2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_move_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, move, this, angle1, angle2);
+	return retval;
+}
+
+int CMindstormsGroup::moveNB(double angle1, double angle2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveNB, this, angle1, angle2);
+	return retval;
+}
+
+int CMindstormsGroup::moveBackward(double angle) {
+	DEPRECATED("moveBackward", "driveBackward");
+	driveBackward(angle);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::moveBackwardNB(double angle) {
+	DEPRECATED("moveBackwardNB", "driveBackwardNB");
+	driveBackwardNB(angle);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::moveDistance(double distance, double radius) {
+	DEPRECATED("moveDistance", "driveDistance");
+	driveDistance(distance, radius);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::moveDistanceNB(double distance, double radius) {
+	DEPRECATED("moveDistanceNB", "driveDistanceNB");
+	driveDistanceNB(distance, radius);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::moveForward(double angle) {
+	DEPRECATED("moveForward", "driveForward");
+	driveForward(angle);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::moveForwardNB(double angle) {
+	DEPRECATED("moveForwardNB", "driveForwardNB");
+	driveForwardNB(angle);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::moveForeverNB(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveForeverNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveForeverNB, this);
+	return retval;
+}
+
+int CMindstormsGroup::moveJoint(int id, double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveJoint_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJoint, this, id, angle);
+	return retval;
+}
+
+int CMindstormsGroup::moveJointNB(int id, double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveJointNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointNB, this, id, angle);
+	return retval;
+}
+
+int CMindstormsGroup::moveJointByPowerNB(int id, int power) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveJointByPowerNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointByPowerNB, this, id, power);
+	return retval;
+}
+
+int CMindstormsGroup::moveJointForeverNB(int id) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveJointForeverNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointForeverNB, this, id);
+	return retval;
+}
+
+int CMindstormsGroup::moveJointTime(int id, double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveJointTime_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointTime, this, id, seconds);
+	return retval;
+}
+
+int CMindstormsGroup::moveJointTimeNB(int id, double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveJointTimeNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointTimeNB, this, id, seconds);
+	return retval;
+}
+
+int CMindstormsGroup::moveJointTo(int id, double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveJointTo_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointTo, this, id, angle);
+	return retval;
+}
+
+int CMindstormsGroup::moveJointToNB(int id, double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveJointToNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointToNB, this, id, angle);
+	return retval;
+}
+
+int CMindstormsGroup::moveJointToByTrackPos(int id, double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveJointToByTrackPos_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointToByTrackPos, this, id, angle);
+	return retval;
+}
+
+int CMindstormsGroup::moveJointToByTrackPosNB(int id, double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveJointToByTrackPosNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointToByTrackPosNB, this, id, angle);
+	return retval;
+}
+
+int CMindstormsGroup::moveJointWait(int id) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveJointWait_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveJointWait, this, id);
+	return retval;
+}
+
+int CMindstormsGroup::moveTime(double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveTime_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveTime, this, seconds);
+	return retval;
+}
+
+int CMindstormsGroup::moveTimeNB(double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveTimeNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveTimeNB, this, seconds);
+	return retval;
+}
+
+int CMindstormsGroup::moveTo(double angle1, double angle2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveTo_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveTo, this, angle1, angle2);
+	return retval;
+}
+
+int CMindstormsGroup::moveToNB(double angle1, double angle2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveToNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveToNB, this, angle1, angle2);
+	return retval;
+}
+
+int CMindstormsGroup::moveToByTrackPos(double angle1, double angle2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveToByTrackPos_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveToByTrackPos, this, angle1, angle2);
+	return retval;
+}
+
+int CMindstormsGroup::moveToByTrackPosNB(double angle1, double angle2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveToByTrackPosNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveToByTrackPosNB, this, angle1, angle2);
+	return retval;
+}
+
+int CMindstormsGroup::moveToZero(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveToZero_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveToZero, this);
+	return retval;
+}
+
+int CMindstormsGroup::moveToZeroNB(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveToZeroNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveToZeroNB, this);
+	return retval;
+}
+
+int CMindstormsGroup::moveWait(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_moveWait_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, moveWait, this);
+	return retval;
+}
+
+int CMindstormsGroup::relaxJoint(int id) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_relaxJoint_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, relaxJoint, this, id);
+	return retval;
+}
+
+int CMindstormsGroup::relaxJoints(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_relaxJoints_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, relaxJoints, this);
+	return retval;
+}
+
+int CMindstormsGroup::reset(void) {
+	DEPRECATED("reset", "resetToZero");
+	resetToZero();
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::resetToZero(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_resetToZero_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, resetToZero, this);
+	return retval;
+}
+
+int CMindstormsGroup::resetToZeroNB(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_resetToZeroNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, resetToZeroNB, this);
+	return retval;
+}
+
+int CMindstormsGroup::setBuzzerFrequency(int frequency, double time) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_setBuzzerFrequency_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setBuzzerFrequency, this, frequency, time);
+	return retval;
+}
+
+int CMindstormsGroup::setBuzzerFrequencyOff(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_setBuzzerFrequencyOff_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setBuzzerFrequencyOff, this);
+	return retval;
+}
+
+int CMindstormsGroup::setBuzzerFrequencyOn(int frequency) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_setBuzzerFrequencyOn_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setBuzzerFrequencyOn, this, frequency);
+	return retval;
+}
+
+int CMindstormsGroup::setExitState(int exitState) {
+	DEPRECATED("setExitState", "holdJointsAtExit");
+	holdJointsAtExit();
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::setLEDColor(char *color) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_setLEDColor_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setLEDColor, this, color);
+	return retval;
+}
+
+int CMindstormsGroup::setLEDColorRGB(int r, int g, int b) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_setLEDColor_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setLEDColorRGB, this, r, g, b);
+	return retval;
+}
+
+int CMindstormsGroup::setJointMovementStateNB(int id, int dir) {
+	DEPRECATED("setJointMovementStateNB", "moveJointForeverNB");
+
+	double speed;
+	// move correctly
+	switch (dir) {
+		case ROBOT_HOLD:
+			holdJoint(id);
+			break;
+		case ROBOT_NEUTRAL:
+			relaxJoint(id);
+			break;
+		case ROBOT_FORWARD:
+			moveJointForeverNB(id);
+			break;
+		case ROBOT_BACKWARD:
+			moveJointForeverNB(id);
+			break;
+	}
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::setJointMovementStateTime(int id, int dir, double seconds) {
+	DEPRECATED("setJointMovementStateTime", "moveJointTime");
+
+	double speed;
+	// move correctly
+	switch (dir) {
+		case ROBOT_HOLD:
+			holdJoint(id);
+			delay(seconds);
+			break;
+		case ROBOT_NEUTRAL:
+			relaxJoint(id);
+			delay(seconds);
+			break;
+		case ROBOT_FORWARD:
+			moveJointTime(id, seconds);
+			break;
+		case ROBOT_BACKWARD:
+			moveJointTime(id, seconds);
+			break;
+	}
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::setJointMovementStateTimeNB(int id, int dir, double seconds) {
+	DEPRECATED("setJointMovementStateTimeNB", "moveJointTimeNB");
+
+	double speed;
+	// move correctly
+	switch (dir) {
+		case ROBOT_HOLD:
+			holdJoint(id);
+			break;
+		case ROBOT_NEUTRAL:
+			relaxJoint(id);
+			break;
+		case ROBOT_FORWARD:
+			moveJointTimeNB(id, seconds);
+			break;
+		case ROBOT_BACKWARD:
+			moveJointTimeNB(id, seconds);
+			break;
+	}
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::setJointPower(int id, int power) {
+	DEPRECATED("setJointPower", "moveJointByPowerNB");
+	moveJointByPowerNB(id, power);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::setJointSafetyAngle(double angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_setJointSafetyAngle_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setJointSafetyAngle, this, angle);
+	return retval;
+}
+
+int CMindstormsGroup::setJointSafetyAngleTimeout(double seconds) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_setJointSafetyAngleTimeout_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setJointSafetyAngleTimeout, this, seconds);
+	return retval;
+}
+
+int CMindstormsGroup::setJointSpeed(int id, double speed) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_setJointSpeed_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setJointSpeed, this, id, speed);
+	return retval;
+}
+
+int CMindstormsGroup::setJointSpeeds(double speed1, double speed2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_setJointSpeeds_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setJointSpeeds, this, speed1, speed2);
+	return retval;
+}
+
+int CMindstormsGroup::setJointSpeedRatio(int id, double speed) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_setJointSpeedRatio_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setJointSpeedRatio, this, id, speed);
+	return retval;
+}
+
+int CMindstormsGroup::setJointSpeedRatios(double ratio1, double ratio2) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_setJointSpeedRatios_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setJointSpeedRatios, this, ratio1, ratio2);
+	return retval;
+}
+
+int CMindstormsGroup::setMotorPower(int id, int power) {
+	DEPRECATED("setMotorPower", "setJointPower");
+	setJointPower(id, power);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::setMovementStateNB(int dir1, int dir2, int dir3) {
+	DEPRECATED("setMovementStateNB", "moveForeverNB");
+
+	switch (dir3) {
+		case ROBOT_FORWARD:
+			dir3 = ROBOT_BACKWARD;
+			break;
+		case ROBOT_BACKWARD:
+			dir3 = ROBOT_BACKWARD;
+			break;
+		default:
+			break;
+	}
+
+	setJointMovementStateNB(0, dir1);
+	setJointMovementStateNB(1, dir2);
+	setJointMovementStateNB(2, dir3);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::setMovementStateTime(int dir1, int dir2, int dir3, double seconds) {
+	DEPRECATED("setMovementStateTime", "moveTime");
+
+	switch (dir3) {
+		case ROBOT_FORWARD:
+			dir3 = ROBOT_BACKWARD;
+			break;
+		case ROBOT_BACKWARD:
+			dir3 = ROBOT_BACKWARD;
+			break;
+		default:
+			break;
+	}
+
+	setJointMovementStateTimeNB(0, dir1, seconds);
+	setJointMovementStateTimeNB(1, dir2, seconds);
+	setJointMovementStateTime(2, dir3, seconds);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::setMovementStateTimeNB(int dir1, int dir2, int dir3, double seconds) {
+	DEPRECATED("setMovementStateTimeNB", "moveTimeNB");
+
+	switch (dir3) {
+		case ROBOT_FORWARD:
+			dir3 = ROBOT_BACKWARD;
+			break;
+		case ROBOT_BACKWARD:
+			dir3 = ROBOT_BACKWARD;
+			break;
+		default:
+			break;
+	}
+
+	setJointMovementStateTimeNB(0, dir1, seconds);
+	setJointMovementStateTimeNB(1, dir2, seconds);
+	setJointMovementStateTimeNB(2, dir3, seconds);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::setSpeed(double speed, double radius) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_setSpeed_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, setSpeed, this, speed, radius);
+	return retval;
+}
+
+int CMindstormsGroup::setTwoWheelRobotSpeed(double speed, double radius) {
+	DEPRECATED("setTwoWheelRobotSpeed", "setSpeed");
+	setSpeed(speed, radius);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::stop(void) {
+	DEPRECATED("stop", "relaxJoints");
+	relaxJoints();
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::stopAllJoints(void) {
+	DEPRECATED("stopAllJoints", "relaxJoints");
+	relaxJoints();
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::stopOneJoint(int id) {
+	DEPRECATED("stopOneJoint", "relaxJoint");
+	relaxJoint(id);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::stopThreeJoints(int id1, int id2, int id3) {
+	DEPRECATED("stopThreeJoints", "relaxJoints");
+	relaxJoints();
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::stopTwoJoints(int id1, int id2) {
+	DEPRECATED("stopTwoJoints", "relaxJoint");
+	relaxJoint(id1);
+	relaxJoint(id2);
+
+	// success
+	return 0;
+}
+
+int CMindstormsGroup::traceOff(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_traceOff_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, traceOff, this);
+	return retval;
+}
+
+int CMindstormsGroup::traceOn(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_traceOn_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, traceOn, this);
+	return retval;
+}
+
+int CMindstormsGroup::turnLeft(double angle, double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_turnLeft_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, turnLeft, this, angle, radius, trackwidth);
+	return retval;
+}
+
+int CMindstormsGroup::turnLeftNB(double angle, double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_turnLeftNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, turnLeftNB, this, angle, radius, trackwidth);
+	return retval;
+}
+
+int CMindstormsGroup::turnRight(double angle, double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_turnRight_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, turnRight, this, angle, radius, trackwidth);
+	return retval;
+}
+
+int CMindstormsGroup::turnRightNB(double angle, double radius, double trackwidth) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLIG_turnRightNB_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, turnRightNB, this, angle, radius, trackwidth);
+	return retval;
+}
