@@ -1,5 +1,5 @@
-#ifndef RS_MACROS_
-#define RS_MACROS_
+#ifndef CHROBOSIM_MACROS_
+#define CHROBOSIM_MACROS_
 
 #ifdef _WIN32
 #include <windows.h>
@@ -84,5 +84,5 @@
 // recorded data
 typedef double* robotRecordData_t;
 
-#endif // RS_MACROS_
+#endif // CHROBOSIM_MACROS_
 

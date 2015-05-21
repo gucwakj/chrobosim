@@ -3,8 +3,8 @@
 #
 
 install:
-	ch ./pkginstall.ch $(PACKAGE)
+	ch ./pkginstall.ch chrobosim
 
 uninstall:
-	ch ./pkginsall.ch -u $(PACKAGE)
+	ch ./pkginsall.ch -u chrobosim
 

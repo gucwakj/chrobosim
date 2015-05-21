@@ -5,7 +5,7 @@
 
 CLinkbotI::CLinkbotI(void) {
 	if (RoboSim::_dlhandle == NULL || RoboSim::_dlcount == 0) {
-		RoboSim::_dlhandle = dlopen("librobosim.dl", RTLD_LAZY);
+		RoboSim::_dlhandle = dlopen("robosim.dl", RTLD_LAZY);
 		if (RoboSim::_dlhandle == NULL) {
 			printf("Error: %s(): dlopen(): %s\n", __class_func__, dlerror());
 			return;
@@ -167,6 +167,7 @@ int CLinkbotI::closeGripperNB(void) {
 int CLinkbotI::connect(...) {
 	// DEPRECATED
 	fprintf(_stderr, "Warning: The function \"connect()\" is not necessary.\n");
+	return 0;
 }
 
 int CLinkbotI::delay(double milliseconds) {
@@ -1620,7 +1621,6 @@ int CLinkbotI::recordDistanceBegin(double* &time, double* &distance, double radi
 	int retval;
 	int id = ROBOT_JOINT1;
 	int shiftData = 1;
-	va_start(ap, seconds);
 
 	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotI_recordDistanceBegin_chdl");
 	if(fptr == NULL) {
@@ -2315,7 +2315,7 @@ int CLinkbotI::turnRightNB(double angle, double radius, double trackwidth) {
 
 CLinkbotIGroup::CLinkbotIGroup(void) {
 	if (RoboSim::_dlhandle == NULL || RoboSim::_dlcount == 0) {
-		RoboSim::_dlhandle = dlopen("librobosim.dl", RTLD_LAZY);
+		RoboSim::_dlhandle = dlopen("robosim.dl", RTLD_LAZY);
 		if (RoboSim::_dlhandle == NULL) {
 			printf("Error: %s(): dlopen(): %s\n", __class_func__, dlerror());
 			return;
@@ -2512,6 +2512,7 @@ int CLinkbotIGroup::closeGripperNB(void) {
 int CLinkbotIGroup::connect(void) {
 	// DEPRECATED
 	fprintf(_stderr, "Warning: The function \"connect()\" is not necessary.\n");
+	return 0;
 }
 
 int CLinkbotIGroup::driveAccelCycloidalNB(double radius, double distance, double time) {

@@ -2,33 +2,16 @@
 #define LINKBOT_H_
 
 #include <array.h>
+
 #include "macros.h"
+#include "robosim.h"
 
 #define NUM_DOF 3
-
-#ifndef MACROS
-#define MACROS
-#define DLLIMPORT
-#pragma package <chrobosim>
-#define dDOUBLE
-#define ENABLE_GRAPHICS
-#define ROBOT_NEUTRAL 0
-#define ROBOT_HOLD 1
-#define ROBOT_POSITIVE 2
-#define ROBOT_NEGATIVE 3
-#define ROBOT_FORWARD 2
-#define ROBOT_BACKWARD 3
-#define ROBOT_JOINT1 0
-#define ROBOT_JOINT2 1
-#define ROBOT_JOINT3 2
-#endif // MACROS
-
-#include "robot.h"
 
 class DLLIMPORT CLinkbotI {
 	public:
 		CLinkbotI(void);
-		virtual ~CLinkbotI(void);
+		virtual ~CLinkbotI();
 		int accelJointAngleNB(int id, double a, double angle);
 		int accelJointCycloidalNB(int id, double angle, double t);
 		int accelJointHarmonicNB(int id, double angle, double t);
@@ -219,7 +202,7 @@ class DLLIMPORT CLinkbotI {
 class DLLIMPORT CLinkbotIGroup {
 	public:
 		CLinkbotIGroup(void);
-		virtual ~CLinkbotIGroup(void);
+		virtual ~CLinkbotIGroup();
 		int accelJointAngleNB(int id, double a, double angle);
 		int accelJointCycloidalNB(int id, double angle, double t);
 		int accelJointHarmonicNB(int id, double angle, double t);
@@ -340,7 +323,7 @@ class DLLIMPORT CLinkbotIGroup {
 class DLLIMPORT CLinkbotL {
 	public:
 		CLinkbotL(void);
-		virtual ~CLinkbotL(void);
+		virtual ~CLinkbotL();
 		int accelJointAngleNB(int id, double a, double angle);
 		int accelJointCycloidalNB(int id, double angle, double t);
 		int accelJointHarmonicNB(int id, double angle, double t);
@@ -484,7 +467,7 @@ class DLLIMPORT CLinkbotL {
 class DLLIMPORT CLinkbotLGroup {
 	public:
 		CLinkbotLGroup(void);
-		virtual ~CLinkbotLGroup(void);
+		virtual ~CLinkbotLGroup();
 		int accelJointAngleNB(int id, double a, double angle);
 		int accelJointCycloidalNB(int id, double angle, double t);
 		int accelJointHarmonicNB(int id, double angle, double t);

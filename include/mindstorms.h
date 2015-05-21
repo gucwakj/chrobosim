@@ -2,32 +2,16 @@
 #define MINDSTORMS_H_
 
 #include <array.h>
+
 #include "macros.h"
+#include "robosim.h"
 
 #define NUM_DOF 3
-
-#ifndef MACROS
-#define MACROS
-#define DLLIMPORT
-#pragma package <chrobosim>
-#define dDOUBLE
-#define ENABLE_GRAPHICS
-#define ROBOT_NEUTRAL 0
-#define ROBOT_HOLD 1
-#define ROBOT_POSITIVE 2
-#define ROBOT_NEGATIVE 3
-#define ROBOT_FORWARD 2
-#define ROBOT_BACKWARD 3
-#define ROBOT_JOINT1 0
-#define ROBOT_JOINT2 1
-#endif // MACROS
-
-#include "robot.h"
 
 class DLLIMPORT CMindstorms {
 	public:
 		CMindstorms(void);
-		virtual ~CMindstorms(void);
+		virtual ~CMindstorms();
 		int blinkLED(double delay, int num);
 		int connect(...);		// deprecated
 		int delay(double milliseconds);
@@ -200,7 +184,7 @@ class DLLIMPORT CMindstorms {
 class DLLIMPORT CMindstormsGroup {
 	public:
 		CMindstormsGroup(void);
-		virtual ~CMindstormsGroup(void);
+		virtual ~CMindstormsGroup();
 		int addRobot(CMindstorms& robot);
 		int addRobots(array CMindstorms robots[], ...);
 		int blinkLED(double delay, int num);
