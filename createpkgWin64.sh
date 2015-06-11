@@ -58,6 +58,7 @@ cp $ROOT/../librs/deps/osg/third_party/x64/bin/zlib1.dll $PKGDIR/bin
 cp $ROOT/../RoboSim/build/bin/robosimwidget.dll $PKGDIR/bin
 cp $ROOT/../RoboSim/build/bin/RoboSim.exe $PKGDIR/bin
 cp $ROOT/../RoboSim/qt.conf $PKGDIR/bin
+cp -R $ROOT/../RoboSim/icons $PKGDIR/bin
 cp C:/Qt/5.4.1/5.4/msvc2013_64_opengl/bin/Qt5Core.dll $PKGDIR/bin
 cp C:/Qt/5.4.1/5.4/msvc2013_64_opengl/bin/Qt5Gui.dll $PKGDIR/bin
 cp C:/Qt/5.4.1/5.4/msvc2013_64_opengl/bin/Qt5OpenGL.dll $PKGDIR/bin
