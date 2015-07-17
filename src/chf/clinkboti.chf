@@ -562,7 +562,7 @@ int CLinkbotI::drivexyToExprNB(double x0, double xf, int n, char *expr, double r
 		px[i] = x0 + i*step;
 		py[i] = streval(expr);
 	}
-    drivexyToArrayNB(px, py, n, radius, trackwidth);
+	drivexyToArrayNB(px, py, n, radius, trackwidth);
 
 	// success
 	return 0;

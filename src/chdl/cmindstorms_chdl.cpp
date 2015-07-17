@@ -298,6 +298,29 @@ EXPORTCH int CMindstorms_drivexyToNB_chdl(void *varg) {
 	return retval;
 }
 
+EXPORTCH int CMindstorms_drivexyToArrayNB_chdl(void *varg) {
+	ChInterp_t interp;
+	ChVaList_t ap;
+	class CMindstorms *robot;
+	double *px;
+	double *py;
+	double radius;
+	double trackwidth;
+	int n;
+	int retval;
+
+	Ch_VaStart(interp, ap, varg);
+	robot = Ch_VaArg(interp, ap, class CMindstorms *);
+	px = Ch_VaArg(interp, ap, double*);
+	py = Ch_VaArg(interp, ap, double*);
+	n = Ch_VaArg(interp, ap, int);
+	radius = Ch_VaArg(interp, ap, double);
+	trackwidth = Ch_VaArg(interp, ap, double);
+	retval = robot->drivexyToArrayNB(px, py, n, radius, trackwidth);
+	Ch_VaEnd(interp, ap);
+	return retval;
+}
+
 typedef double (*IdrivexyFuncHandle)(double);
 static ChInterp_t interpI;
 static double IdrivexyFunc_chdl_funarg(double x);

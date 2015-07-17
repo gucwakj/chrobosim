@@ -37,6 +37,7 @@ class DLLIMPORT CMindstorms {
 		int drivexyNB(double x, double y, double radius, double trackwidth);
 		int drivexyTo(double x, double y, double radius, double trackwidth);
 		int drivexyToNB(double x, double y, double radius, double trackwidth);
+		int drivexyToArrayNB(double *px, double *py, int n, double radius, double trackwidth);		// undocumented: for drivexyToExprNB
 		int drivexyToExpr(double x0, double xf, int n, char *expr, double radius, double trackwidth);
 		int drivexyToExprNB(double x0, double xf, int n, char *expr, double radius, double trackwidth);
 		int drivexyToFunc(double x0, double xf, int n, double (*func)(double x), double radius, double trackwidth);
