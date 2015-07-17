@@ -588,32 +588,6 @@ int CLinkbotI::drivexyToFuncNB(double x0, double xf, int n, double (*func)(doubl
 	return 0;
 }
 
-int CLinkbotI::drivexyToPoly(double x0, double xf, int n, char *poly, double radius, double trackwidth) {
-	void *fptr;
-	int retval;
-
-	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotI_drivexyToPoly_chdl");
-	if(fptr == NULL) {
-		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
-		return -1;
-	}
-	dlrunfun(fptr, &retval, drivexyToPoly, this, x0, xf, n, poly, radius, trackwidth);
-	return retval;
-}
-
-int CLinkbotI::drivexyToPolyNB(double x0, double xf, int n, char *poly, double radius, double trackwidth) {
-	void *fptr;
-	int retval;
-
-	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotI_drivexyToPolyNB_chdl");
-	if(fptr == NULL) {
-		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
-		return -1;
-	}
-	dlrunfun(fptr, &retval, drivexyToPolyNB, this, x0, xf, n, poly, radius, trackwidth);
-	return retval;
-}
-
 int CLinkbotI::drivexyWait(void) {
 	void *fptr;
 	int retval;
@@ -1469,22 +1443,6 @@ int CLinkbotI::movexyToFunc(double x0, double xf, int n, double (*func)(double x
 int CLinkbotI::movexyToFuncNB(double x0, double xf, int n, double (*func)(double x), double radius, double trackwidth) {
 	DEPRECATED("movexyToFuncNB", "drivexyToFuncNB");
 	drivexyToFuncNB(x0, xf, n, func, radius, trackwidth);
-
-	// success
-	return 0;
-}
-
-int CLinkbotI::movexyToPoly(double x0, double xf, int n, char *poly, double radius, double trackwidth) {
-	DEPRECATED("movexyToPoly", "drivexyToPoly");
-	drivexyToPoly(x0, xf, n, poly, radius, trackwidth);
-
-	// success
-	return 0;
-}
-
-int CLinkbotI::movexyToPolyNB(double x0, double xf, int n, char *poly, double radius, double trackwidth) {
-	DEPRECATED("movexyToPolyNB", "drivexyToPolyNB");
-	drivexyToPolyNB(x0, xf, n, poly, radius, trackwidth);
 
 	// success
 	return 0;

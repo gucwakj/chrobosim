@@ -58,8 +58,6 @@ class DLLIMPORT CLinkbotI {
 		int drivexyToExprNB(double x0, double xf, int n, char *expr, double radius, double trackwidth);
 		int drivexyToFunc(double x0, double xf, int n, double (*func)(double x), double radius, double trackwidth);
 		int drivexyToFuncNB(double x0, double xf, int n, double (*func)(double x), double radius, double trackwidth);
-		int drivexyToPoly(double x0, double xf, int n, char *poly, double radius, double trackwidth);
-		int drivexyToPolyNB(double x0, double xf, int n, char *poly, double radius, double trackwidth);
 		int drivexyWait(void);
 		int enableRecordDataShift(void);
 		int getAccelerometerData(double &accel_x, double &accel_y, double &accel_z);
@@ -135,8 +133,6 @@ class DLLIMPORT CLinkbotI {
 		int movexyToExprNB(double x0, double xf, int n, char *expr, double radius, double trackwidth);		// deprecated
 		int movexyToFunc(double x0, double xf, int n, double (*func)(double x), double radius, double trackwidth);		// deprecated
 		int movexyToFuncNB(double x0, double xf, int n, double (*func)(double x), double radius, double trackwidth);		// deprecated
-		int movexyToPoly(double x0, double xf, int n, char *poly, double radius, double trackwidth);		// deprecated
-		int movexyToPolyNB(double x0, double xf, int n, char *poly, double radius, double trackwidth);		// deprecated
 		int movexyWait(void);		// deprecated
 		int openGripper(double angle);
 		int openGripperNB(double angle);
