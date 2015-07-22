@@ -1135,7 +1135,7 @@ int CLinkbotL::recordAnglesEnd(int &num) {
 int CLinkbotL::recordDistanceBegin(double* &time, double* &distance, double radius, double seconds) {
 	void *fptr;
 	int retval;
-	int id = ROBOT_JOINT1;
+	int id = JOINT1;
 	int shiftData = 1;
 
 	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotL_recordDistanceBegin_chdl");
@@ -1149,7 +1149,7 @@ int CLinkbotL::recordDistanceBegin(double* &time, double* &distance, double radi
 
 int CLinkbotL::recordDistanceEnd(int &num) {
 	void *fptr;
-	int id = ROBOT_JOINT1;
+	int id = JOINT1;
 	int retval;
 
 	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotL_recordDistanceEnd_chdl");

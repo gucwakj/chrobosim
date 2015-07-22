@@ -11,9 +11,9 @@
 #define ROBOT_NEGATIVE 3
 #define ROBOT_FORWARD 2
 #define ROBOT_BACKWARD 3
-#define ROBOT_JOINT1 0
-#define ROBOT_JOINT2 1
-#define ROBOT_JOINT3 2
+#define JOINT1 0
+#define JOINT2 1
+#define JOINT3 2
 
 class DLLIMPORT RoboSim {
 	public:
