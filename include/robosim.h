@@ -14,6 +14,7 @@
 #define JOINT1 0
 #define JOINT2 1
 #define JOINT3 2
+#define JOINT4 3
 
 class DLLIMPORT RoboSim {
 	public:

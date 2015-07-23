@@ -2176,7 +2176,7 @@ EXPORTCH int CLinkbotI_turnRightNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH void CLIG_CLinkbotIGroup_chdl(void *varg) {
+EXPORTCH void CLinkbotIGroup_CLinkbotIGroup_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *c=new CLinkbotIGroup();
@@ -2185,7 +2185,7 @@ EXPORTCH void CLIG_CLinkbotIGroup_chdl(void *varg) {
 	Ch_VaEnd(interp, ap);
 }
 
-EXPORTCH void CLIG_dCLinkbotIGroup_chdl(void *varg) {
+EXPORTCH void CLinkbotIGroup_dCLinkbotIGroup_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *c;
@@ -2199,7 +2199,7 @@ EXPORTCH void CLIG_dCLinkbotIGroup_chdl(void *varg) {
 	return;
 }
 
-EXPORTCH int CLIG_accelJointAngleNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_accelJointAngleNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2218,7 +2218,7 @@ EXPORTCH int CLIG_accelJointAngleNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_accelJointCycloidalNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_accelJointCycloidalNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2237,7 +2237,7 @@ EXPORTCH int CLIG_accelJointCycloidalNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_accelJointHarmonicNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_accelJointHarmonicNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2256,7 +2256,7 @@ EXPORTCH int CLIG_accelJointHarmonicNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_accelJointSmoothNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_accelJointSmoothNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2279,7 +2279,7 @@ EXPORTCH int CLIG_accelJointSmoothNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_accelJointTimeNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_accelJointTimeNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2298,7 +2298,7 @@ EXPORTCH int CLIG_accelJointTimeNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_accelJointToVelocityNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_accelJointToVelocityNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2317,7 +2317,7 @@ EXPORTCH int CLIG_accelJointToVelocityNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_accelJointToMaxSpeedNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_accelJointToMaxSpeedNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2334,7 +2334,7 @@ EXPORTCH int CLIG_accelJointToMaxSpeedNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_addRobot_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_addRobot_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *group;
@@ -2349,7 +2349,7 @@ EXPORTCH int CLIG_addRobot_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_addRobots_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_addRobots_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *group;
@@ -2366,7 +2366,7 @@ EXPORTCH int CLIG_addRobots_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_blinkLED_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_blinkLED_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2383,7 +2383,7 @@ EXPORTCH int CLIG_blinkLED_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_closeGripper_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_closeGripper_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2396,7 +2396,7 @@ EXPORTCH int CLIG_closeGripper_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_closeGripperNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_closeGripperNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2409,7 +2409,7 @@ EXPORTCH int CLIG_closeGripperNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveAccelCycloidalNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_driveAccelCycloidalNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2428,7 +2428,7 @@ EXPORTCH int CLIG_driveAccelCycloidalNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveAccelDistanceNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_driveAccelDistanceNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2447,7 +2447,7 @@ EXPORTCH int CLIG_driveAccelDistanceNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveAccelHarmonicNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_driveAccelHarmonicNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2466,7 +2466,7 @@ EXPORTCH int CLIG_driveAccelHarmonicNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveAccelSmoothNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_driveAccelSmoothNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2489,7 +2489,7 @@ EXPORTCH int CLIG_driveAccelSmoothNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveAccelTimeNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_driveAccelTimeNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2508,7 +2508,7 @@ EXPORTCH int CLIG_driveAccelTimeNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveAccelToMaxSpeedNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_driveAccelToMaxSpeedNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2525,7 +2525,7 @@ EXPORTCH int CLIG_driveAccelToMaxSpeedNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveAccelToVelocityNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_driveAccelToVelocityNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2544,7 +2544,7 @@ EXPORTCH int CLIG_driveAccelToVelocityNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveAngle_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_driveAngle_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2559,7 +2559,7 @@ EXPORTCH int CLIG_driveAngle_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveAngleNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_driveAngleNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2574,7 +2574,7 @@ EXPORTCH int CLIG_driveAngleNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveDistance_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_driveDistance_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2591,7 +2591,7 @@ EXPORTCH int CLIG_driveDistance_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveDistanceNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_driveDistanceNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2608,7 +2608,7 @@ EXPORTCH int CLIG_driveDistanceNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveForeverNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_driveForeverNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2621,7 +2621,7 @@ EXPORTCH int CLIG_driveForeverNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveTime_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_driveTime_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2636,7 +2636,7 @@ EXPORTCH int CLIG_driveTime_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_driveTimeNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_driveTimeNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2651,7 +2651,7 @@ EXPORTCH int CLIG_driveTimeNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_holdJoint_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_holdJoint_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2666,7 +2666,7 @@ EXPORTCH int CLIG_holdJoint_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_holdJoints_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_holdJoints_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2679,7 +2679,7 @@ EXPORTCH int CLIG_holdJoints_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_holdJointsAtExit_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_holdJointsAtExit_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2692,7 +2692,7 @@ EXPORTCH int CLIG_holdJointsAtExit_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_isMoving_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_isMoving_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2705,7 +2705,7 @@ EXPORTCH int CLIG_isMoving_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_isNotMoving_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_isNotMoving_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2718,7 +2718,7 @@ EXPORTCH int CLIG_isNotMoving_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_move_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_move_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2737,7 +2737,7 @@ EXPORTCH int CLIG_move_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2756,7 +2756,7 @@ EXPORTCH int CLIG_moveNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveForeverNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveForeverNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2769,7 +2769,7 @@ EXPORTCH int CLIG_moveForeverNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveJoint_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveJoint_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2786,7 +2786,7 @@ EXPORTCH int CLIG_moveJoint_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveJointNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveJointNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2803,7 +2803,7 @@ EXPORTCH int CLIG_moveJointNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveJointByPowerNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveJointByPowerNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2820,7 +2820,7 @@ EXPORTCH int CLIG_moveJointByPowerNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveJointForeverNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveJointForeverNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2835,7 +2835,7 @@ EXPORTCH int CLIG_moveJointForeverNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveJointTime_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveJointTime_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2852,7 +2852,7 @@ EXPORTCH int CLIG_moveJointTime_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveJointTimeNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveJointTimeNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2869,7 +2869,7 @@ EXPORTCH int CLIG_moveJointTimeNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveJointTo_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveJointTo_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2886,7 +2886,7 @@ EXPORTCH int CLIG_moveJointTo_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveJointToNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveJointToNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2903,7 +2903,7 @@ EXPORTCH int CLIG_moveJointToNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveJointToByTrackPos_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveJointToByTrackPos_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2920,7 +2920,7 @@ EXPORTCH int CLIG_moveJointToByTrackPos_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveJointToByTrackPosNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveJointToByTrackPosNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2937,7 +2937,7 @@ EXPORTCH int CLIG_moveJointToByTrackPosNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveJointWait_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveJointWait_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2952,7 +2952,7 @@ EXPORTCH int CLIG_moveJointWait_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveTime_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveTime_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2967,7 +2967,7 @@ EXPORTCH int CLIG_moveTime_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveTimeNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveTimeNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -2982,7 +2982,7 @@ EXPORTCH int CLIG_moveTimeNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveTo_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveTo_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3001,7 +3001,7 @@ EXPORTCH int CLIG_moveTo_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveToNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveToNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3020,7 +3020,7 @@ EXPORTCH int CLIG_moveToNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveToByTrackPos_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveToByTrackPos_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3039,7 +3039,7 @@ EXPORTCH int CLIG_moveToByTrackPos_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveToByTrackPosNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveToByTrackPosNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3058,7 +3058,7 @@ EXPORTCH int CLIG_moveToByTrackPosNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveToZero_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveToZero_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3071,7 +3071,7 @@ EXPORTCH int CLIG_moveToZero_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveToZeroNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveToZeroNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3084,7 +3084,7 @@ EXPORTCH int CLIG_moveToZeroNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_moveWait_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_moveWait_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3097,7 +3097,7 @@ EXPORTCH int CLIG_moveWait_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_openGripper_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_openGripper_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3112,7 +3112,7 @@ EXPORTCH int CLIG_openGripper_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_openGripperNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_openGripperNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3127,7 +3127,7 @@ EXPORTCH int CLIG_openGripperNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_relaxJoint_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_relaxJoint_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3142,7 +3142,7 @@ EXPORTCH int CLIG_relaxJoint_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_relaxJoints_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_relaxJoints_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3155,7 +3155,7 @@ EXPORTCH int CLIG_relaxJoints_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_resetToZero_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_resetToZero_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3168,7 +3168,7 @@ EXPORTCH int CLIG_resetToZero_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_resetToZeroNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_resetToZeroNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3181,7 +3181,7 @@ EXPORTCH int CLIG_resetToZeroNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_setBuzzerFrequency_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_setBuzzerFrequency_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3198,7 +3198,7 @@ EXPORTCH int CLIG_setBuzzerFrequency_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_setBuzzerFrequencyOff_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_setBuzzerFrequencyOff_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3211,7 +3211,7 @@ EXPORTCH int CLIG_setBuzzerFrequencyOff_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_setBuzzerFrequencyOn_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_setBuzzerFrequencyOn_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3226,7 +3226,7 @@ EXPORTCH int CLIG_setBuzzerFrequencyOn_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_setLEDColor_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_setLEDColor_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3241,7 +3241,7 @@ EXPORTCH int CLIG_setLEDColor_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_setLEDColorRGB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_setLEDColorRGB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3258,7 +3258,7 @@ EXPORTCH int CLIG_setLEDColorRGB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_setJointSafetyAngle_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_setJointSafetyAngle_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3273,7 +3273,7 @@ EXPORTCH int CLIG_setJointSafetyAngle_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_setJointSafetyAngleTimeout_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_setJointSafetyAngleTimeout_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3288,7 +3288,7 @@ EXPORTCH int CLIG_setJointSafetyAngleTimeout_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_setJointSpeed_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_setJointSpeed_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3305,7 +3305,7 @@ EXPORTCH int CLIG_setJointSpeed_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_setJointSpeeds_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_setJointSpeeds_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3322,7 +3322,7 @@ EXPORTCH int CLIG_setJointSpeeds_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_setJointSpeedRatio_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_setJointSpeedRatio_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3339,7 +3339,7 @@ EXPORTCH int CLIG_setJointSpeedRatio_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_setJointSpeedRatios_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_setJointSpeedRatios_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3358,7 +3358,7 @@ EXPORTCH int CLIG_setJointSpeedRatios_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_setSpeed_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_setSpeed_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3375,7 +3375,7 @@ EXPORTCH int CLIG_setSpeed_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_traceOff_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_traceOff_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3388,7 +3388,7 @@ EXPORTCH int CLIG_traceOff_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_traceOn_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_traceOn_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3401,7 +3401,7 @@ EXPORTCH int CLIG_traceOn_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_turnLeft_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_turnLeft_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3420,7 +3420,7 @@ EXPORTCH int CLIG_turnLeft_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_turnLeftNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_turnLeftNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3439,7 +3439,7 @@ EXPORTCH int CLIG_turnLeftNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_turnRight_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_turnRight_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;
@@ -3458,7 +3458,7 @@ EXPORTCH int CLIG_turnRight_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLIG_turnRightNB_chdl(void *varg) {
+EXPORTCH int CLinkbotIGroup_turnRightNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CLinkbotIGroup *robot;

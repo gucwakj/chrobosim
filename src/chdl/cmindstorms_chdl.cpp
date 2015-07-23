@@ -537,8 +537,10 @@ EXPORTCH int CMindstorms_getJointAngles_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	double* angle1;
-	double* angle2;
+	double *angle1;
+	double *angle2;
+	double *angle3;
+	double *angle4;
 	int numReadings;
 	int retval;
 
@@ -546,11 +548,14 @@ EXPORTCH int CMindstorms_getJointAngles_chdl(void *varg) {
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
 	angle1 = Ch_VaArg(interp, ap, double *);
 	angle2 = Ch_VaArg(interp, ap, double *);
+	angle3 = Ch_VaArg(interp, ap, double *);
+	angle4 = Ch_VaArg(interp, ap, double *);
 	if(Ch_VaCount(interp ,ap) == 1) {
-	  numReadings = Ch_VaArg(interp, ap, int);
-	  retval = robot->getJointAngles(*angle1, *angle2, numReadings);
-	} else {
-	  retval = robot->getJointAngles(*angle1, *angle2);
+		numReadings = Ch_VaArg(interp, ap, int);
+		retval = robot->getJointAngles(*angle1, *angle2, *angle3, *angle4, numReadings);
+	}
+	else {
+		retval = robot->getJointAngles(*angle1, *angle2, *angle3, *angle4);
 	}
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -560,15 +565,19 @@ EXPORTCH int CMindstorms_getJointAnglesInstant_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	double* angle1;
-	double* angle2;
+	double *angle1;
+	double *angle2;
+	double *angle3;
+	double *angle4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
 	angle1 = Ch_VaArg(interp, ap, double *);
 	angle2 = Ch_VaArg(interp, ap, double *);
-	retval = robot->getJointAnglesInstant(*angle1, *angle2);
+	angle3 = Ch_VaArg(interp, ap, double *);
+	angle4 = Ch_VaArg(interp, ap, double *);
+	retval = robot->getJointAnglesInstant(*angle1, *angle2, *angle3, *angle4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -643,13 +652,17 @@ EXPORTCH int CMindstorms_getJointSpeeds_chdl(void *varg) {
 	class CMindstorms *robot;
 	double *speed1;
 	double *speed2;
+	double *speed3;
+	double *speed4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
 	speed1 = Ch_VaArg(interp, ap, double *);
 	speed2 = Ch_VaArg(interp, ap, double *);
-	retval = robot->getJointSpeeds(*speed1, *speed2);
+	speed3 = Ch_VaArg(interp, ap, double *);
+	speed4 = Ch_VaArg(interp, ap, double *);
+	retval = robot->getJointSpeeds(*speed1, *speed2, *speed3, *speed4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -677,13 +690,17 @@ EXPORTCH int CMindstorms_getJointSpeedRatios_chdl(void *varg) {
 	class CMindstorms *robot;
 	double *ratio1;
 	double *ratio2;
+	double *ratio3;
+	double *ratio4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
 	ratio1 = Ch_VaArg(interp, ap, double *);
 	ratio2 = Ch_VaArg(interp, ap, double *);
-	retval = robot->getJointSpeedRatios(*ratio1, *ratio2);
+	ratio3 = Ch_VaArg(interp, ap, double *);
+	ratio4 = Ch_VaArg(interp, ap, double *);
+	retval = robot->getJointSpeedRatios(*ratio1, *ratio2, *ratio3, *ratio4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -791,13 +808,17 @@ EXPORTCH int CMindstorms_move_chdl(void *varg) {
 	class CMindstorms *robot;
 	double angle1;
 	double angle2;
+	double angle3;
+	double angle4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
 	angle1 = Ch_VaArg(interp, ap, double);
 	angle2 = Ch_VaArg(interp, ap, double);
-	retval = robot->move(angle1, angle2);
+	angle3 = Ch_VaArg(interp, ap, double);
+	angle4 = Ch_VaArg(interp, ap, double);
+	retval = robot->move(angle1, angle2, angle3, angle4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -808,13 +829,17 @@ EXPORTCH int CMindstorms_moveNB_chdl(void *varg) {
 	class CMindstorms *robot;
 	double angle1;
 	double angle2;
+	double angle3;
+	double angle4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
 	angle1 = Ch_VaArg(interp, ap, double);
 	angle2 = Ch_VaArg(interp, ap, double);
-	retval = robot->moveNB(angle1, angle2);
+	angle3 = Ch_VaArg(interp, ap, double);
+	angle4 = Ch_VaArg(interp, ap, double);
+	retval = robot->moveNB(angle1, angle2, angle3, angle4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -1051,13 +1076,17 @@ EXPORTCH int CMindstorms_moveTo_chdl(void *varg) {
 	class CMindstorms *robot;
 	double angle1;
 	double angle2;
+	double angle3;
+	double angle4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
 	angle1 = Ch_VaArg(interp, ap, double);
 	angle2 = Ch_VaArg(interp, ap, double);
-	retval = robot->moveTo(angle1, angle2);
+	angle3 = Ch_VaArg(interp, ap, double);
+	angle4 = Ch_VaArg(interp, ap, double);
+	retval = robot->moveTo(angle1, angle2, angle3, angle4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -1068,13 +1097,17 @@ EXPORTCH int CMindstorms_moveToNB_chdl(void *varg) {
 	class CMindstorms *robot;
 	double angle1;
 	double angle2;
+	double angle3;
+	double angle4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
 	angle1 = Ch_VaArg(interp, ap, double);
 	angle2 = Ch_VaArg(interp, ap, double);
-	retval = robot->moveToNB(angle1, angle2);
+	angle3 = Ch_VaArg(interp, ap, double);
+	angle4 = Ch_VaArg(interp, ap, double);
+	retval = robot->moveToNB(angle1, angle2, angle3, angle4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -1085,13 +1118,17 @@ EXPORTCH int CMindstorms_moveToByTrackPos_chdl(void *varg) {
 	class CMindstorms *robot;
 	double angle1;
 	double angle2;
+	double angle3;
+	double angle4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
 	angle1 = Ch_VaArg(interp, ap, double);
 	angle2 = Ch_VaArg(interp, ap, double);
-	retval = robot->moveToByTrackPos(angle1, angle2);
+	angle3 = Ch_VaArg(interp, ap, double);
+	angle4 = Ch_VaArg(interp, ap, double);
+	retval = robot->moveToByTrackPos(angle1, angle2, angle3, angle4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -1102,13 +1139,17 @@ EXPORTCH int CMindstorms_moveToByTrackPosNB_chdl(void *varg) {
 	class CMindstorms *robot;
 	double angle1;
 	double angle2;
+	double angle3;
+	double angle4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
 	angle1 = Ch_VaArg(interp, ap, double);
 	angle2 = Ch_VaArg(interp, ap, double);
-	retval = robot->moveToByTrackPosNB(angle1, angle2);
+	angle3 = Ch_VaArg(interp, ap, double);
+	angle4 = Ch_VaArg(interp, ap, double);
+	retval = robot->moveToByTrackPosNB(angle1, angle2, angle3, angle4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -1225,78 +1266,6 @@ EXPORTCH int CMindstorms_recordAngleEnd_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CMindstorms_recordAngles_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CMindstorms *robot;
-	double* time;
-	double* angle1;
-	double* angle2;
-	int num;
-	double seconds;
-	int shiftData;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	time = Ch_VaArg(interp, ap, double*);
-	angle1 = Ch_VaArg(interp, ap, double*);
-	angle2 = Ch_VaArg(interp, ap, double*);
-	num = Ch_VaArg(interp, ap, int);
-	seconds = Ch_VaArg(interp, ap, double);
-	if(Ch_VaCount(interp, ap) == 1) {
-	  shiftData = Ch_VaArg(interp, ap, int);
-	  retval = robot->recordAngles(time, angle1, angle2, num, seconds, shiftData);
-	} else {
-	  retval = robot->recordAngles(time, angle1, angle2, num, seconds);
-	}
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
-EXPORTCH int CMindstorms_recordAnglesBegin_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CMindstorms *robot;
-	double** time;
-	double** angle1;
-	double** angle2;
-	double seconds;
-	int shiftData;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	time = Ch_VaArg(interp, ap, double**);
-	angle1 = Ch_VaArg(interp, ap, double**);
-	angle2 = Ch_VaArg(interp, ap, double**);
-	seconds = Ch_VaArg(interp, ap, double);
-	if(Ch_VaCount(interp, ap) == 1) {
-		shiftData = Ch_VaArg(interp, ap, int);
-		retval = robot->recordAnglesBegin(*time, *angle1, *angle2, seconds, shiftData);
-	}
-	else {
-		retval = robot->recordAnglesBegin(*time, *angle1, *angle2, seconds);
-	}
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
-EXPORTCH int CMindstorms_recordAnglesEnd_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CMindstorms *robot;
-	int retval;
-	int *num;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	num = Ch_VaArg(interp, ap, int*);
-	retval = robot->recordAnglesEnd(*num);
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
 EXPORTCH int CMindstorms_recordDistanceBegin_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
@@ -1354,51 +1323,6 @@ EXPORTCH int CMindstorms_recordDistanceOffset_chdl(void *varg) {
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
 	distance = Ch_VaArg(interp, ap, double);
 	retval = robot->recordDistanceOffset(distance);
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
-EXPORTCH int CMindstorms_recordDistancesBegin_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CMindstorms *robot;
-	double** time;
-	double** angle1;
-	double** angle2;
-	double radius;
-	double seconds;
-	int shiftData;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	time = Ch_VaArg(interp, ap, double**);
-	angle1 = Ch_VaArg(interp, ap, double**);
-	angle2 = Ch_VaArg(interp, ap, double**);
-	radius = Ch_VaArg(interp, ap, double);
-	seconds = Ch_VaArg(interp, ap, double);
-	if(Ch_VaCount(interp, ap) == 1) {
-		shiftData = Ch_VaArg(interp, ap, int);
-		retval = robot->recordDistancesBegin(*time, *angle1, *angle2, radius, seconds, shiftData);
-	}
-	else {
-		retval = robot->recordDistancesBegin(*time, *angle1, *angle2, radius, seconds);
-	}
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
-EXPORTCH int CMindstorms_recordDistancesEnd_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CMindstorms *robot;
-	int retval;
-	int *num;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	num = Ch_VaArg(interp, ap, int*);
-	retval = robot->recordDistancesEnd(*num);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -1641,13 +1565,17 @@ EXPORTCH int CMindstorms_setJointSpeeds_chdl(void *varg) {
 	class CMindstorms *robot;
 	double speed1;
 	double speed2;
+	double speed3;
+	double speed4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
 	speed1 = Ch_VaArg(interp, ap, double);
 	speed2 = Ch_VaArg(interp, ap, double);
-	retval = robot->setJointSpeeds(speed1, speed2);
+	speed3 = Ch_VaArg(interp, ap, double);
+	speed4 = Ch_VaArg(interp, ap, double);
+	retval = robot->setJointSpeeds(speed1, speed2, speed3, speed4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -1675,13 +1603,17 @@ EXPORTCH int CMindstorms_setJointSpeedRatios_chdl(void *varg) {
 	class CMindstorms *robot;
 	double ratio1;
 	double ratio2;
+	double ratio3;
+	double ratio4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	ratio1 = Ch_VaArg(interp, ap, double );
-	ratio2 = Ch_VaArg(interp, ap, double );
-	retval = robot->setJointSpeedRatios(ratio1, ratio2);
+	ratio1 = Ch_VaArg(interp, ap, double);
+	ratio2 = Ch_VaArg(interp, ap, double);
+	ratio3 = Ch_VaArg(interp, ap, double);
+	ratio4 = Ch_VaArg(interp, ap, double);
+	retval = robot->setJointSpeedRatios(ratio1, ratio2, ratio3, ratio4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -2072,13 +2004,17 @@ EXPORTCH int CMindstormsGroup_move_chdl(void *varg) {
 	class CMindstormsGroup *robot;
 	double angle1;
 	double angle2;
+	double angle3;
+	double angle4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
 	angle1 = Ch_VaArg(interp, ap, double);
 	angle2 = Ch_VaArg(interp, ap, double);
-	retval = robot->move(angle1, angle2);
+	angle3 = Ch_VaArg(interp, ap, double);
+	angle4 = Ch_VaArg(interp, ap, double);
+	retval = robot->move(angle1, angle2, angle3, angle4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -2089,13 +2025,17 @@ EXPORTCH int CMindstormsGroup_moveNB_chdl(void *varg) {
 	class CMindstormsGroup *robot;
 	double angle1;
 	double angle2;
+	double angle3;
+	double angle4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
 	angle1 = Ch_VaArg(interp, ap, double);
 	angle2 = Ch_VaArg(interp, ap, double);
-	retval = robot->moveNB(angle1, angle2);
+	angle3 = Ch_VaArg(interp, ap, double);
+	angle4 = Ch_VaArg(interp, ap, double);
+	retval = robot->moveNB(angle1, angle2, angle3, angle4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -2332,13 +2272,17 @@ EXPORTCH int CMindstormsGroup_moveTo_chdl(void *varg) {
 	class CMindstormsGroup *robot;
 	double angle1;
 	double angle2;
+	double angle3;
+	double angle4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
 	angle1 = Ch_VaArg(interp, ap, double);
 	angle2 = Ch_VaArg(interp, ap, double);
-	retval = robot->moveTo(angle1, angle2);
+	angle3 = Ch_VaArg(interp, ap, double);
+	angle4 = Ch_VaArg(interp, ap, double);
+	retval = robot->moveTo(angle1, angle2, angle3, angle4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -2349,13 +2293,17 @@ EXPORTCH int CMindstormsGroup_moveToNB_chdl(void *varg) {
 	class CMindstormsGroup *robot;
 	double angle1;
 	double angle2;
+	double angle3;
+	double angle4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
 	angle1 = Ch_VaArg(interp, ap, double);
 	angle2 = Ch_VaArg(interp, ap, double);
-	retval = robot->moveToNB(angle1, angle2);
+	angle3 = Ch_VaArg(interp, ap, double);
+	angle4 = Ch_VaArg(interp, ap, double);
+	retval = robot->moveToNB(angle1, angle2, angle3, angle4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -2366,13 +2314,17 @@ EXPORTCH int CMindstormsGroup_moveToByTrackPos_chdl(void *varg) {
 	class CMindstormsGroup *robot;
 	double angle1;
 	double angle2;
+	double angle3;
+	double angle4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
 	angle1 = Ch_VaArg(interp, ap, double);
 	angle2 = Ch_VaArg(interp, ap, double);
-	retval = robot->moveToByTrackPos(angle1, angle2);
+	angle3 = Ch_VaArg(interp, ap, double);
+	angle4 = Ch_VaArg(interp, ap, double);
+	retval = robot->moveToByTrackPos(angle1, angle2, angle3, angle4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -2383,13 +2335,17 @@ EXPORTCH int CMindstormsGroup_moveToByTrackPosNB_chdl(void *varg) {
 	class CMindstormsGroup *robot;
 	double angle1;
 	double angle2;
+	double angle3;
+	double angle4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
 	angle1 = Ch_VaArg(interp, ap, double);
 	angle2 = Ch_VaArg(interp, ap, double);
-	retval = robot->moveToByTrackPosNB(angle1, angle2);
+	angle3 = Ch_VaArg(interp, ap, double);
+	angle4 = Ch_VaArg(interp, ap, double);
+	retval = robot->moveToByTrackPosNB(angle1, angle2, angle3, angle4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -2615,14 +2571,19 @@ EXPORTCH int CMindstormsGroup_setJointSpeeds_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	double speed1, speed2;
+	double speed1;
+	double speed2;
+	double speed3;
+	double speed4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
 	speed1 = Ch_VaArg(interp, ap, double);
 	speed2 = Ch_VaArg(interp, ap, double);
-	retval = robot->setJointSpeeds(speed1, speed2);
+	speed3 = Ch_VaArg(interp, ap, double);
+	speed4 = Ch_VaArg(interp, ap, double);
+	retval = robot->setJointSpeeds(speed1, speed2, speed3, speed4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -2650,13 +2611,17 @@ EXPORTCH int CMindstormsGroup_setJointSpeedRatios_chdl(void *varg) {
 	class CMindstormsGroup *robot;
 	double ratio1;
 	double ratio2;
+	double ratio3;
+	double ratio4;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
 	ratio1 = Ch_VaArg(interp, ap, double);
 	ratio2 = Ch_VaArg(interp, ap, double);
-	retval = robot->setJointSpeedRatios(ratio1, ratio2);
+	ratio3 = Ch_VaArg(interp, ap, double);
+	ratio4 = Ch_VaArg(interp, ap, double);
+	retval = robot->setJointSpeedRatios(ratio1, ratio2, ratio3, ratio4);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }

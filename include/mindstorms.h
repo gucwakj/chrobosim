@@ -58,16 +58,16 @@ class DLLIMPORT CMindstorms {
 		int getJointAngle(int id, double &angle, ... );
 		int getJointAngleAverage(int id, double &angle, ... );		// deprecated
 		int getJointAngleInstant(int id, double &angle);
-		int getJointAngles(double &angle1, double &angle2, ...);
-		int getJointAnglesAverage(double &angle1, double &angle2, ...);		// deprecated
-		int getJointAnglesInstant(double &angle1, double &angle2);
+		int getJointAngles(double &angle1, double &angle2, double &angle3, double &angle4, ...);
+		int getJointAnglesAverage(double &angle1, double &angle2, double &angle3, double &angle4, ...);		// deprecated
+		int getJointAnglesInstant(double &angle1, double &angle2, double &angle3, double &angle4);
 		int getJointMaxSpeed(int id, double &maxSpeed);
 		int getJointSafetyAngle(double &angle);
 		int getJointSafetyAngleTimeout(double &seconds);
 		int getJointSpeed(int id, double &speed);
 		int getJointSpeedRatio(int id, double &ratio);
-		int getJointSpeeds(double &speed1, double &speed2);
-		int getJointSpeedRatios(double &ratio1, double &ratio2);
+		int getJointSpeeds(double &speed1, double &speed2, double &speed3, double &speed4);
+		int getJointSpeedRatios(double &ratio1, double &ratio2, double &ratio3, double &ratio4);
 		int getxy(double &x, double &y);
 		int holdJoint(int id);
 		int holdJoints(void);
@@ -80,8 +80,8 @@ class DLLIMPORT CMindstorms {
 		int jumpTo(double angle1, double angle2);		// deprecated
 		int jumpToNB(double angle1, double angle2);		// deprecated
 		int line(double x1, double y1, double z1, double x2, double y2, double z2, int linewidth, char *color);
-		int move(double angle1, double angle2);
-		int moveNB(double angle1, double angle2);
+		int move(double angle1, double angle2, double angle3, ...);
+		int moveNB(double angle1, double angle2, double angle3, ...);
 		int moveBackward(double angle);		// deprecated
 		int moveBackwardNB(double angle);		// deprecated
 		int moveDistance(double distance, double radius);		// deprecated
@@ -102,10 +102,10 @@ class DLLIMPORT CMindstorms {
 		int moveJointWait(int id);
 		int moveTime(double seconds);
 		int moveTimeNB(double seconds);
-		int moveTo(double angle1, double angle2);
-		int moveToNB(double angle1, double angle2);
-		int moveToByTrackPos(double angle1, double angle2);
-		int moveToByTrackPosNB(double angle1, double angle2);
+		int moveTo(double angle1, double angle2, double angle3, ...);
+		int moveToNB(double angle1, double angle2, double angle3, ...);
+		int moveToByTrackPos(double angle1, double angle2, angle3, ...);
+		int moveToByTrackPosNB(double angle1, double angle2, angle3, ...);
 		int moveToZero(void);
 		int moveToZeroNB(void);
 		int moveWait(void);
@@ -122,14 +122,14 @@ class DLLIMPORT CMindstorms {
 		int recordAngle(int id, double time[:], double angle[:], int num, double seconds, ...);
 		int recordAngleBegin(int id, robotRecordData_t &time, robotRecordData_t &angle, double seconds, ...);
 		int recordAngleEnd(int id, int &num);
-		int recordAngles(double time[:], double angle1[:], double angle2[:], int num, double seconds, ...);
-		int recordAnglesBegin(robotRecordData_t &time, robotRecordData_t &a1, robotRecordData_t &a2, robotRecordData_t &a3, double seconds, ...);
-		int recordAnglesEnd(int &num);
+		//int recordAngles(double time[:], double angle1[:], double angle2[:], int num, double seconds, ...);
+		//int recordAnglesBegin(robotRecordData_t &time, robotRecordData_t &a1, robotRecordData_t &a2, robotRecordData_t &a3, double seconds, ...);
+		//int recordAnglesEnd(int &num);
 		int recordDistanceBegin(robotRecordData_t &time, robotRecordData_t &distance, double radius, double seconds);
 		int recordDistanceEnd(int &num);
 		int recordDistanceOffset(double distance);
-		int recordDistancesBegin(robotRecordData_t &time, robotRecordData_t &d1, robotRecordData_t &d2, robotRecordData_t &d3, double radius, double seconds, ...);
-		int recordDistancesEnd(int &num);
+		//int recordDistancesBegin(robotRecordData_t &time, robotRecordData_t &d1, robotRecordData_t &d2, robotRecordData_t &d3, double radius, double seconds, ...);
+		//int recordDistancesEnd(int &num);
 		int recordNoDataShift(void);
 		int recordWait(void);
 		int recordxyBegin(robotRecordData_t &x, robotRecordData_t &y, double seconds, ...);
@@ -154,9 +154,9 @@ class DLLIMPORT CMindstorms {
 		int setJointSafetyAngle(double angle);
 		int setJointSafetyAngleTimeout(double seconds);
 		int setJointSpeed(int id, double speed);
-		int setJointSpeeds(double speed1, double speed2);
+		int setJointSpeeds(double speed1, double speed2, double speed3, ...);
 		int setJointSpeedRatio(int id, double ratio);
-		int setJointSpeedRatios(double ratios1, double ratios2);
+		int setJointSpeedRatios(double ratios1, double ratios2, double ratios3, ...);
 		int setMotorPower(int id, int power);		// deprecated
 		int setMovementStateNB(int dir1, int dir2, int dir3);		// deprecated
 		int setMovementStateTime(int dir1, int dir2, int dir3, double seconds);		// deprecated
@@ -210,8 +210,8 @@ class DLLIMPORT CMindstormsGroup {
 		int jumpJointToNB(int id, double angle);		// deprecated
 		int jumpTo(double angle1, double angle2);		// deprecated
 		int jumpToNB(double angle1, double angle2);		// deprecated
-		int move(double angle1, double angle2);
-		int moveNB(double angle1, double angle2);
+		int move(double angle1, double angle2, double angle3, ...);
+		int moveNB(double angle1, double angle2, double angle3, ...);
 		int moveBackward(double angle);		// deprecated
 		int moveBackwardNB(double angle);		// deprecated
 		int moveDistance(double distance, double radius);		// deprecated
@@ -232,10 +232,10 @@ class DLLIMPORT CMindstormsGroup {
 		int moveJointWait(int id);
 		int moveTime(double seconds);
 		int moveTimeNB(double seconds);
-		int moveTo(double angle1, double angle2);
-		int moveToNB(double angle1, double angle2);
-		int moveToByTrackPos(double angle1, double angle2);
-		int moveToByTrackPosNB(double angle1, double angle2);
+		int moveTo(double angle1, double angle2, double angle3, ...);
+		int moveToNB(double angle1, double angle2, double angle3, ...);
+		int moveToByTrackPos(double angle1, double angle2, double angle3, ...);
+		int moveToByTrackPosNB(double angle1, double angle2, double angle3, ...);
 		int moveToZero(void);
 		int moveToZeroNB(void);
 		int moveWait(void);
@@ -259,9 +259,9 @@ class DLLIMPORT CMindstormsGroup {
 		int setJointSafetyAngle(double angle);
 		int setJointSafetyAngleTimeout(double seconds);
 		int setJointSpeed(int id, double speed);
-		int setJointSpeeds(double speed1, double speed2);
+		int setJointSpeeds(double speed1, double speed2, double speed3, ...);
 		int setJointSpeedRatio(int id, double ratio);
-		int setJointSpeedRatios(double ratios1, double ratios2);
+		int setJointSpeedRatios(double ratios1, double ratios2, double ratio3, ...);
 		int setMotorPower(int id, int power);		// deprecated
 		int setMovementStateNB(int dir1, int dir2, int dir3);		// deprecated
 		int setMovementStateTime(int dir1, int dir2, int dir3, double seconds);		// deprecated
