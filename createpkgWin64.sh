@@ -64,9 +64,9 @@ mkdir -p $PKGDIR/bin/plugins/platforms
 cp C:/Qt/5.4.1/5.4/msvc2013_64_opengl/plugins/platforms/qwindows.dll $PKGDIR/bin/plugins/platforms
 cp $PKGDIR/dl/Microsoft.VC120.CRT/msvcr120.dll $PKGDIR/bin
 cp $PKGDIR/dl/Microsoft.VC120.CRT/msvcp120.dll $PKGDIR/bin
-#mkdir $PKGDIR/docs
-#cp ../../docs/robosim.pdf $PKGDIR/docs
-#cp ../../docs/images/robosim.png $PKGDIR/docs
+mkdir $PKGDIR/docs
+cp $ROOT/../RoboSim/docs/robosim.pdf $PKGDIR/docs
+cp $ROOT/../RoboSim/docs/pictures/robosim.png $PKGDIR/docs
 mkdir $PKGDIR/data
 cp -R $ROOT/../librs/resources/background $PKGDIR/data
 cp -R $ROOT/../librs/resources/linkbot $PKGDIR/data
