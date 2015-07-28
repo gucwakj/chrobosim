@@ -699,6 +699,19 @@ int CMindstorms::getJointSpeedRatios(double &ratio1, double &ratio2, double &rat
 	return retval;
 }
 
+int CMindstorms::getPosition(double &x, double &y, double &angle) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_getPosition_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, &x, &y, &angle);
+	return retval;
+}
+
 int CMindstorms::getxy(double &x, double &y) {
 	void *fptr;
 	int retval;

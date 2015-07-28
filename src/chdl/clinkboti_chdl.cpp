@@ -992,6 +992,25 @@ EXPORTCH int CLinkbotI_getJointSpeedRatios_chdl(void *varg) {
 	return retval;
 }
 
+EXPORTCH int CLinkbotI_getPosition_chdl(void *varg) {
+	ChInterp_t interp;
+	ChVaList_t ap;
+	class CLinkbotI *robot;
+	double *x;
+	double *y;
+	double *angle;
+	int retval;
+
+	Ch_VaStart(interp, ap, varg);
+	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
+	x = Ch_VaArg(interp, ap, double *);
+	y = Ch_VaArg(interp, ap, double *);
+	angle = Ch_VaArg(interp, ap, double *);
+	retval = robot->getPosition(*x, *y, *angle);
+	Ch_VaEnd(interp, ap);
+	return retval;
+}
+
 EXPORTCH int CLinkbotI_getxy_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;

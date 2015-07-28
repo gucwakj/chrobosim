@@ -705,6 +705,25 @@ EXPORTCH int CMindstorms_getJointSpeedRatios_chdl(void *varg) {
 	return retval;
 }
 
+EXPORTCH int CMindstorms_getPosition_chdl(void *varg) {
+	ChInterp_t interp;
+	ChVaList_t ap;
+	class CMindstorms *robot;
+	double *x;
+	double *y;
+	double *angle;
+	int retval;
+
+	Ch_VaStart(interp, ap, varg);
+	robot = Ch_VaArg(interp, ap, class CMindstorms *);
+	x = Ch_VaArg(interp, ap, double *);
+	y = Ch_VaArg(interp, ap, double *);
+	angle = Ch_VaArg(interp, ap, double *);
+	retval = robot->getPosition(*x, *y, *angle);
+	Ch_VaEnd(interp, ap);
+	return retval;
+}
+
 EXPORTCH int CMindstorms_getxy_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
