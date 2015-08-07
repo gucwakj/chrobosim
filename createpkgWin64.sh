@@ -9,6 +9,7 @@ echo Building $PACKAGE-$VERSION.zip ...
 rm -rf $PACKAGE-$VERSION
 rm -rf $PACKAGE-$VERSION.zip
 mkdir -p $PKGDIR
+
 cp $ROOT/COPYRIGHT $PKGDIR
 cp $ROOT/CHANGELOG $PKGDIR
 mkdir $PKGDIR/lib
@@ -71,8 +72,8 @@ mkdir $PKGDIR/data
 cp -R $ROOT/../librs/resources/background $PKGDIR/data
 cp -R $ROOT/../librs/resources/linkbot $PKGDIR/data
 cp -R $ROOT/../librs/resources/mindstorms $PKGDIR/data
-
 cp $ROOT/Makefile $PACKAGE-$VERSION
 cp $ROOT/pkginstall.ch $PACKAGE-$VERSION
+
 zip -rq $PACKAGE-$VERSION.zip $PACKAGE-$VERSION
 echo Done Building $PACKAGE-$VERSION
