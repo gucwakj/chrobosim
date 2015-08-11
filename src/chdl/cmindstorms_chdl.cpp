@@ -497,20 +497,21 @@ EXPORTCH int CMindstorms_getJointAngle_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	int id;
+	rsMindstorms::Bodies::Joint id;
 	double* angle;
 	int numReadings;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, int);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	angle = Ch_VaArg(interp, ap, double *);
-	if(Ch_VaCount(interp, ap) == 1) {
+	if (Ch_VaCount(interp, ap) == 1) {
 	  numReadings = Ch_VaArg(interp, ap, int);
-	  retval = robot->getJointAngle((rsLinkbot::Joint)id, *angle, numReadings);
-	} else {
-	  retval = robot->getJointAngle((rsLinkbot::Joint)id, *angle);
+	  retval = robot->getJointAngle(id, *angle, numReadings);
+	}
+	else {
+	  retval = robot->getJointAngle(id, *angle);
 	}
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -520,15 +521,15 @@ EXPORTCH int CMindstorms_getJointAngleInstant_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	int id;
+	rsMindstorms::Bodies::Joint id;
 	double* angle;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, int);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	angle = Ch_VaArg(interp, ap, double *);
-	retval = robot->getJointAngleInstant((rsLinkbot::Joint)id, *angle);
+	retval = robot->getJointAngleInstant(id, *angle);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -586,15 +587,15 @@ EXPORTCH int CMindstorms_getJointMaxSpeed_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	int id;
+	rsMindstorms::Bodies::Joint id;
 	double *speed;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, int);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	speed = Ch_VaArg(interp, ap, double *);
-	retval = robot->getJointMaxSpeed((rsLinkbot::Joint)id, *speed);
+	retval = robot->getJointMaxSpeed(id, *speed);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -633,15 +634,15 @@ EXPORTCH int CMindstorms_getJointSpeed_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	int id;
+	rsMindstorms::Bodies::Joint id;
 	double *speed;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, int);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	speed = Ch_VaArg(interp, ap, double *);
-	retval = robot->getJointSpeed((rsLinkbot::Joint)id, *speed);
+	retval = robot->getJointSpeed(id, *speed);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -671,15 +672,15 @@ EXPORTCH int CMindstorms_getJointSpeedRatio_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	int id;
+	rsMindstorms::Bodies::Joint id;
 	double *speed;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, int);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	speed = Ch_VaArg(interp, ap, double *);
-	retval = robot->getJointSpeedRatio((rsLinkbot::Joint)id, *speed);
+	retval = robot->getJointSpeedRatio(id, *speed);
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -745,12 +746,12 @@ EXPORTCH int CMindstorms_holdJoint_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	retval = robot->holdJoint(id);
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -880,13 +881,13 @@ EXPORTCH int CMindstorms_moveJoint_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double angle;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	angle = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJoint(id, angle);
 	Ch_VaEnd(interp, ap);
@@ -897,13 +898,13 @@ EXPORTCH int CMindstorms_moveJointNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double angle;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	angle = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJointNB(id, angle);
 	Ch_VaEnd(interp, ap);
@@ -914,13 +915,13 @@ EXPORTCH int CMindstorms_moveJointByPowerNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	int power;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	power = Ch_VaArg(interp, ap, int);
 	retval = robot->moveJointByPowerNB(id, power);
 	Ch_VaEnd(interp, ap);
@@ -931,12 +932,12 @@ EXPORTCH int CMindstorms_moveJointForeverNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint );
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint );
 	retval = robot->moveJointForeverNB(id);
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -946,13 +947,13 @@ EXPORTCH int CMindstorms_moveJointTime_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double seconds;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	seconds = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJointTime(id, seconds);
 	Ch_VaEnd(interp, ap);
@@ -963,13 +964,13 @@ EXPORTCH int CMindstorms_moveJointTimeNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double seconds;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	seconds = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJointTimeNB(id, seconds);
 	Ch_VaEnd(interp, ap);
@@ -980,13 +981,13 @@ EXPORTCH int CMindstorms_moveJointTo_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double angle;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	angle = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJointTo(id, angle);
 	Ch_VaEnd(interp, ap);
@@ -997,13 +998,13 @@ EXPORTCH int CMindstorms_moveJointToNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double angle;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	angle = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJointToNB(id, angle);
 	Ch_VaEnd(interp, ap);
@@ -1014,13 +1015,13 @@ EXPORTCH int CMindstorms_moveJointToByTrackPos_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double angle;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	angle = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJointToByTrackPos(id, angle);
 	Ch_VaEnd(interp, ap);
@@ -1031,13 +1032,13 @@ EXPORTCH int CMindstorms_moveJointToByTrackPosNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double angle;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	angle = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJointToByTrackPosNB(id, angle);
 	Ch_VaEnd(interp, ap);
@@ -1048,12 +1049,12 @@ EXPORTCH int CMindstorms_moveJointWait_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	retval = robot->moveJointWait(id);
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -1216,7 +1217,7 @@ EXPORTCH int CMindstorms_recordAngle_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double* time;
 	double* angle;
 	int num;
@@ -1226,16 +1227,17 @@ EXPORTCH int CMindstorms_recordAngle_chdl(void *varg) {
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	time = Ch_VaArg(interp, ap, double*);
 	angle = Ch_VaArg(interp, ap, double*);
 	num = Ch_VaArg(interp, ap, int);
 	seconds = Ch_VaArg(interp, ap, double);
 	if(Ch_VaCount(interp, ap) == 1) {
-	  shiftData = Ch_VaArg(interp, ap, int);
-	  retval = robot->recordAngle(id, time, angle, num, seconds, shiftData);
-	} else {
-	  retval = robot->recordAngle(id, time, angle, num, seconds);
+		shiftData = Ch_VaArg(interp, ap, int);
+		retval = robot->recordAngle(id, time, angle, num, seconds, shiftData);
+	}
+	else {
+		retval = robot->recordAngle(id, time, angle, num, seconds);
 	}
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -1245,7 +1247,7 @@ EXPORTCH int CMindstorms_recordAngleBegin_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double** time;
 	double** angle;
 	double seconds;
@@ -1254,15 +1256,16 @@ EXPORTCH int CMindstorms_recordAngleBegin_chdl(void *varg) {
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	time = Ch_VaArg(interp, ap, double**);
 	angle = Ch_VaArg(interp, ap, double**);
 	seconds = Ch_VaArg(interp, ap, double);
 	if(Ch_VaCount(interp, ap) == 1) {
-	  shiftData = Ch_VaArg(interp, ap, int);
-	  retval = robot->recordAngleBegin(id, *time, *angle, seconds, shiftData);
-	} else {
-	  retval = robot->recordAngleBegin(id, *time, *angle, seconds);
+		shiftData = Ch_VaArg(interp, ap, int);
+		retval = robot->recordAngleBegin(id, *time, *angle, seconds, shiftData);
+	}
+	else {
+		retval = robot->recordAngleBegin(id, *time, *angle, seconds);
 	}
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -1272,14 +1275,14 @@ EXPORTCH int CMindstorms_recordAngleEnd_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	int *num;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
-	num = Ch_VaArg(interp, ap, int* );
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
+	num = Ch_VaArg(interp, ap, int *);
 	retval = robot->recordAngleEnd(id, *num);
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -1289,7 +1292,7 @@ EXPORTCH int CMindstorms_recordDistanceBegin_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double** time;
 	double** angle;
 	double radius;
@@ -1299,7 +1302,7 @@ EXPORTCH int CMindstorms_recordDistanceBegin_chdl(void *varg) {
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	time = Ch_VaArg(interp, ap, double**);
 	angle = Ch_VaArg(interp, ap, double**);
 	radius = Ch_VaArg(interp, ap, double);
@@ -1318,14 +1321,14 @@ EXPORTCH int CMindstorms_recordDistanceEnd_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	int *num;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
-	num = Ch_VaArg(interp, ap, int* );
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
+	num = Ch_VaArg(interp, ap, int *);
 	retval = robot->recordDistanceEnd(id, *num);
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -1404,12 +1407,12 @@ EXPORTCH int CMindstorms_relaxJoint_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	retval = robot->relaxJoint(id);
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -1565,13 +1568,13 @@ EXPORTCH int CMindstorms_setJointSpeed_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double speed;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	speed = Ch_VaArg(interp, ap, double);
 	retval = robot->setJointSpeed(id, speed);
 	Ch_VaEnd(interp, ap);
@@ -1603,13 +1606,13 @@ EXPORTCH int CMindstorms_setJointSpeedRatio_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstorms *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double speed;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	speed = Ch_VaArg(interp, ap, double);
 	retval = robot->setJointSpeedRatio(id, speed);
 	Ch_VaEnd(interp, ap);
@@ -1954,12 +1957,12 @@ EXPORTCH int CMindstormsGroup_holdJoint_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	retval = robot->holdJoint(id);
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -2076,13 +2079,13 @@ EXPORTCH int CMindstormsGroup_moveJoint_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double angle;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	angle = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJoint(id, angle);
 	Ch_VaEnd(interp, ap);
@@ -2093,13 +2096,13 @@ EXPORTCH int CMindstormsGroup_moveJointNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double angle;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	angle = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJointNB(id, angle);
 	Ch_VaEnd(interp, ap);
@@ -2110,13 +2113,13 @@ EXPORTCH int CMindstormsGroup_moveJointByPowerNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	int power;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	power = Ch_VaArg(interp, ap, int);
 	retval = robot->moveJointByPowerNB(id, power);
 	Ch_VaEnd(interp, ap);
@@ -2127,12 +2130,12 @@ EXPORTCH int CMindstormsGroup_moveJointForeverNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint );
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint );
 	retval = robot->moveJointForeverNB(id);
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -2142,13 +2145,13 @@ EXPORTCH int CMindstormsGroup_moveJointTime_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double seconds;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	seconds = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJointTime(id, seconds);
 	Ch_VaEnd(interp, ap);
@@ -2159,13 +2162,13 @@ EXPORTCH int CMindstormsGroup_moveJointTimeNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double seconds;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	seconds = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJointTimeNB(id, seconds);
 	Ch_VaEnd(interp, ap);
@@ -2176,13 +2179,13 @@ EXPORTCH int CMindstormsGroup_moveJointTo_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double angle;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	angle = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJointTo(id, angle);
 	Ch_VaEnd(interp, ap);
@@ -2193,13 +2196,13 @@ EXPORTCH int CMindstormsGroup_moveJointToNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double angle;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	angle = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJointToNB(id, angle);
 	Ch_VaEnd(interp, ap);
@@ -2210,13 +2213,13 @@ EXPORTCH int CMindstormsGroup_moveJointToByTrackPos_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double angle;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	angle = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJointToByTrackPos(id, angle);
 	Ch_VaEnd(interp, ap);
@@ -2227,13 +2230,13 @@ EXPORTCH int CMindstormsGroup_moveJointToByTrackPosNB_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double angle;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	angle = Ch_VaArg(interp, ap, double);
 	retval = robot->moveJointToByTrackPosNB(id, angle);
 	Ch_VaEnd(interp, ap);
@@ -2244,12 +2247,12 @@ EXPORTCH int CMindstormsGroup_moveJointWait_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	retval = robot->moveJointWait(id);
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -2412,12 +2415,12 @@ EXPORTCH int CMindstormsGroup_relaxJoint_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	retval = robot->relaxJoint(id);
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -2573,13 +2576,13 @@ EXPORTCH int CMindstormsGroup_setJointSpeed_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double speed;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	speed = Ch_VaArg(interp, ap, double);
 	retval = robot->setJointSpeed(id, speed);
 	Ch_VaEnd(interp, ap);
@@ -2611,13 +2614,13 @@ EXPORTCH int CMindstormsGroup_setJointSpeedRatio_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
 	class CMindstormsGroup *robot;
-	rsLinkbot::Joint id;
+	rsMindstorms::Bodies::Joint id;
 	double speed;
 	int retval;
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Joint);
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	speed = Ch_VaArg(interp, ap, double);
 	retval = robot->setJointSpeedRatio(id, speed);
 	Ch_VaEnd(interp, ap);
