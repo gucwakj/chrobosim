@@ -1400,6 +1400,20 @@ int CMindstorms::recordDistanceOffset(double distance) {
 	return retval;
 }
 
+int CMindstorms::recordDistancesBegin(double* &time, double* &d1, double* &d2, double* &d3, double* &d4, double radius, double seconds, ...) {
+	DEPRECATED("recordDistancesBegin", "");
+
+	// success
+	return 0;
+}
+
+int CMindstorms::recordDistancesEnd(int &num) {
+	DEPRECATED("recordDistancesEnd", "");
+
+	// success
+	return 0;
+}
+
 int CMindstorms::recordNoDataShift(void) {
 	void *fptr;
 	int retval;

@@ -1647,39 +1647,17 @@ int CLinkbotI::recordDistanceOffset(double distance) {
 }
 
 int CLinkbotI::recordDistancesBegin(double* &time, double* &d1, double* &d2, double* &d3, double radius, double seconds, ...) {
-	void *fptr;
-	int retval;
-	int shiftData;
-	va_list ap;
-	va_start(ap, seconds);
+	DEPRECATED("recordDistancesBegin", "");
 
-	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotI_recordDistancesBegin_chdl");
-	if(fptr == NULL) {
-		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
-		return -1;
-	}
-	if(va_count(ap) == 1) {
-		shiftData = va_arg(ap, int);
-		dlrunfun(fptr, &retval, NULL, this, &time, &d1, &d2, &d3, radius, seconds, shiftData);
-	}
-	else {
-		dlrunfun(fptr, &retval, NULL, this, &time, &d1, &d2, &d3, radius, seconds);
-	}
-	va_end(ap);
-	return retval;
+	// success
+	return 0;
 }
 
 int CLinkbotI::recordDistancesEnd(int &num) {
-	void *fptr;
-	int retval;
+	DEPRECATED("recordDistancesEnd", "");
 
-	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotI_recordDistancesEnd_chdl");
-	if(fptr == NULL) {
-		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
-		return -1;
-	}
-	dlrunfun(fptr, &retval, NULL, this, &num);
-	return retval;
+	// success
+	return 0;
 }
 
 int CLinkbotI::recordNoDataShift(void) {

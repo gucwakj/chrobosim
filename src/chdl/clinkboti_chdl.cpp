@@ -1668,53 +1668,6 @@ EXPORTCH int CLinkbotI_recordDistanceOffset_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLinkbotI_recordDistancesBegin_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CLinkbotI *robot;
-	double** time;
-	double** angle1;
-	double** angle2;
-	double** angle3;
-	double radius;
-	double seconds;
-	int shiftData;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
-	time = Ch_VaArg(interp, ap, double**);
-	angle1 = Ch_VaArg(interp, ap, double**);
-	angle2 = Ch_VaArg(interp, ap, double**);
-	angle3 = Ch_VaArg(interp, ap, double**);
-	radius = Ch_VaArg(interp, ap, double);
-	seconds = Ch_VaArg(interp, ap, double);
-	if(Ch_VaCount(interp, ap) == 1) {
-		shiftData = Ch_VaArg(interp, ap, int);
-		retval = robot->recordDistancesBegin(*time, *angle1, *angle2, *angle3, radius, seconds, shiftData);
-	}
-	else {
-		retval = robot->recordDistancesBegin(*time, *angle1, *angle2, *angle3, radius, seconds);
-	}
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
-EXPORTCH int CLinkbotI_recordDistancesEnd_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CLinkbotI *robot;
-	int retval;
-	int *num;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
-	num = Ch_VaArg(interp, ap, int*);
-	retval = robot->recordDistancesEnd(*num);
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
 EXPORTCH int CLinkbotI_recordWait_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;

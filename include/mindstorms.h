@@ -129,8 +129,8 @@ class DLLIMPORT CMindstorms {
 		int recordDistanceBegin(robotRecordData_t &time, robotRecordData_t &distance, double radius, double seconds);
 		int recordDistanceEnd(int &num);
 		int recordDistanceOffset(double distance);
-		//int recordDistancesBegin(robotRecordData_t &time, robotRecordData_t &d1, robotRecordData_t &d2, robotRecordData_t &d3, double radius, double seconds, ...);
-		//int recordDistancesEnd(int &num);
+		int recordDistancesBegin(robotRecordData_t &time, robotRecordData_t &d1, robotRecordData_t &d2, robotRecordData_t &d3, robotRecordData_t &d4, double radius, double seconds, ...);		// deprecated
+		int recordDistancesEnd(int &num);		// deprecated
 		int recordNoDataShift(void);
 		int recordWait(void);
 		int recordxyBegin(robotRecordData_t &x, robotRecordData_t &y, double seconds, ...);
