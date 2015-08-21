@@ -1518,35 +1518,6 @@ EXPORTCH int CLinkbotI_openGripperNB_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLinkbotI_recordAngle_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CLinkbotI *robot;
-	rsLinkbot::Bodies::Joint id;
-	double* time;
-	double* angle;
-	int num;
-	double seconds;
-	int shiftData;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Bodies::Joint);
-	time = Ch_VaArg(interp, ap, double*);
-	angle = Ch_VaArg(interp, ap, double*);
-	num = Ch_VaArg(interp, ap, int);
-	seconds = Ch_VaArg(interp, ap, double);
-	if(Ch_VaCount(interp, ap) == 1) {
-	  shiftData = Ch_VaArg(interp, ap, int);
-	  retval = robot->recordAngle(id, time, angle, num, seconds, shiftData);
-	} else {
-	  retval = robot->recordAngle(id, time, angle, num, seconds);
-	}
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
 EXPORTCH int CLinkbotI_recordAngleBegin_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
@@ -1587,37 +1558,6 @@ EXPORTCH int CLinkbotI_recordAngleEnd_chdl(void *varg) {
 	id = Ch_VaArg(interp, ap, rsLinkbot::Bodies::Joint);
 	num = Ch_VaArg(interp, ap, int* );
 	retval = robot->recordAngleEnd(id, *num);
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
-EXPORTCH int CLinkbotI_recordAngles_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CLinkbotI *robot;
-	double* time;
-	double* angle1;
-	double* angle2;
-	double* angle3;
-	int num;
-	double seconds;
-	int shiftData;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
-	time = Ch_VaArg(interp, ap, double*);
-	angle1 = Ch_VaArg(interp, ap, double*);
-	angle2 = Ch_VaArg(interp, ap, double*);
-	angle3 = Ch_VaArg(interp, ap, double*);
-	num = Ch_VaArg(interp, ap, int);
-	seconds = Ch_VaArg(interp, ap, double);
-	if(Ch_VaCount(interp, ap) == 1) {
-	  shiftData = Ch_VaArg(interp, ap, int);
-	  retval = robot->recordAngles(time, angle1, angle2, angle3, num, seconds, shiftData);
-	} else {
-	  retval = robot->recordAngles(time, angle1, angle2, angle3, num, seconds);
-	}
 	Ch_VaEnd(interp, ap);
 	return retval;
 }

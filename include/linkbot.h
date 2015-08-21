@@ -138,10 +138,10 @@ class DLLIMPORT CLinkbotI {
 		int openGripper(double angle);
 		int openGripperNB(double angle);
 		int point(double x, double y, double z, int pointsize, char *color);
-		int recordAngle(int id, double time[:], double angle[:], int num, double seconds, ...);
+		int recordAngle(int id, double time[:], double angle[:], int num, double seconds, ...);		// deprecated
 		int recordAngleBegin(int id, robotRecordData_t &time, robotRecordData_t &angle, double seconds, ...);
 		int recordAngleEnd(int id, int &num);
-		int recordAngles(double time[:], double angle1[:], double angle2[:], double angle3[:], int num, double seconds, ...);
+		int recordAngles(double time[:], double angle1[:], double angle2[:], double angle3[:], int num, double seconds, ...);		// deprecated
 		int recordAnglesBegin(robotRecordData_t &time, robotRecordData_t &a1, robotRecordData_t &a2, robotRecordData_t &a3, double seconds, ...);
 		int recordAnglesEnd(int &num);
 		int recordDistanceBegin(robotRecordData_t &time, robotRecordData_t &distance, double radius, double seconds);
@@ -405,10 +405,10 @@ class DLLIMPORT CLinkbotL {
 		int openGripper(double angle);
 		int openGripperNB(double angle);
 		int point(double x, double y, double z, int pointsize, char *color);
-		int recordAngle(int id, double time[:], double angle[:], int num, double seconds, ...);
+		int recordAngle(int id, double time[:], double angle[:], int num, double seconds, ...);		// deprecated
 		int recordAngleBegin(int id, robotRecordData_t &time, robotRecordData_t &angle, double seconds, ...);
 		int recordAngleEnd(int id, int &num);
-		int recordAngles(double time[:], double angle1[:], double angle2[:], double angle3[:], int num, double seconds, ...);
+		int recordAngles(double time[:], double angle1[:], double angle2[:], double angle3[:], int num, double seconds, ...);		// deprecated
 		int recordAnglesBegin(robotRecordData_t &time, robotRecordData_t &a1, robotRecordData_t &a2, robotRecordData_t &a3, double seconds, ...);
 		int recordAnglesEnd(int &num);
 		int recordDistanceBegin(robotRecordData_t &time, robotRecordData_t &distance, double radius, double seconds);

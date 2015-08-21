@@ -1213,36 +1213,6 @@ EXPORTCH int CMindstorms_moveWait_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CMindstorms_recordAngle_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CMindstorms *robot;
-	rsMindstorms::Bodies::Joint id;
-	double* time;
-	double* angle;
-	int num;
-	double seconds;
-	int shiftData;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
-	time = Ch_VaArg(interp, ap, double*);
-	angle = Ch_VaArg(interp, ap, double*);
-	num = Ch_VaArg(interp, ap, int);
-	seconds = Ch_VaArg(interp, ap, double);
-	if(Ch_VaCount(interp, ap) == 1) {
-		shiftData = Ch_VaArg(interp, ap, int);
-		retval = robot->recordAngle(id, time, angle, num, seconds, shiftData);
-	}
-	else {
-		retval = robot->recordAngle(id, time, angle, num, seconds);
-	}
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
 EXPORTCH int CMindstorms_recordAngleBegin_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;

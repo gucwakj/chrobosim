@@ -1520,25 +1520,10 @@ int CLinkbotI::point(double x, double y, double z, int pointsize, char *color) {
 }
 
 int CLinkbotI::recordAngle(int id, double time[:], double angle[:], int num, double seconds, ...) {
-	void *fptr;
-	int retval;
-	va_list ap;
-	int shiftData;
-	va_start(ap, seconds);
+	DEPRECATED("recordAngle", "recordAngleBegin");
 
-	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotI_recordAngle_chdl");
-	if(fptr == NULL) {
-		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
-		return -1;
-	}
-	if(va_count(ap) == 1) {
-		shiftData = va_arg(ap, int);
-		dlrunfun(fptr, &retval, recordAngle, this, id, time, angle, num, seconds, shiftData);
-	} else {
-		dlrunfun(fptr, &retval, recordAngle, this, id, time, angle, num, seconds);
-	}
-	va_end(ap);
-	return retval;
+	// success
+	return 0;
 }
 
 int CLinkbotI::recordAngleBegin(int id, double* &time, double* &angle, double seconds, ...) {
@@ -1577,25 +1562,10 @@ int CLinkbotI::recordAngleEnd(int id, int &num) {
 }
 
 int CLinkbotI::recordAngles(double time[:], double angle1[:], double angle2[:], double angle3[:], int num, double seconds, ...) {
-	void *fptr;
-	int retval;
-	va_list ap;
-	int shiftData;
-	va_start(ap, seconds);
+	DEPRECATED("recordAngles", "recordAnglesBegin");
 
-	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotI_recordAngles_chdl");
-	if(fptr == NULL) {
-		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
-		return -1;
-	}
-	if(va_count(ap) == 1) {
-		shiftData = va_arg(ap, int);
-		dlrunfun(fptr, &retval, recordAngles, this, time, angle1, angle2, angle3, num, seconds, shiftData);
-	}
-	else {
-		dlrunfun(fptr, &retval, recordAngles, this, time, angle1, angle2, angle3, num, seconds);
-	}
-	return retval;
+	// success
+	return 0;
 }
 
 int CLinkbotI::recordAnglesBegin(double* &time, double* &angle1, double* &angle2, double* &angle3, double seconds, ...) {
