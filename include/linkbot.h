@@ -142,7 +142,7 @@ class DLLIMPORT CLinkbotI {
 		int recordAngleBegin(int id, robotRecordData_t &time, robotRecordData_t &angle, double seconds, ...);
 		int recordAngleEnd(int id, int &num);
 		int recordAngles(double time[:], double angle1[:], double angle2[:], double angle3[:], int num, double seconds, ...);		// deprecated
-		int recordAnglesBegin(robotRecordData_t &time, robotRecordData_t &a1, robotRecordData_t &a2, robotRecordData_t &a3, double seconds, ...);
+		int recordAnglesBegin(robotRecordData_t &time, robotRecordData_t &a1, robotRecordData_t &a3, double seconds, ...);
 		int recordAnglesEnd(int &num);
 		int recordDistanceBegin(robotRecordData_t &time, robotRecordData_t &distance, double radius, double seconds);
 		int recordDistanceEnd(int &num);
@@ -409,7 +409,7 @@ class DLLIMPORT CLinkbotL {
 		int recordAngleBegin(int id, robotRecordData_t &time, robotRecordData_t &angle, double seconds, ...);
 		int recordAngleEnd(int id, int &num);
 		int recordAngles(double time[:], double angle1[:], double angle2[:], double angle3[:], int num, double seconds, ...);		// deprecated
-		int recordAnglesBegin(robotRecordData_t &time, robotRecordData_t &a1, robotRecordData_t &a2, robotRecordData_t &a3, double seconds, ...);
+		int recordAnglesBegin(robotRecordData_t &time, robotRecordData_t &a1, robotRecordData_t &a2, double seconds, ...);
 		int recordAnglesEnd(int &num);
 		int recordDistanceBegin(robotRecordData_t &time, robotRecordData_t &distance, double radius, double seconds);
 		int recordDistanceEnd(int &num);

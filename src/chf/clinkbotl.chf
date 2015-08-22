@@ -1079,7 +1079,7 @@ int CLinkbotL::recordAngles(double time[:], double angle1[:], double angle2[:], 
 	return 0;
 }
 
-int CLinkbotL::recordAnglesBegin(double* &time, double* &angle1, double* &angle2, double* &angle3, double seconds, ...) {
+int CLinkbotL::recordAnglesBegin(double* &time, double* &angle1, double* &angle2, double seconds, ...) {
 	void *fptr;
 	int retval;
 	int shiftData;
@@ -1093,10 +1093,10 @@ int CLinkbotL::recordAnglesBegin(double* &time, double* &angle1, double* &angle2
 	}
 	if(va_count(ap) == 1) {
 		shiftData = va_arg(ap, int);
-		dlrunfun(fptr, &retval, NULL, this, &time, &angle1, &angle2, &angle3, seconds, shiftData);
+		dlrunfun(fptr, &retval, NULL, this, &time, &angle1, &angle2, NULL, seconds, shiftData);
 	}
 	else {
-		dlrunfun(fptr, &retval, NULL, this, &time, &angle1, &angle2, &angle3, seconds);
+		dlrunfun(fptr, &retval, NULL, this, &time, &angle1, &angle2, NULL, seconds);
 	}
 	va_end(ap);
 	return retval;

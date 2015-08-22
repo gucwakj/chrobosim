@@ -1258,6 +1258,49 @@ EXPORTCH int CMindstorms_recordAngleEnd_chdl(void *varg) {
 	return retval;
 }
 
+EXPORTCH int CMindstorms_recordAnglesBegin_chdl(void *varg) {
+	ChInterp_t interp;
+	ChVaList_t ap;
+	class CMindstorms *robot;
+	double** time;
+	double** angle1;
+	double** angle2;
+	double seconds;
+	int shiftData;
+	int retval;
+
+	Ch_VaStart(interp, ap, varg);
+	robot = Ch_VaArg(interp, ap, class CMindstorms *);
+	time = Ch_VaArg(interp, ap, double**);
+	angle1 = Ch_VaArg(interp, ap, double**);
+	angle2 = Ch_VaArg(interp, ap, double**);
+	seconds = Ch_VaArg(interp, ap, double);
+	if(Ch_VaCount(interp, ap) == 1) {
+		shiftData = Ch_VaArg(interp, ap, int);
+		retval = robot->recordAnglesBegin(*time, *angle1, *angle2, seconds, shiftData);
+	}
+	else {
+		retval = robot->recordAnglesBegin(*time, *angle1, *angle2, seconds);
+	}
+	Ch_VaEnd(interp, ap);
+	return retval;
+}
+
+EXPORTCH int CMindstorms_recordAnglesEnd_chdl(void *varg) {
+	ChInterp_t interp;
+	ChVaList_t ap;
+	class CMindstorms *robot;
+	int retval;
+	int *num;
+
+	Ch_VaStart(interp, ap, varg);
+	robot = Ch_VaArg(interp, ap, class CMindstorms *);
+	num = Ch_VaArg(interp, ap, int*);
+	retval = robot->recordAnglesEnd(*num);
+	Ch_VaEnd(interp, ap);
+	return retval;
+}
+
 EXPORTCH int CMindstorms_recordDistanceBegin_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
