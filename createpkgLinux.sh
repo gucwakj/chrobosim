@@ -57,6 +57,7 @@ mkdir $PKGDIR/data
 cp -R $ROOT/../librs/resources/background $PKGDIR/data
 cp -R $ROOT/../librs/resources/linkbot $PKGDIR/data
 cp -R $ROOT/../librs/resources/mindstorms $PKGDIR/data
+cp -R $ROOT/../librs/resources/obstacles $PKGDIR/data
 cp $ROOT/Makefile $PACKAGE-$VERSION
 cp $ROOT/pkginstall.ch $PACKAGE-$VERSION
 
