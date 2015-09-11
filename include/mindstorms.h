@@ -6,8 +6,6 @@
 #include "macros.h"
 #include "robosim.h"
 
-#define NUM_DOF 3
-
 class DLLIMPORT CMindstorms {
 	public:
 		CMindstorms(void);
