@@ -1351,7 +1351,7 @@ int CMindstorms::recordAngleEnd(int id, int &num) {
 	return retval;
 }
 
-int CMindstorms::recordAngles(int id, double time[:], double angle1[:], double angle2[:], double angle3[:], double angle4[:], int num, double seconds, ...) {
+int CMindstorms::recordAngles(double time[:], double angle1[:], double angle2[:], double angle3[:], double angle4[:], int num, double seconds, ...) {
 	DEPRECATED("recordAngles", "recordAnglesBegin");
 
 	// success
