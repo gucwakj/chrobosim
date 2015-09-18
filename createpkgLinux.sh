@@ -32,19 +32,19 @@ cp $ROOT/../librs/build/lib/librsSim.so $PKGDIR/so
 cp $ROOT/../librs/build/lib/librsCallback.so $PKGDIR/so
 cp $ROOT/../librs/build/lib/librsXML.so $PKGDIR/so
 cp $ROOT/../librs/deps/ode/sys/lib/libode.so.1 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.2.1/build/lib/libosg.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.2.1/build/lib/libosgDB.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.2.1/build/lib/libosgFX.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.2.1/build/lib/libosgGA.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.2.1/build/lib/libosgQt.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.2.1/build/lib/libosgShadow.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.2.1/build/lib/libosgText.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.2.1/build/lib/libosgUtil.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.2.1/build/lib/libosgViewer.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.2.1/build/lib/libOpenThreads.so.20 $PKGDIR/so
-mkdir $PKGDIR/so/osgPlugins-3.2.1
-cp $ROOT/../librs/deps/osg3.2.1/build/lib/osgPlugins-3.2.1/osgdb_png.so $PKGDIR/so/osgPlugins-3.2.1
-cp $ROOT/../librs/deps/osg3.2.1/build/lib/osgPlugins-3.2.1/osgdb_3ds.so $PKGDIR/so/osgPlugins-3.2.1
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosg.so.100 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgDB.so.100 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgFX.so.100 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgGA.so.100 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgQt.so.100 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgShadow.so.100 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgText.so.100 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgUtil.so.100 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgViewer.so.100 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libOpenThreads.so.20 $PKGDIR/so
+mkdir $PKGDIR/so/osgPlugins-3.4.0
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/osgPlugins-3.4.0/osgdb_png.so $PKGDIR/so/osgPlugins-3.4.0
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/osgPlugins-3.4.0/osgdb_3ds.so $PKGDIR/so/osgPlugins-3.4.0
 mkdir $PKGDIR/bin
 cp $ROOT/../RoboSim/build/bin/librobosimwidget.so $PKGDIR/bin
 cp $ROOT/../RoboSim/build/bin/RoboSim $PKGDIR/bin
