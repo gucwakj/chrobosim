@@ -4,6 +4,9 @@ project (ChRoboSim)
 # set minimum cmake version
 cmake_minimum_required (VERSION 2.8)
 
+# default to release build
+set (CMAKE_BUILD_TYPE Release)
+
 # specify -DCH_ROOT=C:/path/to/ch on the command line, or
 # set CH_ROOT as an environment variable, or
 # default to C:/Ch
