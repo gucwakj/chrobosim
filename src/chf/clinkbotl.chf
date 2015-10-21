@@ -1084,6 +1084,7 @@ int CLinkbotL::recordAnglesBegin(double* &time, double* &angle1, double* &angle2
 	int retval;
 	int shiftData;
 	va_list ap;
+	double *angle3;
 	va_start(ap, seconds);
 
 	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotL_recordAnglesBegin_chdl");
@@ -1093,10 +1094,10 @@ int CLinkbotL::recordAnglesBegin(double* &time, double* &angle1, double* &angle2
 	}
 	if(va_count(ap) == 1) {
 		shiftData = va_arg(ap, int);
-		dlrunfun(fptr, &retval, NULL, this, &time, &angle1, &angle2, NULL, seconds, shiftData);
+		dlrunfun(fptr, &retval, NULL, this, &time, &angle1, &angle2, &angle3, seconds, shiftData);
 	}
 	else {
-		dlrunfun(fptr, &retval, NULL, this, &time, &angle1, &angle2, NULL, seconds);
+		dlrunfun(fptr, &retval, NULL, this, &time, &angle1, &angle2, &angle3, seconds);
 	}
 	va_end(ap);
 	return retval;
