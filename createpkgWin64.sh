@@ -69,6 +69,7 @@ cp $ROOT/../RoboSim/docs/robosim.pdf $PKGDIR/docs
 cp $ROOT/../RoboSim/docs/pictures/robosim.png $PKGDIR/docs
 mkdir $PKGDIR/data
 cp -R $ROOT/../librs/resources/background $PKGDIR/data
+cp -R $ROOT/../librs/resources/challenges $PKGDIR/data
 cp -R $ROOT/../librs/resources/linkbot $PKGDIR/data
 cp -R $ROOT/../librs/resources/mindstorms $PKGDIR/data
 cp -R $ROOT/../librs/resources/obstacles $PKGDIR/data
