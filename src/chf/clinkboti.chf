@@ -1114,7 +1114,7 @@ int CLinkbotI::moveNB(double angle1, double angle2, double angle3) {
 }
 
 int CLinkbotI::moveBackward(double angle) {
-	DEPRECATED("moveBackward", "driveBackward");
+	DEPRECATED("moveBackward", "driveAngle");
 	driveBackward(angle);
 
 	// success
@@ -1146,7 +1146,7 @@ int CLinkbotI::moveDistanceNB(double distance, double radius) {
 }
 
 int CLinkbotI::moveForward(double angle) {
-	DEPRECATED("moveForward", "driveForward");
+	DEPRECATED("moveForward", "driveAngle");
 	driveForward(angle);
 
 	// success
