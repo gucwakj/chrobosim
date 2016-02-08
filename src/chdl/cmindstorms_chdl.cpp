@@ -96,19 +96,6 @@ EXPORTCH int CMindstorms_delaySeconds_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CMindstorms_disableRecordDataShift_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CMindstorms *robot;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	retval = robot->disableRecordDataShift();
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
 EXPORTCH int CMindstorms_disconnect_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
@@ -382,19 +369,6 @@ EXPORTCH int CMindstorms_drivexyWait_chdl(void *varg) {
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
 	retval = robot->drivexyWait();
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
-EXPORTCH int CMindstorms_enableRecordDataShift_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CMindstorms *robot;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	retval = robot->enableRecordDataShift();
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -1316,6 +1290,19 @@ EXPORTCH int CMindstorms_recordAnglesEnd_chdl(void *varg) {
 	return retval;
 }
 
+EXPORTCH int CMindstorms_recordDataShift_chdl(void *varg) {
+	ChInterp_t interp;
+	ChVaList_t ap;
+	class CMindstorms *robot;
+	int retval;
+
+	Ch_VaStart(interp, ap, varg);
+	robot = Ch_VaArg(interp, ap, class CMindstorms *);
+	retval = robot->recordDataShift();
+	Ch_VaEnd(interp, ap);
+	return retval;
+}
+
 EXPORTCH int CMindstorms_recordDistanceBegin_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
@@ -1373,6 +1360,19 @@ EXPORTCH int CMindstorms_recordDistanceOffset_chdl(void *varg) {
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
 	distance = Ch_VaArg(interp, ap, double);
 	retval = robot->recordDistanceOffset(distance);
+	Ch_VaEnd(interp, ap);
+	return retval;
+}
+
+EXPORTCH int CMindstorms_recordNoDataShift_chdl(void *varg) {
+	ChInterp_t interp;
+	ChVaList_t ap;
+	class CMindstorms *robot;
+	int retval;
+
+	Ch_VaStart(interp, ap, varg);
+	robot = Ch_VaArg(interp, ap, class CMindstorms *);
+	retval = robot->recordNoDataShift();
 	Ch_VaEnd(interp, ap);
 	return retval;
 }

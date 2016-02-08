@@ -257,19 +257,6 @@ EXPORTCH int CLinkbotI_delaySeconds_chdl(void *varg) {
 	return retval;
 }
 
-EXPORTCH int CLinkbotI_disableRecordDataShift_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CLinkbotI *robot;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
-	retval = robot->disableRecordDataShift();
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
 EXPORTCH int CLinkbotI_disconnect_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
@@ -678,19 +665,6 @@ EXPORTCH int CLinkbotI_drivexyWait_chdl(void *varg) {
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
 	retval = robot->drivexyWait();
-	Ch_VaEnd(interp, ap);
-	return retval;
-}
-
-EXPORTCH int CLinkbotI_enableRecordDataShift_chdl(void *varg) {
-	ChInterp_t interp;
-	ChVaList_t ap;
-	class CLinkbotI *robot;
-	int retval;
-
-	Ch_VaStart(interp, ap, varg);
-	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
-	retval = robot->enableRecordDataShift();
 	Ch_VaEnd(interp, ap);
 	return retval;
 }
@@ -1622,6 +1596,19 @@ EXPORTCH int CLinkbotI_recordAnglesEnd_chdl(void *varg) {
 	return retval;
 }
 
+EXPORTCH int CLinkbotI_recordDataShift_chdl(void *varg) {
+	ChInterp_t interp;
+	ChVaList_t ap;
+	class CLinkbotI *robot;
+	int retval;
+
+	Ch_VaStart(interp, ap, varg);
+	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
+	retval = robot->recordDataShift();
+	Ch_VaEnd(interp, ap);
+	return retval;
+}
+
 EXPORTCH int CLinkbotI_recordDistanceBegin_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
@@ -1679,6 +1666,19 @@ EXPORTCH int CLinkbotI_recordDistanceOffset_chdl(void *varg) {
 	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
 	distance = Ch_VaArg(interp, ap, double);
 	retval = robot->recordDistanceOffset(distance);
+	Ch_VaEnd(interp, ap);
+	return retval;
+}
+
+EXPORTCH int CLinkbotI_recordNoDataShift_chdl(void *varg) {
+	ChInterp_t interp;
+	ChVaList_t ap;
+	class CLinkbotI *robot;
+	int retval;
+
+	Ch_VaStart(interp, ap, varg);
+	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
+	retval = robot->recordNoDataShift();
 	Ch_VaEnd(interp, ap);
 	return retval;
 }

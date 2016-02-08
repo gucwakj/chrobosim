@@ -60,7 +60,7 @@ class DLLIMPORT CLinkbotI {
 		int drivexyToFuncNB(double x0, double xf, int n, double (*func)(double x), double radius, double trackwidth);
 		int drivexyWait(void);
 		int enableButtonCallback(void *userdata, void (*buttonCallback)(void *data, int button, int buttonDown));
-		int enableRecordDataShift(void);
+		int enableRecordDataShift(void);		// deprecated
 		int getAccelerometerData(double &accel_x, double &accel_y, double &accel_z);
 		int getBatteryVoltage(double &voltage);
 		int getColor(string_t &color);		// deprecated
@@ -145,6 +145,7 @@ class DLLIMPORT CLinkbotI {
 		int recordAngles(double time[:], double angle1[:], double angle2[:], double angle3[:], int num, double seconds, ...);		// deprecated
 		int recordAnglesBegin(robotRecordData_t &time, robotRecordData_t &a1, robotRecordData_t &a3, double seconds, ...);
 		int recordAnglesEnd(int &num);
+		int recordDataShift(void);
 		int recordDistanceBegin(robotRecordData_t &time, robotRecordData_t &distance, double radius, double seconds);
 		int recordDistanceEnd(int &num);
 		int recordDistanceOffset(double distance);
@@ -344,7 +345,7 @@ class DLLIMPORT CLinkbotL {
 		int driveTo(double angle1, double angle2, double angle3);		// deprecated
 		int driveToNB(double angle1, double angle2, double angle3);		// deprecated
 		int enableButtonCallback(void *userdata, void (*buttonCallback)(void *data, int button, int buttonDown));
-		int enableRecordDataShift(void);
+		int enableRecordDataShift(void);		// deprecated
 		int getAccelerometerData(double &accel_x, double &accel_y, double &accel_z);
 		int getBatteryVoltage(double &voltage);
 		int getColor(string_t &color);		// deprecated
@@ -414,6 +415,7 @@ class DLLIMPORT CLinkbotL {
 		int recordAngles(double time[:], double angle1[:], double angle2[:], double angle3[:], int num, double seconds, ...);		// deprecated
 		int recordAnglesBegin(robotRecordData_t &time, robotRecordData_t &a1, robotRecordData_t &a2, double seconds, ...);
 		int recordAnglesEnd(int &num);
+		int recordDataShift(void);
 		int recordDistanceBegin(robotRecordData_t &time, robotRecordData_t &distance, double radius, double seconds);
 		int recordDistanceEnd(int &num);
 		int recordDistanceOffset(double distance);

@@ -275,16 +275,11 @@ int CLinkbotL::enableButtonCallback(void *userdata, void (*buttonCallback)(void 
 }
 
 int CLinkbotL::enableRecordDataShift(void) {
-	void *fptr;
-	int retval;
+	DEPRECATED("enableRecordDataShift", "recordDataShift");
+	recordDataShift();
 
-	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotL_enableRecordDataShift_chdl");
-	if(fptr == NULL) {
-		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
-		return -1;
-	}
-	dlrunfun(fptr, &retval, NULL, this);
-	return retval;
+	// success
+	return 0;
 }
 
 int CLinkbotL::getAccelerometerData(double &x, double &y, double &z) {
@@ -1141,6 +1136,19 @@ int CLinkbotL::recordAnglesEnd(int &num) {
 	return retval;
 }
 
+int CLinkbotL::recordDataShift(void) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotL_recordDataShift_chdl");
+	if(fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this);
+	return retval;
+}
+
 int CLinkbotL::recordDistanceBegin(double* &time, double* &distance, double radius, double seconds) {
 	void *fptr;
 	int retval;
@@ -1201,7 +1209,7 @@ int CLinkbotL::recordNoDataShift(void) {
 	void *fptr;
 	int retval;
 
-	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotL_disableRecordDataShift_chdl");
+	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotL_recordNoDataShift_chdl");
 	if(fptr == NULL) {
 		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
 		return -1;
