@@ -179,6 +179,7 @@ class DLLIMPORT CLinkbotI {
 		int setJointSpeedRatio(int id, double ratio);
 		int setJointSpeedRatios(double ratios1, double ratios2, double ratios3);
 		int setMotorPower(int id, int power);		// deprecated
+		int setMotorPowers(double p1, double p2, double p3);
 		int setMovementStateNB(int dir1, int dir2, int dir3);		// deprecated
 		int setMovementStateTime(int dir1, int dir2, int dir3, double seconds);		// deprecated
 		int setMovementStateTimeNB(int dir1, int dir2, int dir3, double seconds);		// deprecated
@@ -302,6 +303,7 @@ class DLLIMPORT CLinkbotIGroup {
 		int setJointSpeedRatio(int id, double ratio);
 		int setJointSpeedRatios(double ratios1, double ratios2, double ratios3);
 		int setMotorPower(int id, int power);		// deprecated
+		int setMotorPowers(double p1, double p2, double p3);
 		int setMovementStateNB(int dir1, int dir2, int dir3);		// deprecated
 		int setMovementStateTime(int dir1, int dir2, int dir3, double seconds);		// deprecated
 		int setMovementStateTimeNB(int dir1, int dir2, int dir3, double seconds);		// deprecated
@@ -449,6 +451,7 @@ class DLLIMPORT CLinkbotL {
 		int setJointSpeedRatio(int id, double ratio);
 		int setJointSpeedRatios(double ratios1, double ratios2, double ratios3);
 		int setMotorPower(int id, int power);		// deprecated
+		int setMotorPowers(double p1, double p2, double p3);
 		int setMovementStateNB(int dir1, int dir2, int dir3);		// deprecated
 		int setMovementStateTime(int dir1, int dir2, int dir3, double seconds);		// deprecated
 		int setMovementStateTimeNB(int dir1, int dir2, int dir3, double seconds);		// deprecated
@@ -547,6 +550,7 @@ class DLLIMPORT CLinkbotLGroup {
 		int setJointSpeedRatio(int id, double ratio);
 		int setJointSpeedRatios(double ratios1, double ratios2, double ratios3);
 		int setMotorPower(int id, int power);		// deprecated
+		int setMotorPowers(double p1, double p2, double p3);
 		int setMovementStateNB(int dir1, int dir2, int dir3);		// deprecated
 		int setMovementStateTime(int dir1, int dir2, int dir3, double seconds);		// deprecated
 		int setMovementStateTimeNB(int dir1, int dir2, int dir3, double seconds);		// deprecated

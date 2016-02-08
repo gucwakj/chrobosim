@@ -1598,6 +1598,15 @@ int CLinkbotL::setMotorPower(int id, int power) {
 	return 0;
 }
 
+int CLinkbotL::setMotorPowers(double p1, double p2, double p3) {
+	moveJointByPowerNB(0, p1);
+	moveJointByPowerNB(1, p2);
+	moveJointByPowerNB(2, p3);
+
+	// success
+	return 0;
+}
+
 int CLinkbotL::setMovementStateNB(int dir1, int dir2, int dir3) {
 	DEPRECATED("setMovementStateNB", "moveForeverNB");
 
@@ -2735,6 +2744,15 @@ int CLinkbotLGroup::setJointSpeedRatios(double ratio1, double ratio2, double rat
 int CLinkbotLGroup::setMotorPower(int id, int power) {
 	DEPRECATED("setMotorPower", "setJointPower");
 	setJointPower(id, power);
+
+	// success
+	return 0;
+}
+
+int CLinkbotLGroup::setMotorPowers(double p1, double p2, double p3) {
+	moveJointByPowerNB(0, p1);
+	moveJointByPowerNB(1, p2);
+	moveJointByPowerNB(2, p3);
 
 	// success
 	return 0;
