@@ -32,15 +32,15 @@ cp $ROOT/../librs/build/lib/librsSim.so $PKGDIR/so
 cp $ROOT/../librs/build/lib/librsCallback.so $PKGDIR/so
 cp $ROOT/../librs/build/lib/librsXML.so $PKGDIR/so
 cp $ROOT/../librs/deps/ode/sys/lib/libode.so.1 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosg.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgDB.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgFX.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgGA.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgQt.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgShadow.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgText.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgUtil.so.100 $PKGDIR/so
-cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgViewer.so.100 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosg.so.130 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgDB.so.130 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgFX.so.130 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgGA.so.130 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgQt.so.130 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgShadow.so.130 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgText.so.130 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgUtil.so.130 $PKGDIR/so
+cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosgViewer.so.130 $PKGDIR/so
 cp $ROOT/../librs/deps/osg3.4.0/build/lib/libOpenThreads.so.20 $PKGDIR/so
 mkdir $PKGDIR/so/osgPlugins-3.4.0
 cp $ROOT/../librs/deps/osg3.4.0/build/lib/osgPlugins-3.4.0/osgdb_png.so $PKGDIR/so/osgPlugins-3.4.0
