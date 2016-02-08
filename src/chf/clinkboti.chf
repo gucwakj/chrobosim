@@ -170,6 +170,19 @@ int CLinkbotI::connect(...) {
 	return 0;
 }
 
+int CLinkbotI::connectWithSerialID(const char *id) {
+	void *fptr;
+	int retval;
+
+	fptr = dlsym(RoboSim::_dlhandle, "CLinkbotI_connectWithSerialID_chdl");
+	if (fptr == NULL) {
+		fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+		return -1;
+	}
+	dlrunfun(fptr, &retval, NULL, this, id);
+	return retval;
+}
+
 int CLinkbotI::delay(double milliseconds) {
 	void *fptr;
 	int retval;

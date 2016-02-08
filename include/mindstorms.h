@@ -12,6 +12,7 @@ class DLLIMPORT CMindstorms {
 		virtual ~CMindstorms();
 		int blinkLED(double delay, int num);
 		int connect(...);		// deprecated
+		int connectWithSerialID(const char *id);
 		int delay(double milliseconds);
 		int delaySeconds(double seconds);
 		int disableRecordDataShift(void);		// deprecated

@@ -212,6 +212,21 @@ EXPORTCH int CLinkbotI_closeGripperNB_chdl(void *varg) {
 	return retval;
 }
 
+EXPORTCH int CLinkbotI_connectWithSerialID_chdl(void *varg) {
+	ChInterp_t interp;
+	ChVaList_t ap;
+	class CLinkbotI *robot;
+	char *id;
+	int retval;
+
+	Ch_VaStart(interp, ap, varg);
+	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
+	id = Ch_VaArg(interp, ap, char *);
+	retval = robot->connectWithSerialID(id);
+	Ch_VaEnd(interp, ap);
+	return retval;
+}
+
 EXPORTCH int CLinkbotI_delay_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;
