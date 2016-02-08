@@ -209,6 +209,12 @@ int CLinkbotI::delaySeconds(double seconds) {
 	return retval;
 }
 
+int CLinkbotI::disableButtonCallback(void) {
+	// DEPRECATED
+	fprintf(_stderr, "Warning: The function \"disableButtonCallback()\" doesn't work in RoboSim.\n");
+	return 0;
+}
+
 int CLinkbotI::disableRecordDataShift(void) {
 	DEPRECATED("disableRecordDataShift", "recordNoDataShift");
 	recordNoDataShift();
@@ -629,6 +635,12 @@ int CLinkbotI::drivexyWait(void) {
 	}
 	dlrunfun(fptr, &retval, drivexyWait, this);
 	return retval;
+}
+
+int CLinkbotI::enableButtonCallback(void *userdata, void (*buttonCallback)(void *data, int button, int buttonDown)) {
+	// DEPRECATED
+	fprintf(_stderr, "Warning: The function \"enableButtonCallback()\" doesn't work in RoboSim.\n");
+	return 0;
 }
 
 int CLinkbotI::enableRecordDataShift(void) {

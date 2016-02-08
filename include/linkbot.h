@@ -24,6 +24,7 @@ class DLLIMPORT CLinkbotI {
 		int connectWithSerialID(const char *id);
 		int delay(double milliseconds);
 		int delaySeconds(double seconds);
+		int disableButtonCallback();
 		int disableRecordDataShift(void);		// deprecated
 		int disconnect(void);
 		int driveAccelCycloidalNB(double radius, double d, double t);
@@ -58,6 +59,7 @@ class DLLIMPORT CLinkbotI {
 		int drivexyToFunc(double x0, double xf, int n, double (*func)(double x), double radius, double trackwidth);
 		int drivexyToFuncNB(double x0, double xf, int n, double (*func)(double x), double radius, double trackwidth);
 		int drivexyWait(void);
+		int enableButtonCallback(void *userdata, void (*buttonCallback)(void *data, int button, int buttonDown));
 		int enableRecordDataShift(void);
 		int getAccelerometerData(double &accel_x, double &accel_y, double &accel_z);
 		int getBatteryVoltage(double &voltage);
@@ -334,12 +336,14 @@ class DLLIMPORT CLinkbotL {
 		int connect(...);		// deprecated
 		int delay(double milliseconds);
 		int delaySeconds(double seconds);
+		int disableButtonCallback();
 		int disableRecordDataShift(void);		// deprecated
 		int disconnect(void);
 		int driveJointTo(int id, double angle);		// deprecated
 		int driveJointToNB(int id, double angle);		// deprecated
 		int driveTo(double angle1, double angle2, double angle3);		// deprecated
 		int driveToNB(double angle1, double angle2, double angle3);		// deprecated
+		int enableButtonCallback(void *userdata, void (*buttonCallback)(void *data, int button, int buttonDown));
 		int enableRecordDataShift(void);
 		int getAccelerometerData(double &accel_x, double &accel_y, double &accel_z);
 		int getBatteryVoltage(double &voltage);
