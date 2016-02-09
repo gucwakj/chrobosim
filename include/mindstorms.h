@@ -125,6 +125,7 @@ class DLLIMPORT CMindstorms {
 		int recordAngles(double time[:], double angle1[:], double angle2[:], double angle3[:], double angle4[:], int num, double seconds, ...);		// deprecated
 		int recordAnglesBegin(robotRecordData_t &time, robotRecordData_t &a2, robotRecordData_t &a3, double seconds, ...);
 		int recordAnglesEnd(int &num);
+		int recordDataShift(void);
 		int recordDistanceBegin(robotRecordData_t &time, robotRecordData_t &distance, double radius, double seconds);
 		int recordDistanceEnd(int &num);
 		int recordDistanceOffset(double distance);

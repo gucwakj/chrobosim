@@ -926,7 +926,7 @@ EXPORTCH int CMindstorms_moveJointForeverNB_chdl(void *varg) {
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstorms *);
-	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint );
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	retval = robot->moveJointForeverNB(id);
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -2163,7 +2163,7 @@ EXPORTCH int CMindstormsGroup_moveJointForeverNB_chdl(void *varg) {
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
-	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint );
+	id = Ch_VaArg(interp, ap, rsMindstorms::Bodies::Joint);
 	retval = robot->moveJointForeverNB(id);
 	Ch_VaEnd(interp, ap);
 	return retval;

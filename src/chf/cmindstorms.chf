@@ -1418,7 +1418,7 @@ int CMindstorms::recordDataShift(void) {
 int CMindstorms::recordDistanceBegin(double* &time, double* &distance, double radius, double seconds) {
 	void *fptr;
 	int retval;
-	int id = JOINT1;
+	int id = JOINT2;
 	int shiftData = 1;
 
 	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordDistanceBegin_chdl");
@@ -1432,7 +1432,7 @@ int CMindstorms::recordDistanceBegin(double* &time, double* &distance, double ra
 
 int CMindstorms::recordDistanceEnd(int &num) {
 	void *fptr;
-	int id = JOINT1;
+	int id = JOINT2;
 	int retval;
 
 	fptr = dlsym(RoboSim::_dlhandle, "CMindstorms_recordDistanceEnd_chdl");

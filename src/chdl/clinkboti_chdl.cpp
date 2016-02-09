@@ -1209,7 +1209,7 @@ EXPORTCH int CLinkbotI_moveJointForeverNB_chdl(void *varg) {
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CLinkbotI *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Bodies::Joint );
+	id = Ch_VaArg(interp, ap, rsLinkbot::Bodies::Joint);
 	retval = robot->moveJointForeverNB(id);
 	Ch_VaEnd(interp, ap);
 	return retval;
@@ -2757,7 +2757,7 @@ EXPORTCH int CLinkbotIGroup_moveJointForeverNB_chdl(void *varg) {
 
 	Ch_VaStart(interp, ap, varg);
 	robot = Ch_VaArg(interp, ap, class CLinkbotIGroup *);
-	id = Ch_VaArg(interp, ap, rsLinkbot::Bodies::Joint );
+	id = Ch_VaArg(interp, ap, rsLinkbot::Bodies::Joint);
 	retval = robot->moveJointForeverNB(id);
 	Ch_VaEnd(interp, ap);
 	return retval;
