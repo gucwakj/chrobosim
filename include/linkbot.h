@@ -337,6 +337,7 @@ class DLLIMPORT CLinkbotL {
 		int closeGripper(void);
 		int closeGripperNB(void);
 		int connect(...);		// deprecated
+		int connectWithSerialID(const char *id);
 		int delay(double milliseconds);
 		int delaySeconds(double seconds);
 		int disableButtonCallback();
