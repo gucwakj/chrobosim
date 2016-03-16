@@ -53,15 +53,15 @@ cp $ROOT/../RoboSim/build/bin/robosimwidget.dll $PKGDIR/bin
 cp $ROOT/../RoboSim/build/bin/RoboSim.exe $PKGDIR/bin
 cp $ROOT/../RoboSim/qt.conf $PKGDIR/bin
 cp -R $ROOT/../RoboSim/icons $PKGDIR/bin
-cp C:/Qt/5.4.1/5.4/msvc2013_64_opengl/bin/Qt5Core.dll $PKGDIR/bin
-cp C:/Qt/5.4.1/5.4/msvc2013_64_opengl/bin/Qt5Gui.dll $PKGDIR/bin
-cp C:/Qt/5.4.1/5.4/msvc2013_64_opengl/bin/Qt5OpenGL.dll $PKGDIR/bin
-cp C:/Qt/5.4.1/5.4/msvc2013_64_opengl/bin/Qt5Widgets.dll $PKGDIR/bin
-cp C:/Qt/5.4.1/5.4/msvc2013_64_opengl/bin/icudt53.dll $PKGDIR/bin
-cp C:/Qt/5.4.1/5.4/msvc2013_64_opengl/bin/icuin53.dll $PKGDIR/bin
-cp C:/Qt/5.4.1/5.4/msvc2013_64_opengl/bin/icuuc53.dll $PKGDIR/bin
+cp C:/Qt/5.5.1/5.5/msvc2013_64/bin/Qt5Core.dll $PKGDIR/bin
+cp C:/Qt/5.5.1/5.5/msvc2013_64/bin/Qt5Gui.dll $PKGDIR/bin
+cp C:/Qt/5.5.1/5.5/msvc2013_64/bin/Qt5OpenGL.dll $PKGDIR/bin
+cp C:/Qt/5.5.1/5.5/msvc2013_64/bin/Qt5Widgets.dll $PKGDIR/bin
+cp C:/Qt/5.5.1/5.5/msvc2013_64/bin/icudt54.dll $PKGDIR/bin
+cp C:/Qt/5.5.1/5.5/msvc2013_64/bin/icuin54.dll $PKGDIR/bin
+cp C:/Qt/5.5.1/5.5/msvc2013_64/bin/icuuc54.dll $PKGDIR/bin
 mkdir -p $PKGDIR/bin/plugins/platforms
-cp C:/Qt/5.4.1/5.4/msvc2013_64_opengl/plugins/platforms/qwindows.dll $PKGDIR/bin/plugins/platforms
+cp C:/Qt/5.5.1/5.5/msvc2013_64/plugins/platforms/qwindows.dll $PKGDIR/bin/plugins/platforms
 cp $PKGDIR/dl/Microsoft.VC120.CRT/msvcr120.dll $PKGDIR/bin
 cp $PKGDIR/dl/Microsoft.VC120.CRT/msvcp120.dll $PKGDIR/bin
 mkdir $PKGDIR/docs
