@@ -62,6 +62,8 @@ cp C:/Qt/5.5.1/5.5/msvc2013_64/bin/icuin54.dll $PKGDIR/bin
 cp C:/Qt/5.5.1/5.5/msvc2013_64/bin/icuuc54.dll $PKGDIR/bin
 mkdir -p $PKGDIR/bin/plugins/platforms
 cp C:/Qt/5.5.1/5.5/msvc2013_64/plugins/platforms/qwindows.dll $PKGDIR/bin/plugins/platforms
+mkdir -p $PKGDIR/bin/plugins/imageformats
+cp C:/Qt/5.5.1/5.5/msvc2013_64/plugins/imageformats/qico.dll $PKGDIR/bin/plugins/imageformats
 cp $PKGDIR/dl/Microsoft.VC120.CRT/msvcr120.dll $PKGDIR/bin
 cp $PKGDIR/dl/Microsoft.VC120.CRT/msvcp120.dll $PKGDIR/bin
 mkdir $PKGDIR/docs
