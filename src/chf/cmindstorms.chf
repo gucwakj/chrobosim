@@ -337,9 +337,16 @@ int CMindstorms::drivexyToExpr(double x0, double xf, int n, char *expr, double r
 	// number of steps necessary
 	double step = (xf-x0)/(n-1);
 
+	// get to starting point w/o trace
+	traceOff();
+	double x = x0;
+	double y = streval(expr);
+	drivexyTo(x, y, radius, trackwidth);
+	traceOn();
+
 	// drivexy to sequence of (x,y) values
-	int i = 0;
-	for (i = 0; i < n; i++) {
+	int i;
+	for (i = 1; i < n; i++) {
 		double x = x0 + i*step;
 		double y = streval(expr);
 		drivexyTo(x, y, radius, trackwidth);
@@ -365,6 +372,7 @@ int CMindstorms::drivexyToExprNB(double x0, double xf, int n, char *expr, double
 	int i = 0;
 	for (i = 0; i < n; i++) {
 		px[i] = x0 + i*step;
+		double x = px[i];		// streval() needs an x value
 		py[i] = streval(expr);
 	}
 	drivexyToArrayNB(px, py, n, radius, trackwidth);
