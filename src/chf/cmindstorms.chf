@@ -1318,6 +1318,24 @@ int CMindstorms::movexyWait(void) {
 	return 0;
 }
 
+int CMindstorms::playNotes(note_t song[:], double speedFactor) {
+	// not implemented
+	printf("CMindstorms::playNotes() is not implemented in RoboSim");
+	return 0;
+}
+
+int CMindstorms::playNotesNB(note_t song[:], double speedFactor) {
+	// not implemented
+	printf("CMindstorms::playNotesNB() is not implemented in RoboSim");
+	return 0;
+}
+
+int CMindstorms::playMelody(note_t song(int), double speedFactor) {
+	// not implemented
+	printf("CMindstorms::playMelody() is not implemented in RoboSim");
+	return 0;
+}
+
 int CMindstorms::point(double x, double y, double z, int pointsize, char *color) {
 	DEPRECATED("point", "the RoboSim GUI");
 

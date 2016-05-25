@@ -1540,6 +1540,24 @@ int CLinkbotI::openGripperNB(double angle) {
 	return retval;
 }
 
+int CLinkbotI::playNotes(note_t song[:], double speedFactor) {
+	// not implemented
+	printf("CLinkbotI::playNotes() is not implemented in RoboSim");
+	return 0;
+}
+
+int CLinkbotI::playNotesNB(note_t song[:], double speedFactor) {
+	// not implemented
+	printf("CLinkbotI::playNotesNB() is not implemented in RoboSim");
+	return 0;
+}
+
+int CLinkbotI::playMelody(note_t song(int), double speedFactor) {
+	// not implemented
+	printf("CLinkbotI::playMelody() is not implemented in RoboSim");
+	return 0;
+}
+
 int CLinkbotI::point(double x, double y, double z, int pointsize, char *color) {
 	DEPRECATED("point", "the RoboSim GUI");
 
