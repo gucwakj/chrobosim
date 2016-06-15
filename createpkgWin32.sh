@@ -64,6 +64,10 @@ cp $QTPATH/bin/Qt5Widgets.dll $PKGDIR/bin
 cp $QTPATH/bin/icudt54.dll $PKGDIR/bin
 cp $QTPATH/bin/icuin54.dll $PKGDIR/bin
 cp $QTPATH/bin/icuuc54.dll $PKGDIR/bin
+cp "$QTPATH/bin/libEGL.dll" $PKGDIR/bin
+cp "$QTPATH/bin/libGLESv2.dll" $PKGDIR/bin
+cp "$QTPATH/bin/d3dcompiler_47.dll" $PKGDIR/bin
+cp "$QTPATH/bin/opengl32sw.dll" $PKGDIR/bin
 mkdir -p $PKGDIR/bin/plugins/platforms
 cp $QTPATH/plugins/platforms/qwindows.dll $PKGDIR/bin/plugins/platforms
 mkdir -p $PKGDIR/bin/plugins/imageformats
