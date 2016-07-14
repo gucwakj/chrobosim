@@ -1874,6 +1874,21 @@ EXPORTCH int CMindstormsGroup_blinkLED_chdl(void *varg) {
 	return retval;
 }
 
+EXPORTCH int CMindstormsGroup_delaySeconds_chdl(void *varg) {
+	ChInterp_t interp;
+	ChVaList_t ap;
+	class CMindstormsGroup *robot;
+	double seconds;
+	int retval;
+
+	Ch_VaStart(interp, ap, varg);
+	robot = Ch_VaArg(interp, ap, class CMindstormsGroup *);
+	seconds = Ch_VaArg(interp, ap, double);
+	retval = robot->delaySeconds(seconds);
+	Ch_VaEnd(interp, ap);
+	return retval;
+}
+
 EXPORTCH int CMindstormsGroup_driveAngle_chdl(void *varg) {
 	ChInterp_t interp;
 	ChVaList_t ap;

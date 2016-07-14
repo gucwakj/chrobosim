@@ -194,6 +194,7 @@ class DLLIMPORT CMindstormsGroup {
 		int addRobots(array CMindstorms robots[], ...);
 		int blinkLED(double delay, int num);
 		int connect(void);		// deprecated
+		int delaySeconds(double seconds);
 		int driveAngle(double angle);
 		int driveAngleNB(double angle);
 		int driveBackward(double angle);		// deprecated
