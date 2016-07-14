@@ -1318,6 +1318,12 @@ int CMindstorms::movexyWait(void) {
 	return 0;
 }
 
+int CMindstorms::playMelody(note_t song(int), double speedFactor) {
+	// not implemented
+	printf("CMindstorms::playMelody() is not implemented in RoboSim");
+	return 0;
+}
+
 int CMindstorms::playNotes(note_t song[:], double speedFactor) {
 	// not implemented
 	printf("CMindstorms::playNotes() is not implemented in RoboSim");
@@ -1330,9 +1336,9 @@ int CMindstorms::playNotesNB(note_t song[:], double speedFactor) {
 	return 0;
 }
 
-int CMindstorms::playMelody(note_t song(int), double speedFactor) {
+int CMindstorms::playNotesWait(void) {
 	// not implemented
-	printf("CMindstorms::playMelody() is not implemented in RoboSim");
+	printf("CMindstorms::playNotesWait() is not implemented in RoboSim");
 	return 0;
 }
 

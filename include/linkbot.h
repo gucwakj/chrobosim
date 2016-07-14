@@ -141,9 +141,10 @@ class DLLIMPORT CLinkbotI {
 		int movexyWait(void);		// deprecated
 		int openGripper(double angle);
 		int openGripperNB(double angle);
+		int playMelody(note_t song(int), double speedFactor);
 		int playNotes(note_t song[:], double speedFactor);
 		int playNotesNB(note_t song[:], double speedFactor);
-		int playMelody(note_t song(int), double speedFactor);
+		int playNotesWait(void);
 		int point(double x, double y, double z, int pointsize, char *color);
 		int recordAngle(int id, double time[:], double angle[:], int num, double seconds, ...);		// deprecated
 		int recordAngleBegin(int id, robotRecordData_t &time, robotRecordData_t &angle, double seconds, ...);
@@ -417,9 +418,10 @@ class DLLIMPORT CLinkbotL {
 		int moveWait(void);
 		int openGripper(double angle);
 		int openGripperNB(double angle);
+		int playMelody(note_t song(int), double speedFactor);
 		int playNotes(note_t song[:], double speedFactor);
 		int playNotesNB(note_t song[:], double speedFactor);
-		int playMelody(note_t song(int), double speedFactor);
+		int playNotesWait(void);
 		int point(double x, double y, double z, int pointsize, char *color);
 		int recordAngle(int id, double time[:], double angle[:], int num, double seconds, ...);		// deprecated
 		int recordAngleBegin(int id, robotRecordData_t &time, robotRecordData_t &angle, double seconds, ...);

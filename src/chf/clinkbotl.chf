@@ -1043,21 +1043,27 @@ int CLinkbotL::openGripperNB(double angle) {
 	return retval;
 }
 
+int CLinkbotL::playMelody(note_t song(int), double speedFactor) {
+	// not implemented
+	printf("CLinkbotL::playMelody() is not implemented in RoboSim");
+	return 0;
+}
+
 int CLinkbotL::playNotes(note_t song[:], double speedFactor) {
 	// not implemented
 	printf("CLinkbotL::playNotes() is not implemented in RoboSim");
 	return 0;
 }
 
-int CLinkbotL::playNotesNB(note_t song[:], double speedFactor) {
+int CLinkbotL::playNotesWait(void) {
 	// not implemented
-	printf("CLinkbotL::playNotesNB() is not implemented in RoboSim");
+	printf("CLinkbotL::playNotesWait() is not implemented in RoboSim");
 	return 0;
 }
 
-int CLinkbotL::playMelody(note_t song(int), double speedFactor) {
+int CLinkbotL::playNotesNB(note_t song[:], double speedFactor) {
 	// not implemented
-	printf("CLinkbotL::playMelody() is not implemented in RoboSim");
+	printf("CLinkbotL::playNotesNB() is not implemented in RoboSim");
 	return 0;
 }
 
