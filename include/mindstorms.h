@@ -75,6 +75,7 @@ class DLLIMPORT CMindstorms {
 		int holdJoint(int id);
 		int holdJoints(void);
 		int holdJointsAtExit(void);
+		int initPosition(double x, double y, double angle);
 		int isConnected(void);
 		int isMoving(void);
 		int isNotMoving(void);

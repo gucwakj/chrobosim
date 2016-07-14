@@ -797,6 +797,15 @@ int CMindstorms::holdJointsAtExit(void) {
 	return retval;
 }
 
+int CMindstorms::initPosition(double x, double y, double angle) {
+	double x1, y1, angle1;
+	this->getPosition(x1, y1, angle1);
+	if ( fabs(x - x1) > 0.001 || fabs(y - y1) > 0.001 || fabs(angle - angle1) > 0.001 )
+		printf("Warning: CMindstorms::initPosition() values do not match RoboSim GUI.  Using values from RoboSim GUI.");
+
+	return 0;
+}
+
 int CMindstorms::isConnected(void) {
 	void *fptr;
 	int retval;
