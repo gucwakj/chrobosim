@@ -123,6 +123,7 @@ class DLLIMPORT CMindstorms {
 		int movexyToFuncNB(double x0, double xf, int n, double (*func)(double x), double radius, double trackwidth);		// deprecated
 		int movexyWait(void);		// deprecated
 		int playMelody(note_t song(int), double speedFactor);
+		int playMelodyNB(note_t song(int), double speedFactor);
 		int playNotes(note_t song[:], double speedFactor);
 		int playNotesNB(note_t song[:], double speedFactor);
 		int playNotesWait(void);

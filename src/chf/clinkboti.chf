@@ -1555,6 +1555,12 @@ int CLinkbotI::playMelody(note_t song(int), double speedFactor) {
 	return 0;
 }
 
+int CLinkbotI::playMelodyNB(note_t song(int), double speedFactor) {
+	// not implemented
+	printf("CLinkbotI::playMelodyNB() is not implemented in RoboSim");
+	return 0;
+}
+
 int CLinkbotI::playNotes(note_t song[:], double speedFactor) {
 	// not implemented
 	printf("CLinkbotI::playNotes() is not implemented in RoboSim");

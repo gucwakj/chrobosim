@@ -143,6 +143,7 @@ class DLLIMPORT CLinkbotI {
 		int openGripper(double angle);
 		int openGripperNB(double angle);
 		int playMelody(note_t song(int), double speedFactor);
+		int playMelodyNB(note_t song(int), double speedFactor);
 		int playNotes(note_t song[:], double speedFactor);
 		int playNotesNB(note_t song[:], double speedFactor);
 		int playNotesWait(void);
@@ -422,6 +423,7 @@ class DLLIMPORT CLinkbotL {
 		int openGripper(double angle);
 		int openGripperNB(double angle);
 		int playMelody(note_t song(int), double speedFactor);
+		int playMelodyNB(note_t song(int), double speedFactor);
 		int playNotes(note_t song[:], double speedFactor);
 		int playNotesNB(note_t song[:], double speedFactor);
 		int playNotesWait(void);

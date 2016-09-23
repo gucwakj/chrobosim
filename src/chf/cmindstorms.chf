@@ -1333,6 +1333,12 @@ int CMindstorms::playMelody(note_t song(int), double speedFactor) {
 	return 0;
 }
 
+int CMindstorms::playMelodyNB(note_t song(int), double speedFactor) {
+	// not implemented
+	printf("CMindstorms::playMelodyNB() is not implemented in RoboSim");
+	return 0;
+}
+
 int CMindstorms::playNotes(note_t song[:], double speedFactor) {
 	// not implemented
 	printf("CMindstorms::playNotes() is not implemented in RoboSim");
