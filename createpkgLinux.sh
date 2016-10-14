@@ -26,10 +26,10 @@ cp $ROOT/include/robosim.h $PKGDIR/include
 cp $ROOT/include/macros.h $PKGDIR/include
 mkdir $PKGDIR/so
 cp $ROOT/../librs/build/lib/librs.so $PKGDIR/so
+cp $ROOT/../librs/build/lib/librsCommunication.so $PKGDIR/so
 cp $ROOT/../librs/build/lib/librsRobots.so $PKGDIR/so
 cp $ROOT/../librs/build/lib/librsScene.so $PKGDIR/so
 cp $ROOT/../librs/build/lib/librsSim.so $PKGDIR/so
-cp $ROOT/../librs/build/lib/librsCallback.so $PKGDIR/so
 cp $ROOT/../librs/build/lib/librsXML.so $PKGDIR/so
 cp $ROOT/../librs/deps/ode/sys/lib/libode.so.1 $PKGDIR/so
 cp $ROOT/../librs/deps/osg3.4.0/build/lib/libosg.so.130 $PKGDIR/so
