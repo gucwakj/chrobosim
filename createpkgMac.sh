@@ -32,7 +32,7 @@ cp $ROOT/src/chf/cmindstorms.chf $PKGDIR/lib
 
 # dl
 mkdir $PKGDIR/dl
-cp $ROOT/build/librobosim.dl $PKGDIR/dl
+cp $ROOT/build/librobosim.dl $PKGDIR/dl/robosim.dl
 
 # headers
 mkdir $PKGDIR/include

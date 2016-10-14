@@ -146,9 +146,6 @@ if (WIN32)
 	target_link_libraries (chrobosim PUBLIC
 		${CH_ROOT}/extern/lib/chsdk.lib
 		${CH_ROOT}/extern/lib/ch.lib)
-elseif (APPLE)
-	target_link_libraries (chrobosim PUBLIC
-		${CH_ROOT}/extern/lib/libchsdk.a)
 else ()
 	target_link_libraries (chrobosim PUBLIC ${CH_ROOT}/extern/lib/libchsdk.a)
 endif ()
