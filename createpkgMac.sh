@@ -47,10 +47,6 @@ cp $ROOT/include/macros.h $PKGDIR/include
 
 # binaries
 mkdir $PKGDIR/bin
-cp "$RSPATH/build/bin/librobosimwidget.dylib" $PKGDIR/bin
-cp "$RSPATH/build/bin/RoboSim" $PKGDIR/bin
-cp "$RSPATH/qt.conf" $PKGDIR/bin
-cp -R "$RSPATH/icons" $PKGDIR/bin
 cp "$LIBRSPATH/build/lib/librs.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/build/lib/librsCommunication.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/build/lib/librsRobots.dylib" $PKGDIR/bin
@@ -68,8 +64,8 @@ cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgText.130.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgUtil.130.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgViewer.130.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libOpenThreads.20.dylib" $PKGDIR/bin
-mkdir -p "$PKGDIR/bin/plugins/platforms"
-cp "$QTPATH/plugins/platforms/libqcocoa.dylib" $PKGDIR/bin/plugins/platforms
+mkdir $PKDIR/bin/RoboSim.app
+cp -R "$RSPATH/build/bin/RoboSim.app" "$PKGDIR/bin/RoboSim.app"
 
 # docs
 mkdir $PKGDIR/docs
