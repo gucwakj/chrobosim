@@ -66,6 +66,7 @@ cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgViewer.130.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libOpenThreads.20.dylib" $PKGDIR/bin
 mkdir $PKDIR/bin/RoboSim.app
 cp -R "$RSPATH/build/bin/RoboSim.app" "$PKGDIR/bin/RoboSim.app"
+cp -R "$RSPATH/icons" $PKGDIR/bin
 
 # docs
 mkdir $PKGDIR/docs
