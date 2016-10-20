@@ -3,7 +3,11 @@
 PACKAGE=chrobosim
 VERSION=osx-1.9.90
 PKGDIR=$PACKAGE-$VERSION/$PACKAGE
-ROOT=..
+
+ROOT=".."
+LIBRSPATH="../../librs"
+RSPATH="../../RoboSim"
+QTPATH="/Users/kgucwa/Qt/5.7/clang_64"
 
 echo "Building $PACKAGE-$VERSION.zip ..."
 
@@ -43,32 +47,34 @@ cp $ROOT/include/macros.h $PKGDIR/include
 
 # binaries
 mkdir $PKGDIR/bin
-cp $ROOT/../RoboSim/build/bin/librobosimwidget.dylib $PKGDIR/bin
-cp $ROOT/../RoboSim/build/bin/RoboSim $PKGDIR/bin
-cp $ROOT/../RoboSim/qt.conf $PKGDIR/bin
-cp -R $ROOT/../RoboSim/icons $PKGDIR/bin
-cp "$ROOT/../librs/build/lib/librs.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/build/lib/librsCommunication.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/build/lib/librsRobots.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/build/lib/librsScene.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/build/lib/librsSim.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/build/lib/librsXML.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/deps/ode/sys/lib/libode.1.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/deps/osg3.4.0/build/lib/libosg.130.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/deps/osg3.4.0/build/lib/libosgDB.130.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/deps/osg3.4.0/build/lib/libosgFX.130.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/deps/osg3.4.0/build/lib/libosgGA.130.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/deps/osg3.4.0/build/lib/libosgQt.130.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/deps/osg3.4.0/build/lib/libosgShadow.130.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/deps/osg3.4.0/build/lib/libosgText.130.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/deps/osg3.4.0/build/lib/libosgUtil.130.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/deps/osg3.4.0/build/lib/libosgViewer.130.dylib" $PKGDIR/bin
-cp "$ROOT/../librs/deps/osg3.4.0/build/lib/libOpenThreads.20.dylib" $PKGDIR/bin
+cp "$RSPATH/build/bin/librobosimwidget.dylib" $PKGDIR/bin
+cp "$RSPATH/build/bin/RoboSim" $PKGDIR/bin
+cp "$RSPATH/qt.conf" $PKGDIR/bin
+cp -R "$RSPATH/icons" $PKGDIR/bin
+cp "$LIBRSPATH/build/lib/librs.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/build/lib/librsCommunication.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/build/lib/librsRobots.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/build/lib/librsScene.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/build/lib/librsSim.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/build/lib/librsXML.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/deps/ode/sys/lib/libode.1.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosg.130.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgDB.130.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgFX.130.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgGA.130.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgQt.130.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgShadow.130.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgText.130.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgUtil.130.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgViewer.130.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libOpenThreads.20.dylib" $PKGDIR/bin
+mkdir -p "$PKGDIR/bin/plugins/platforms"
+cp "$QTPATH/plugins/platforms/libqcocoa.dylib" $PKGDIR/bin/plugins/platforms
 
 # docs
 mkdir $PKGDIR/docs
-cp $ROOT/../RoboSim/docs/robosim.pdf $PKGDIR/docs
-cp $ROOT/../RoboSim/docs/pictures/robosim.png $PKGDIR/docs
+cp "$RSPATH/docs/robosim.pdf" $PKGDIR/docs
+cp "$RSPATH/docs/pictures/robosim.png" $PKGDIR/docs
 
 # demos
 mkdir $PKGDIR/demos
@@ -76,10 +82,10 @@ cp -R $ROOT/demos/ $PKGDIR/demos
 
 # resources
 mkdir $PKGDIR/data
-cp -R $ROOT/../librs/resources/background $PKGDIR/data
-cp -R $ROOT/../librs/resources/linkbot $PKGDIR/data
-cp -R $ROOT/../librs/resources/mindstorms $PKGDIR/data
-cp -R $ROOT/../librs/resources/obstacles $PKGDIR/data
+cp -R "$LIBRSPATH/resources/background" $PKGDIR/data
+cp -R "$LIBRSPATH/resources/linkbot" $PKGDIR/data
+cp -R "$LIBRSPATH/resources/mindstorms" $PKGDIR/data
+cp -R "$LIBRSPATH/resources/obstacles" $PKGDIR/data
 
 # zip
 zip -rq $PACKAGE-$VERSION.zip $PACKAGE-$VERSION
