@@ -53,6 +53,7 @@ cp "$LIBRSPATH/build/lib/librsRobots.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/build/lib/librsScene.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/build/lib/librsSim.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/build/lib/librsXML.dylib" $PKGDIR/bin
+cp "$LIBRSPATH/build/src/rsScene/main" $PKGDIR/bin
 cp "$LIBRSPATH/deps/ode/sys/lib/libode.1.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosg.130.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgDB.130.dylib" $PKGDIR/bin
