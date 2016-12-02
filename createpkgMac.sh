@@ -53,7 +53,7 @@ cp "$LIBRSPATH/build/lib/librsRobots.0.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/build/lib/librsScene.0.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/build/lib/librsSim.0.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/build/lib/librsXML.0.dylib" $PKGDIR/bin
-cp "$LIBRSPATH/build/src/rsScene/main" $PKGDIR/bin
+cp "$LIBRSPATH/build/src/rsScene/rssceneapp" $PKGDIR/bin
 cp "$LIBRSPATH/deps/ode/sys/lib/libode.1.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosg.130.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgDB.130.dylib" $PKGDIR/bin
@@ -157,21 +157,21 @@ install_name_tool -change "@rpath/librs.0.dylib" "$INPATH/librs.0.dylib" "$PKGDI
 install_name_tool -change "@rpath/librsRobots.0.dylib" "$INPATH/librsRobots.0.dylib" "$PKGDIR/bin/librsXML.0.dylib"
 install_name_tool -change "@rpath/librsXML.0.dylib" "$INPATH/librsXML.0.dylib" "$PKGDIR/bin/librsXML.0.dylib"
 
-# change links for main
-install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libOpenThreads.20.dylib" "$INPATH/libOpenThreads.20.dylib" "$PKGDIR/bin/main"
-install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosg.130.dylib" "$INPATH/libosg.130.dylib" "$PKGDIR/bin/main"
-install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgDB.130.dylib" "$INPATH/libosgDB.130.dylib" "$PKGDIR/bin/main"
-install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgFX.130.dylib" "$INPATH/libosgFX.130.dylib" "$PKGDIR/bin/main"
-install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgGA.130.dylib" "$INPATH/libosgGA.130.dylib" "$PKGDIR/bin/main"
-install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgShadow.130.dylib" "$INPATH/libosgShadow.130.dylib" "$PKGDIR/bin/main"
-install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgText.130.dylib" "$INPATH/libosgText.130.dylib" "$PKGDIR/bin/main"
-install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgUtil.130.dylib" "$INPATH/libosgUtil.130.dylib" "$PKGDIR/bin/main"
-install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgViewer.130.dylib" "$INPATH/libosgViewer.130.dylib" "$PKGDIR/bin/main"
-install_name_tool -change "/Users/kgucwa/projects/librs/deps/zeromq/sys64/lib/libzmq.5.dylib" "$INPATH/libzmq.5.dylib" "$PKGDIR/bin/main"
-install_name_tool -change "@rpath/librs.0.dylib" "$INPATH/librs.0.dylib" "$PKGDIR/bin/main"
-install_name_tool -change "@rpath/librsCommunication.0.dylib" "$INPATH/librsCommunication.0.dylib" "$PKGDIR/bin/main"
-install_name_tool -change "@rpath/librsRobots.0.dylib" "$INPATH/librsRobots.0.dylib" "$PKGDIR/bin/main"
-install_name_tool -change "@rpath/librsScene.0.dylib" "$INPATH/librsScene.0.dylib" "$PKGDIR/bin/main"
+# change links for rssceneapp
+install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libOpenThreads.20.dylib" "$INPATH/libOpenThreads.20.dylib" "$PKGDIR/bin/rssceneapp"
+install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosg.130.dylib" "$INPATH/libosg.130.dylib" "$PKGDIR/bin/rssceneapp"
+install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgDB.130.dylib" "$INPATH/libosgDB.130.dylib" "$PKGDIR/bin/rssceneapp"
+install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgFX.130.dylib" "$INPATH/libosgFX.130.dylib" "$PKGDIR/bin/rssceneapp"
+install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgGA.130.dylib" "$INPATH/libosgGA.130.dylib" "$PKGDIR/bin/rssceneapp"
+install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgShadow.130.dylib" "$INPATH/libosgShadow.130.dylib" "$PKGDIR/bin/rssceneapp"
+install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgText.130.dylib" "$INPATH/libosgText.130.dylib" "$PKGDIR/bin/rssceneapp"
+install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgUtil.130.dylib" "$INPATH/libosgUtil.130.dylib" "$PKGDIR/bin/rssceneapp"
+install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgViewer.130.dylib" "$INPATH/libosgViewer.130.dylib" "$PKGDIR/bin/rssceneapp"
+install_name_tool -change "/Users/kgucwa/projects/librs/deps/zeromq/sys64/lib/libzmq.5.dylib" "$INPATH/libzmq.5.dylib" "$PKGDIR/bin/rssceneapp"
+install_name_tool -change "@rpath/librs.0.dylib" "$INPATH/librs.0.dylib" "$PKGDIR/bin/rssceneapp"
+install_name_tool -change "@rpath/librsCommunication.0.dylib" "$INPATH/librsCommunication.0.dylib" "$PKGDIR/bin/rssceneapp"
+install_name_tool -change "@rpath/librsRobots.0.dylib" "$INPATH/librsRobots.0.dylib" "$PKGDIR/bin/rssceneapp"
+install_name_tool -change "@rpath/librsScene.0.dylib" "$INPATH/librsScene.0.dylib" "$PKGDIR/bin/rssceneapp"
 
 # change links for OSG
 install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libOpenThreads.20.dylib" "$INPATH/libOpenThreads.20.dylib" "$PKGDIR/bin/libosg.130.dylib"
@@ -214,7 +214,7 @@ install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/
 install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgUtil.130.dylib" "$INPATH/libosgUtil.130.dylib" "$PKGDIR/bin/osgPlugins-3.4.0/osgdb_imageio.so"
 
 # sign app
-sudo codesign -f -s "Developer ID Application: CSTEM UCD" "$PKGDIR/bin/main"
+sudo codesign -f -s "Developer ID Application: CSTEM UCD" "$PKGDIR/bin/rssceneapp"
 
 # zip
 zip -rq $PACKAGE-$VERSION.zip $PACKAGE-$VERSION
