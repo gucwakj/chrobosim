@@ -213,6 +213,9 @@ install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/
 install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgDB.130.dylib" "$INPATH/libosgDB.130.dylib" "$PKGDIR/bin/osgPlugins-3.4.0/osgdb_imageio.so"
 install_name_tool -change "/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib/libosgUtil.130.dylib" "$INPATH/libosgUtil.130.dylib" "$PKGDIR/bin/osgPlugins-3.4.0/osgdb_imageio.so"
 
+# sign app
+sudo codesign -f -s "Developer ID Application: CSTEM UCD" "$PKGDIR/bin/main"
+
 # zip
 zip -rq $PACKAGE-$VERSION.zip $PACKAGE-$VERSION
 
