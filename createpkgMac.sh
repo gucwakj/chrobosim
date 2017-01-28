@@ -85,6 +85,7 @@ cp -R $ROOT/demos/ $PKGDIR/demos
 # resources
 mkdir $PKGDIR/data
 cp -R "$LIBRSPATH/resources/background" $PKGDIR/data
+cp -R "$LIBRSPATH/resources/challenges" $PKGDIR/data
 cp -R "$LIBRSPATH/resources/linkbot" $PKGDIR/data
 cp -R "$LIBRSPATH/resources/mindstorms" $PKGDIR/data
 cp -R "$LIBRSPATH/resources/obstacles" $PKGDIR/data
