@@ -2067,6 +2067,11 @@ int CMindstorms::text(double x, double y, double z, char *text) {
 	return 0;
 }
 
+int CMindstorms::traceColor(char *color, int width) {
+	fprintf(_stderr, "Warning: The function \"traceColor()\" is not implemented yet in RoboSim.\n");
+	return 0;
+}
+
 int CMindstorms::traceOff(void) {
 	void *fptr;
 	int retval;
@@ -3303,6 +3308,10 @@ int CMindstormsGroup::stopTwoJoints(int id1, int id2) {
 	return 0;
 }
 
+int CMindstormsGroup::traceColor(char *color, int width) {
+	fprintf(_stderr, "Warning: The function \"traceColor()\" is not implemented yet in RoboSim.\n");
+	return 0;
+}
 int CMindstormsGroup::traceOff(void) {
 	void *fptr;
 	int retval;

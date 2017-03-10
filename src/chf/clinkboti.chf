@@ -2291,6 +2291,11 @@ int CLinkbotI::text(double x, double y, double z, char *text) {
 	return 0;
 }
 
+int CLinkbotI::traceColor(char *color, int width) {
+	fprintf(_stderr, "Warning: The function \"traceColor()\" is not implemented yet in RoboSim.\n");
+	return 0;
+}
+
 int CLinkbotI::traceOff(void) {
 	void *fptr;
 	int retval;
@@ -3735,6 +3740,11 @@ int CLinkbotIGroup::stopTwoJoints(int id1, int id2) {
 	relaxJoint(id2);
 
 	// success
+	return 0;
+}
+
+int CLinkbotIGroup::traceColor(char *color, int width) {
+	fprintf(_stderr, "Warning: The function \"traceColor()\" is not implemented yet in RoboSim.\n");
 	return 0;
 }
 

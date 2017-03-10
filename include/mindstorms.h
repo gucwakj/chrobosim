@@ -180,6 +180,7 @@ class DLLIMPORT CMindstorms {
 		int stopTwoJoints(int id1, int id2);		// deprecated
 		int systemTime(double &time);
 		int text(double x, double y, double z, char *text);
+		int traceColor(char *color, int width);
 		int traceOff(void);
 		int traceOn(void);
 		int turnLeft(double angle, double radius, double trackwidth);
@@ -284,6 +285,7 @@ class DLLIMPORT CMindstormsGroup {
 		int stopOneJoint(int id);		// deprecated
 		int stopThreeJoints(int id1, int id2, int id3);		// deprecated
 		int stopTwoJoints(int id1, int id2);		// deprecated
+		int traceColor(char *color, int width);
 		int traceOff(void);
 		int traceOn(void);
 		int turnLeft(double angle, double radius, double trackwidth);
