@@ -9,54 +9,72 @@ LIBRSPATH="../../librs"
 RSPATH="../../RoboSim"
 QTPATH="C:/Program Files/Qt/5.6/msvc2013_64"
 
-echo Building $PACKAGE-$VERSION.zip ...
+# output for user
+echo "Building $PACKAGE-$VERSION.zip ..."
+
+# clean old build
 rm -rf $PACKAGE-$VERSION
 rm -rf $PACKAGE-$VERSION.zip
+
+# make new build dir
 mkdir -p $PKGDIR
 
+# installers
+cp $ROOT/Makefile $PACKAGE-$VERSION
+cp $ROOT/pkginstall.ch $PACKAGE-$VERSION
+
+# legalese
 cp $ROOT/COPYRIGHT $PKGDIR
 cp $ROOT/CHANGELOG $PKGDIR
+
+# chf libs
 mkdir $PKGDIR/lib
 cp $ROOT/src/chf/delay.chf $PKGDIR/lib
 cp $ROOT/src/chf/systemTime.chf $PKGDIR/lib
 cp $ROOT/src/chf/clinkboti.chf $PKGDIR/lib
 cp $ROOT/src/chf/clinkbotl.chf $PKGDIR/lib
 cp $ROOT/src/chf/cmindstorms.chf $PKGDIR/lib
+
+# dl
 mkdir $PKGDIR/dl
-cp $ROOT/build/Release/robosim.dl $PKGDIR/dl
-cp -R "C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/redist/x64/Microsoft.VC120.CRT" $PKGDIR/dl
+cp "$ROOT/build/Release/robosim.dl" $PKGDIR/dl
+cp -R "C:/Program Files/Microsoft Visual Studio 12.0/VC/redist/x86/Microsoft.VC120.CRT" $PKGDIR/dl
+
+# headers
 mkdir $PKGDIR/include
 cp $ROOT/include/linkbot.h $PKGDIR/include
 cp $ROOT/include/mindstorms.h $PKGDIR/include
 cp $ROOT/include/robosim.h $PKGDIR/include
 cp $ROOT/include/macros.h $PKGDIR/include
+
+# binaries
 mkdir $PKGDIR/bin
-cp $LIBRSPATH/build/bin/rs.dll $PKGDIR/bin
-cp $LIBRSPATH/build/bin/rsCallback.dll $PKGDIR/bin
-cp $LIBRSPATH/build/bin/rsRobots.dll $PKGDIR/bin
-cp $LIBRSPATH/build/bin/rsScene.dll $PKGDIR/bin
-cp $LIBRSPATH/build/bin/rsSim.dll $PKGDIR/bin
-cp $LIBRSPATH/build/bin/rsXML.dll $PKGDIR/bin
-cp $LIBRSPATH/deps/ode/lib/Release/ode.dll $PKGDIR/bin
-cp $LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osg.dll $PKGDIR/bin
-cp $LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgDB.dll $PKGDIR/bin
-cp $LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgFX.dll $PKGDIR/bin
-cp $LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgGA.dll $PKGDIR/bin
-cp $LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgQt.dll $PKGDIR/bin
-cp $LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgShadow.dll $PKGDIR/bin
-cp $LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgText.dll $PKGDIR/bin
-cp $LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgUtil.dll $PKGDIR/bin
-cp $LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgViewer.dll $PKGDIR/bin
-cp $LIBRSPATH/deps/osg3.4.0/build/bin/ot20-OpenThreads.dll $PKGDIR/bin
+cp "$LIBRSPATH/build/bin/rs.dll" $PKGDIR/bin
+cp "$LIBRSPATH/build/bin/rsCallback.dll" $PKGDIR/bin
+cp "$LIBRSPATH/build/bin/rsRobots.dll" $PKGDIR/bin
+cp "$LIBRSPATH/build/bin/rsScene.dll" $PKGDIR/bin
+cp "$LIBRSPATH/build/bin/rsSim.dll" $PKGDIR/bin
+cp "$LIBRSPATH/build/bin/rsXML.dll" $PKGDIR/bin
+cp "$LIBRSPATH/deps/ode/lib/Release/ode.dll" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osg.dll" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgDB.dll" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgFX.dll" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgGA.dll" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgQt.dll" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgShadow.dll" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgText.dll" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgUtil.dll" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/bin/osg130-osgViewer.dll" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/bin/ot20-OpenThreads.dll" $PKGDIR/bin
 mkdir $PKGDIR/bin/osgPlugins-3.4.0
-cp $LIBRSPATH/deps/osg3.4.0/build/bin/osgPlugins-3.4.0/osgdb_png.dll $PKGDIR/bin/osgPlugins-3.4.0
-cp $LIBRSPATH/deps/osg3.4.0/build/bin/osgPlugins-3.4.0/osgdb_3ds.dll $PKGDIR/bin/osgPlugins-3.4.0
-cp $LIBRSPATH/deps/osg3.4.0/3rd_party/x64/bin/libpng16.dll $PKGDIR/bin
-cp $LIBRSPATH/deps/osg3.4.0/3rd_party/x64/bin/zlib.dll $PKGDIR/bin
-cp $RSPATH/build/bin/robosimwidget.dll $PKGDIR/bin
-cp $RSPATH/build/bin/RoboSim.exe $PKGDIR/bin
-cp $RSPATH/qt.conf $PKGDIR/bin
-cp -R $RSPATH/icons $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/build/bin/osgPlugins-3.4.0/osgdb_png.dll" $PKGDIR/bin/osgPlugins-3.4.0
+cp "$LIBRSPATH/deps/osg3.4.0/build/bin/osgPlugins-3.4.0/osgdb_3ds.dll" $PKGDIR/bin/osgPlugins-3.4.0
+cp "$LIBRSPATH/deps/osg3.4.0/3rd_party/x64/bin/libpng16.dll" $PKGDIR/bin
+cp "$LIBRSPATH/deps/osg3.4.0/3rd_party/x64/bin/zlib.dll" $PKGDIR/bin
+cp "$RSPATH/build/bin/robosimwidget.dll" $PKGDIR/bin
+cp "$RSPATH/build/bin/RoboSim.exe" $PKGDIR/bin
+cp "$RSPATH/qt.conf" $PKGDIR/bin
+cp -R "$RSPATH/icons" $PKGDIR/bin
 cp "$QTPATH/bin/Qt5Core.dll" $PKGDIR/bin
 cp "$QTPATH/bin/Qt5Gui.dll" $PKGDIR/bin
 cp "$QTPATH/bin/Qt5OpenGL.dll" $PKGDIR/bin
@@ -72,19 +90,29 @@ mkdir -p $PKGDIR/bin/plugins/platforms
 cp "$QTPATH/plugins/platforms/qwindows.dll" $PKGDIR/bin/plugins/platforms
 mkdir -p $PKGDIR/bin/plugins/imageformats
 cp "$QTPATH/plugins/imageformats/qico.dll" $PKGDIR/bin/plugins/imageformats
-cp $PKGDIR/dl/Microsoft.VC120.CRT/msvcr120.dll $PKGDIR/bin
-cp $PKGDIR/dl/Microsoft.VC120.CRT/msvcp120.dll $PKGDIR/bin
-mkdir $PKGDIR/docs
-cp $RSPATH/docs/robosim.pdf $PKGDIR/docs
-cp $RSPATH/docs/pictures/robosim.png $PKGDIR/docs
-mkdir $PKGDIR/data
-cp -R $LIBRSPATH/resources/background $PKGDIR/data
-cp -R $LIBRSPATH/resources/challenges $PKGDIR/data
-cp -R $LIBRSPATH/resources/linkbot $PKGDIR/data
-cp -R $LIBRSPATH/resources/mindstorms $PKGDIR/data
-cp -R $LIBRSPATH/resources/obstacles $PKGDIR/data
-cp $ROOT/Makefile $PACKAGE-$VERSION
-cp $ROOT/pkginstall.ch $PACKAGE-$VERSION
+cp "$PKGDIR/dl/Microsoft.VC120.CRT/msvcr120.dll" $PKGDIR/bin
+cp "$PKGDIR/dl/Microsoft.VC120.CRT/msvcp120.dll" $PKGDIR/bin
 
+# docs
+mkdir $PKGDIR/docs
+cp "$RSPATH/docs/robosim.pdf" $PKGDIR/docs
+cp "$RSPATH/docs/pictures/robosim.png" $PKGDIR/docs
+
+# demos
+mkdir $PKGDIR/demos
+cp -R $ROOT/demos/ $PKGDIR/demos
+
+# resources
+mkdir $PKGDIR/data
+cp -R "$LIBRSPATH/resources/background" $PKGDIR/data
+cp -R "$LIBRSPATH/resources/challenges" $PKGDIR/data
+cp -R "$LIBRSPATH/resources/linkbot" $PKGDIR/data
+cp -R "$LIBRSPATH/resources/mindstorms" $PKGDIR/data
+cp -R "$LIBRSPATH/resources/obstacles" $PKGDIR/data
+
+# zip
 zip -rq $PACKAGE-$VERSION.zip $PACKAGE-$VERSION
-echo Done Building $PACKAGE-$VERSION
+
+# done
+echo "Done Building $PACKAGE-$VERSION"
+
