@@ -26,7 +26,7 @@ cp $ROOT/include/robosim.h $PKGDIR/include
 cp $ROOT/include/macros.h $PKGDIR/include
 mkdir $PKGDIR/so
 cp $ROOT/../librs/build/lib/librs.so $PKGDIR/so
-cp $ROOT/../librs/build/lib/librsCommunication.so $PKGDIR/so
+cp $ROOT/../librs/build/lib/librsCallback.so $PKGDIR/so
 cp $ROOT/../librs/build/lib/librsRobots.so $PKGDIR/so
 cp $ROOT/../librs/build/lib/librsScene.so $PKGDIR/so
 cp $ROOT/../librs/build/lib/librsSim.so $PKGDIR/so

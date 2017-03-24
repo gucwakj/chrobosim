@@ -32,7 +32,7 @@ cp $ROOT/include/robosim.h $PKGDIR/include
 cp $ROOT/include/macros.h $PKGDIR/include
 mkdir $PKGDIR/bin
 cp $LIBRSPATH/build/bin/rs.dll $PKGDIR/bin
-cp $LIBRSPATH/build/bin/rsCommunication.dll $PKGDIR/bin
+cp $LIBRSPATH/build/bin/rsCallback.dll $PKGDIR/bin
 cp $LIBRSPATH/build/bin/rsRobots.dll $PKGDIR/bin
 cp $LIBRSPATH/build/bin/rsScene.dll $PKGDIR/bin
 cp $LIBRSPATH/build/bin/rsSim.dll $PKGDIR/bin
