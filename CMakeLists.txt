@@ -32,13 +32,29 @@ else ()
 	set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wno-write-strings")
 endif ()
 
+# build dual architectures for apple
+if (APPLE)
+	set (CMAKE_OSX_ARCHITECTURES "i386;x86_64")
+endif ()
+
+# set sys dependent paths
+if (WIN32)
+	set (HOME_PATH "C:/Users/kgucwa/projects")
+elseif (APPLE)
+	set (HOME_PATH "/Users/kgucwa/projects")
+else ()
+	set (HOME_PATH "/home/kgucwa/projects")
+endif ()
+
 # add ODE headers
 if (WIN32)
-	include_directories ("C:/Users/kgucwa/projects/librs/deps/ode/include")
-	link_directories ("C:/Users/kgucwa/projects/librs/deps/ode/lib/Release")
+	include_directories ("${HOME_PATH}/librs/deps/ode/include")
+	link_directories ("${HOME_PATH}/librs/deps/ode/lib/Release")
+elseif (APPLE)
+	include_directories ("${HOME_PATH}/librs/deps/ode/sys/include")
+	link_directories ("${HOME_PATH}/librs/deps/ode/sys/lib")
 else ()
-	include_directories ("/home/kgucwa/projects/librs/deps/ode/sys/include")
-	link_directories ("/home/kgucwa/projects/librs/deps/ode/sys/lib")
+	include_directories ("${HOME_PATH}/librs/deps/ode/sys/include")
 endif ()
 set (EXTRA_LIBS ${EXTRA_LIBS} optimized ode debug oded)
 
@@ -47,15 +63,9 @@ add_definitions (-DdDOUBLE)
 add_definitions (-DdNODEBUG)
 
 # add OpenSceneGraph headers
-if (WIN32)
-	include_directories ("C:/Users/kgucwa/projects/librs/deps/osg3.4.0/build/include")
-	include_directories ("C:/Users/kgucwa/projects/librs/deps/osg3.4.0/include")
-	link_directories ("C:/Users/kgucwa/projects/librs/deps/osg3.4.0/build/lib")
-else ()
-	include_directories ("/home/kgucwa/projects/librs/deps/osg3.4.0/build/include")
-	include_directories ("/home/kgucwa/projects/librs/deps/osg3.4.0/include")
-	link_directories ("/home/kgucwa/projects/librs/deps/osg3.4.0/build/lib")
-endif()
+include_directories ("${HOME_PATH}/librs/deps/osg3.4.0/build/include")
+include_directories ("${HOME_PATH}/librs/deps/osg3.4.0/include")
+link_directories ("${HOME_PATH}/librs/deps/osg3.4.0/build/lib")
 set (EXTRA_LIBS ${EXTRA_LIBS} optimized OpenThreads debug OpenThreadsd)
 set (EXTRA_LIBS ${EXTRA_LIBS} optimized osg debug osgd)
 set (EXTRA_LIBS ${EXTRA_LIBS} optimized osgDB debug osgDBd)
@@ -67,38 +77,26 @@ set (EXTRA_LIBS ${EXTRA_LIBS} optimized osgUtil debug osgUtild)
 set (EXTRA_LIBS ${EXTRA_LIBS} optimized osgViewer debug osgViewerd)
 
 # add tinyxml2 headers
-if (WIN32)
-	include_directories ("C:/Users/kgucwa/projects/librs/deps/tinyxml2")
-	link_directories ("C:/Users/kgucwa/projects/librs/deps/tinyxml2/build/lib")
-else ()
-	include_directories ("/home/kgucwa/projects/librs/deps/tinyxml2")
-	link_directories ("/home/kgucwa/projects/librs/deps/tinyxml2/build/lib")
-endif()
+include_directories ("${HOME_PATH}/librs/deps/tinyxml2")
+link_directories ("${HOME_PATH}/librs/deps/tinyxml2/build/lib")
 set (EXTRA_LIBS ${EXTRA_LIBS} optimized tinyxml2 debug tinyxml2d)
 
 # add LibRS library
-if (WIN32)
-	include_directories ("C:/Users/kgucwa/projects/librs/include")
-	include_directories ("C:/Users/kgucwa/projects/librs/build")
-	link_directories ("C:/Users/kgucwa/projects/librs/build/lib")
-else ()
-	include_directories ("/home/kgucwa/projects/librs/include")
-	include_directories ("/home/kgucwa/projects/librs/build")
-	link_directories ("/home/kgucwa/projects/librs/build/lib")
-endif ()
+include_directories ("${HOME_PATH}/librs/include")
+include_directories ("${HOME_PATH}/librs/build")
+link_directories ("${HOME_PATH}/librs/build/lib")
 set (EXTRA_LIBS ${EXTRA_LIBS} optimized rs debug rsd)
+set (EXTRA_LIBS ${EXTRA_LIBS} optimized rsCommunication debug rsCommunicationd)
 set (EXTRA_LIBS ${EXTRA_LIBS} optimized rsRobots debug rsRobotsd)
 set (EXTRA_LIBS ${EXTRA_LIBS} optimized rsScene debug rsScened)
-set (EXTRA_LIBS ${EXTRA_LIBS} optimized rsCallback debug rsCallbackd)
 set (EXTRA_LIBS ${EXTRA_LIBS} optimized rsSim debug rsSimd)
 set (EXTRA_LIBS ${EXTRA_LIBS} optimized rsXML debug rsXMLd)
 
 # add libRoboSim headers
-if (WIN32)
-	include_directories ("C:/Users/kgucwa/projects/librobosim/include")
-else ()
-	include_directories ("/home/kgucwa/projects/librobosim/include")
-endif()
+include_directories ("${HOME_PATH}/librobosim/include")
+
+# include ch headers
+include_directories ("${CH_ROOT}/extern/include")
 
 # add librobosim sources
 if (WIN32)
@@ -108,6 +106,14 @@ if (WIN32)
 		C:/Users/kgucwa/projects/librobosim/src/linkbot.cpp
 		C:/Users/kgucwa/projects/librobosim/src/mindstorms.cpp
 		C:/Users/kgucwa/projects/librobosim/src/rgbhashtable.c
+	)
+elseif (APPLE)
+	set (SRCS ${SRCS}
+		/Users/kgucwa/projects/librobosim/src/robosim.cpp
+		/Users/kgucwa/projects/librobosim/src/robot.cpp
+		/Users/kgucwa/projects/librobosim/src/linkbot.cpp
+		/Users/kgucwa/projects/librobosim/src/mindstorms.cpp
+		/Users/kgucwa/projects/librobosim/src/rgbhashtable.c
 	)
 else ()
 	set (SRCS ${SRCS}
@@ -129,6 +135,11 @@ set (SRCS ${SRCS}
 # add the library
 add_library (chrobosim SHARED ${SRCS})
 
+# apple linking properties
+if (APPLE)
+	set_target_properties (chrobosim PROPERTIES LINK_FLAGS "-undefined dynamic_lookup")
+endif ()
+
 # link library against dependencies
 target_link_libraries (chrobosim PUBLIC ${EXTRA_LIBS})
 if (WIN32)
@@ -136,13 +147,9 @@ if (WIN32)
 		${CH_ROOT}/extern/lib/chsdk.lib
 		${CH_ROOT}/extern/lib/ch.lib)
 else ()
-	target_link_libraries(chrobosim PUBLIC
-		${CH_ROOT}/extern/lib/libchsdk.a)
+	target_link_libraries (chrobosim PUBLIC ${CH_ROOT}/extern/lib/libchsdk.a)
 endif ()
 
 # rename chrobosim.dl to librobosim.dl
 set_target_properties (chrobosim PROPERTIES OUTPUT_NAME robosim SUFFIX .dl)
-
-# include ch headers
-target_include_directories (chrobosim PUBLIC ${CH_ROOT}/extern/include)
 
