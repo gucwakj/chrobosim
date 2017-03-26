@@ -38,7 +38,7 @@ cp $ROOT/src/chf/cmindstorms.chf $PKGDIR/lib
 # dl
 mkdir $PKGDIR/dl
 cp "$ROOT/build/Release/robosim.dl" $PKGDIR/dl
-cp -R "C:/Program Files/Microsoft Visual Studio 12.0/VC/redist/x86/Microsoft.VC120.CRT" $PKGDIR/dl
+cp -R "C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/redist/x64/Microsoft.VC120.CRT" $PKGDIR/dl
 
 # headers
 mkdir $PKGDIR/include
