@@ -48,29 +48,29 @@ cp $ROOT/include/macros.h $PKGDIR/include
 
 # binaries
 mkdir $PKGDIR/so
-cp "$LIBRSPATH/build/lib/librs.so" $PKGDIR/bin
-cp "$LIBRSPATH/build/lib/librsCallback.so" $PKGDIR/bin
-cp "$LIBRSPATH/build/lib/librsRobots.so" $PKGDIR/bin
-cp "$LIBRSPATH/build/lib/librsScene.so" $PKGDIR/bin
-cp "$LIBRSPATH/build/lib/librsSim.so" $PKGDIR/bin
-cp "$LIBRSPATH/build/lib/librsXML.so" $PKGDIR/bin
-cp "$LIBRSPATH/deps/ode/sys/lib/libode.so.1" $PKGDIR/bin
-cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosg.so.130" $PKGDIR/bin
-cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgDB.so.130" $PKGDIR/bin
-cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgFX.so.130" $PKGDIR/bin
-cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgGA.so.130" $PKGDIR/bin
-cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgQt.so.130" $PKGDIR/bin
-cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgShadow.so.130" $PKGDIR/bin
-cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgText.so.130" $PKGDIR/bin
-cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgUtil.so.130" $PKGDIR/bin
-cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgViewer.so.130" $PKGDIR/bin
-cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libOpenThreads.so.20" $PKGDIR/bin
-mkdir "$PKGDIR/bin/osgPlugins-3.4.0"
-cp "$LIBRSPATH/deps/osg3.4.0/build/lib/osgPlugins-3.4.0/osgdb_png.so" "$PKGDIR/bin/osgPlugins-3.4.0"
-cp "$LIBRSPATH/deps/osg3.4.0/build/lib/osgPlugins-3.4.0/osgdb_3ds.so" "$PKGDIR/bin/osgPlugins-3.4.0"
+cp "$LIBRSPATH/build/lib/librs.so" $PKGDIR/so
+cp "$LIBRSPATH/build/lib/librsCallback.so" $PKGDIR/so
+cp "$LIBRSPATH/build/lib/librsRobots.so" $PKGDIR/so
+cp "$LIBRSPATH/build/lib/librsScene.so" $PKGDIR/so
+cp "$LIBRSPATH/build/lib/librsSim.so" $PKGDIR/so
+cp "$LIBRSPATH/build/lib/librsXML.so" $PKGDIR/so
+cp "$LIBRSPATH/deps/ode/sys/lib/libode.so.1" $PKGDIR/so
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosg.so.130" $PKGDIR/so
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgDB.so.130" $PKGDIR/so
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgFX.so.130" $PKGDIR/so
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgGA.so.130" $PKGDIR/so
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgQt.so.130" $PKGDIR/so
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgShadow.so.130" $PKGDIR/so
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgText.so.130" $PKGDIR/so
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgUtil.so.130" $PKGDIR/so
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libosgViewer.so.130" $PKGDIR/so
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libOpenThreads.so.20" $PKGDIR/so
 mkdir "$PKGDIR/bin"
 cp "$RSPATH/build/bin/librobosimwidget.so" $PKGDIR/bin
 cp "$RSPATH/build/bin/RoboSim" $PKGDIR/bin
+mkdir "$PKGDIR/bin/osgPlugins-3.4.0"
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/osgPlugins-3.4.0/osgdb_png.so" "$PKGDIR/bin/osgPlugins-3.4.0"
+cp "$LIBRSPATH/deps/osg3.4.0/build/lib/osgPlugins-3.4.0/osgdb_3ds.so" "$PKGDIR/bin/osgPlugins-3.4.0"
 cp -R "$RSPATH/icons" $PKGDIR/bin
 cp "$RSPATH/qt.conf" $PKGDIR/bin
 cp -R $PKGDIR/so/* $PKGDIR/bin
