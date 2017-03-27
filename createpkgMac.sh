@@ -68,7 +68,7 @@ cp "$LIBRSPATH/deps/osg3.4.0/build/lib/libOpenThreads.20.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/deps/tinyxml2/build/lib/libtinyxml2.1.dylib" $PKGDIR/bin
 cp "$LIBRSPATH/deps/zeromq/sys/lib/libzmq.5.dylib" $PKGDIR/bin
 mkdir $PKGDIR/bin/RoboSim.app
-cp -R "$RSPATH/build/bin/RoboSim.app" "$PKGDIR/bin/RoboSim.app"
+cp -R "$RSPATH/build/bin/RoboSim.app" "$PKGDIR/bin/"
 cp -R "$RSPATH/icons" $PKGDIR/bin
 mkdir "$PKGDIR/bin/osgPlugins-3.4.0"
 cp "$LIBRSPATH/deps/osg3.4.0/build/lib/osgPlugins-3.4.0/osgdb_imageio.so" "$PKGDIR/bin/osgPlugins-3.4.0"
